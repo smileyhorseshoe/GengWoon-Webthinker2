@@ -4,7 +4,7 @@ function setup() {
   background(250); //background color
 
   ball = new Sprite();
-  ball.x =
+  ball.x = 20
 
   // Basic shape testing
   // write your codes here
