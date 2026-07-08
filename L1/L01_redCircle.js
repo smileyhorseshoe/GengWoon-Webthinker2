@@ -3,7 +3,7 @@ function setup(){
     background(220);
     let x =5;
     let y = 10;
-    console.log("Sum:" + total)
+    console.log("Sum: " + total)
 }
 
 function draw(){
