@@ -12,7 +12,7 @@ stroke("black")
 strokeWeight(10)
 circle(400,70,100)
 rect(350,150,100,200)
-triangle()
+triangle(50,50)
   // End Basic shape testing
 
    // Create a bouncing ball sprite
