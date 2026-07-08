@@ -7,5 +7,5 @@ function draw(){
     fill(255, 0, 0);
     ellipse(300,100,100,100);
     fill("yellow")
-    ellipse()
+    ellipse(300,200,100,100)
 }
