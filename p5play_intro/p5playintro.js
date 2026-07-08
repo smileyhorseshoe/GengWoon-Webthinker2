@@ -25,5 +25,6 @@ function setup() {
 
 function draw() {
   // write your codes here
+  
   ball.x+=1
 }
