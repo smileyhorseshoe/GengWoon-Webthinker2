@@ -8,4 +8,6 @@ function draw(){
     ellipse(300,100,100,100);
     fill("yellow")
     ellipse(300,200,100,100)
+    fill("green")
+    
 }
