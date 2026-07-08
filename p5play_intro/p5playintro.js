@@ -5,7 +5,7 @@ function setup() {
 
   // Basic shape testing
   // write your codes here
-  // ujkiuytrewertyu
+  
   // End Basic shape testing
 
    // Create a bouncing ball sprite
