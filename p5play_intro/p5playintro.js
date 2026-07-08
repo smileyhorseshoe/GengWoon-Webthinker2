@@ -7,9 +7,9 @@ function setup() {
 
   // Basic shape testing
   // write your codes here
-fill("yellow")
-stroke("black")
-strokeWeight(10)
+// fill("yellow")
+// stroke("black")
+// strokeWeight(10)
 // circle(400,70,100)
 // rect(350,150,100,200)
 // triangle(50,50,400,200,50,350)
