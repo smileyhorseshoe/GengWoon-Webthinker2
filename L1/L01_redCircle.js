@@ -1,6 +1,9 @@
 function setup(){
     createCanvas(600, 400);
     background(220);
+    let x =5;
+    let y = 10;
+    console.log("Sum:" + total)
 }
 
 function draw(){
