@@ -2,7 +2,7 @@ function setup() {
   // Set up the canvas
   new Canvas(800, 400);
   background(250); //background color
-fill
+fill()
   ball = new Sprite(400, 200, 200, 200);
 
   // Basic shape testing
