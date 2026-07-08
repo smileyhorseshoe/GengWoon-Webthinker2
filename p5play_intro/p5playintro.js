@@ -7,7 +7,7 @@ function setup() {
 
   // Basic shape testing
   // write your codes here
-  fill
+  fill 
   // End Basic shape testing
 
    // Create a bouncing ball sprite
