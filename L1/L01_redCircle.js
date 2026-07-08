@@ -3,6 +3,7 @@ function setup(){
     background(220);
     let x =5;
     let y = 10;
+    total = x + y
     console.log("Sum: " + total)
 }
 
