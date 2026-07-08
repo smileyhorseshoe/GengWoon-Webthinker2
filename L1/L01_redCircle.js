@@ -9,5 +9,5 @@ function draw(){
     fill("yellow")
     ellipse(300,200,100,100)
     fill("green")
-    
+    ellipse(300,300,100,100)
 }
