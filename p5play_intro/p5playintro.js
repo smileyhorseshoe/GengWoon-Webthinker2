@@ -10,7 +10,7 @@ function setup() {
 fill("yellow")
 stroke("black")
 strokeWeight(10)
-circle(400,100,100)
+circle(400,70,100)
 rect(350,150,100,200)
   // End Basic shape testing
 
