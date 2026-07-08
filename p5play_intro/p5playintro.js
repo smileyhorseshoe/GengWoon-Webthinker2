@@ -19,10 +19,11 @@ function setup() {
   // write your codes here
   ball = new Sprite(400, 200, 100);
   ball.color =(124,214,84);
-  ball.stroke("black")
+  ball.stroke= ("black")
   ball.strokeWeight =5
 }
 
 function draw() {
   // write your codes here
+  ball.x+=1
 }
