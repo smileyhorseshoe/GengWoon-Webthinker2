@@ -9,7 +9,8 @@ function setup() {
   // write your codes here
   fill("yellow")
   stroke("black")
-  strokeweight(1)
+  strokeweight(10)
+  circle()
   // End Basic shape testing
 
    // Create a bouncing ball sprite
