@@ -67,7 +67,7 @@ groceries.push("orange")
 groceries.push("butter")
 groceries.shift(); // remove first item
 // groceries.pop(); // remove last item
-// groceries.splice(1,1); // syntax: how much u want to remove
+// groceries.splice(1,1); // syntax: starting index and how much u want to remove
 groceries.splice(1,1, "kaya") // syntax:starting index and how much u want to remove and starting from where and what u wana replace it with
 console.log(groceries)
 }
