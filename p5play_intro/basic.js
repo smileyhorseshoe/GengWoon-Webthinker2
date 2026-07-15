@@ -23,17 +23,17 @@ function setup() {
 // }
   // --- Exercise: Sum of first 10 even numbers ---
   // write your codes here
-  let x = 50
-  let y = 200
-  sum = 0
-for (let i = 0; i <= 20; i+=2) {
-  console.log(i)
-  text(i, x, y)
-  x = x + 50
-  sum = sum +i
-}
-  console.log("Sum of first 10 even numbers " + sum )
-  text("Sum of first 10 even numbers:" + sum, 0, 100)
+//   let x = 50
+//   let y = 200
+//   sum = 0
+// for (let i = 0; i <= 20; i+=2) {
+//   console.log(i)
+//   text(i, x, y)
+//   x = x + 50
+//   sum = sum +i
+// }
+//   console.log("Sum of first 10 even numbers " + sum )
+//   text("Sum of first 10 even numbers:" + sum, 150, 100)
   // --- Exercise: Age category classification ---
   // write your codes here
 
