@@ -28,8 +28,8 @@ function setup() {
 for (let i = 0; i <= 20; i+=2) {
   console.log(i)
   text("First 10 Even Numbers" + x, 100)
-  text(i, )
-  x = x + 100
+  text(i, x, y)
+  x = x + 50
 }
   // --- Exercise: Age category classification ---
   // write your codes here
