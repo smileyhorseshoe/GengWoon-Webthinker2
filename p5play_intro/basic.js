@@ -32,7 +32,7 @@ for (let i = 0; i <= 20; i+=2) {
   x = x + 50
   sum = sum +i
 }
-  text
+  console.log("Sum of first 10 even numbers " + sum )
   // --- Exercise: Age category classification ---
   // write your codes here
 
