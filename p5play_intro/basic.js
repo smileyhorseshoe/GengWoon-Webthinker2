@@ -37,8 +37,10 @@ function setup() {
   // --- Exercise: Age category classification ---
   // write your codes here
 let age = 53
-if (age === 9) {
-  console.log("Primary School")
+if (age <= 9) {
+  console.log("Lower Primary")
+} else if (age > 9 && age <=12) {
+  console.log()
 }
 
   // --- Exercise: Display odd numbers backward using while loop ---
