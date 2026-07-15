@@ -37,6 +37,9 @@ function setup() {
   // --- Exercise: Age category classification ---
   // write your codes here
 let age = 53
+if (age === 9) {
+  
+}
   // --- Exercise: Display odd numbers backward using while loop ---
   // write your codes here
 
