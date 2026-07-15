@@ -50,7 +50,10 @@ function setup() {
 
   // --- Exercise: Display odd numbers backward using while loop ---
   // write your codes here
-  while
+  let i = 19
+  while(i >=1) {
+    
+  }
   // --- Exercise: Array operations (groceries) ---
   // write your codes here
 }
