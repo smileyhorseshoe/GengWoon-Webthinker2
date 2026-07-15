@@ -52,7 +52,7 @@ function setup() {
   // write your codes here
   let i = 19
   while(i >=1) {
-    if (num % 2 === 1) {
+    if (i % 2 === 1) {
       console.log(i)
     }else if (num % 2 === 0) {
       num -=1
