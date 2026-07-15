@@ -28,12 +28,11 @@ function setup() {
   sum = 0
 for (let i = 0; i <= 20; i+=2) {
   console.log(i)
-  text("First 10 Even Numbers" + 50, 200)
   text(i, x, y)
   x = x + 50
   sum = sum +i
 }
-s
+  text
   // --- Exercise: Age category classification ---
   // write your codes here
 
