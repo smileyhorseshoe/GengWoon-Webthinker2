@@ -31,3 +31,16 @@ To avoid all the spikes and complete the obby
 Left Click - Jump
 If you win, you complete the level
 if you die u respawn at the start of the lvl
+
+Flappy Bird Analysis WS.
+What are the objects?
+The Pipes and flappy bird
+What is the players actions? 
+Go through the gap between the pipes
+What is the goal?
+To get the highest score you can
+What causes game over?
+By either:
+hitting the pipes OR hitting the ground 
+How is progress shown?
+How many pipes u go through = +1 score
