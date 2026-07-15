@@ -33,7 +33,7 @@ for (let i = 0; i <= 20; i+=2) {
   sum = sum +i
 }
   console.log("Sum of first 10 even numbers " + sum )
-  text("Sum of first 10 even numbers:" + sum, x, y)
+  text("Sum of first 10 even numbers:" + sum, 400, 300)
   // --- Exercise: Age category classification ---
   // write your codes here
 
