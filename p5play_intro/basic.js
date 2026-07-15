@@ -36,7 +36,7 @@ function setup() {
 //   text("Sum of first 10 even numbers:" + sum, 150, 100)
   // --- Exercise: Age category classification ---
   // write your codes here
-
+let age = 53
   // --- Exercise: Display odd numbers backward using while loop ---
   // write your codes here
 
