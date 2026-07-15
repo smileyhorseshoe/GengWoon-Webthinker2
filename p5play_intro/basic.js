@@ -2,6 +2,7 @@ function setup() {
   // write your codes here
   new Canvas(800,400);
   background(250)
+  textsize(24)
 
   // console.log("Hello World")
 //  let a = 1;
@@ -15,7 +16,7 @@ function setup() {
   let height = 5 
   let area = 0.5 * base * height 
   console.log("The area of the triangle which has a base of " + base + " and a height of " + height +" has the area of" + area);
-// para for string is string
+// para for string is string, x, y e.g. ()
   // --- Exercise: Sum of first 10 even numbers ---
   // write your codes here
 
