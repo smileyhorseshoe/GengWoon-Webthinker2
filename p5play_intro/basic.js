@@ -4,6 +4,7 @@ function setup() {
   background(250)
 
   console.log("Hello World")
+  cons
 
   // --- Exercise: Area of Triangle ---
   // write your codes here
