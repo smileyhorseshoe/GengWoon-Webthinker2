@@ -34,7 +34,7 @@ if you die u respawn at the start of the lvl
 
 Flappy Bird Analysis WS.
 What are the objects?
-The Pipes and flappy bird
+The Pipes, background  and flappy bird
 What is the players actions? 
 Go through the gap between the pipes
 What is the goal?
