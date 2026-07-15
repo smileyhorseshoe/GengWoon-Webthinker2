@@ -67,7 +67,7 @@ groceries.push("orange")
 groceries.push("butter")
 groceries.shift(); // remove first item
 groceries.pop(); // remove last item
-groceries.splice(1,1)
+groceries.splice(1,1); // syntax: whe
 console.log(groceries)
 }
 
