@@ -12,7 +12,7 @@ function setup() {
   // --- Exercise: Area of Triangle ---
   // write your codes here
   let base = 10 + "m"
-  let height = 5 + "m"
+  let height = 5 
   let area = 0.5 * base * height 
   console.log("The area of the triangle which has a base of " + base + " and a height of " + height +" has the area of" + area);
 
