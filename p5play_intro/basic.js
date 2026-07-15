@@ -65,8 +65,9 @@ function setup() {
 let groceries = ["apple","bread","milk"];
 groceries.push("orange")
 groceries.push("butter")
-groceries.shift();
-groceries.pop();
+groceries.shift(); // remove first item
+groceries.pop(); // remove last item
 console.log(groceries)
+
 }
 
