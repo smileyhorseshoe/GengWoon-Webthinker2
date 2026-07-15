@@ -15,7 +15,7 @@ function setup() {
   let height = 5 
   let area = 0.5 * base * height 
   console.log("The area of the triangle which has a base of " + base + " and a height of " + height +" has the area of" + area);
-
+// para for string is string
   // --- Exercise: Sum of first 10 even numbers ---
   // write your codes here
 
