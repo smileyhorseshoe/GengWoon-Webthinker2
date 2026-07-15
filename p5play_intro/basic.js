@@ -12,19 +12,20 @@ function setup() {
 //  console.log(sum)
   // --- Exercise: Area of Triangle ---
   // write your codes here
-  let base = 10
-  let height = 5 
-  let area = 0.5 * base * height 
-  console.log("The area of the triangle which has a base of " + base + " and a height of " + height +" has the area of" + area);
-// para for string is string, x, y e.g. ()
-text("Area: " + area, 400,200)
-for (let i = 0; i <= 10; i+= 2) {
-  console.log(i)
-}
+//   let base = 10
+//   let height = 5 
+//   let area = 0.5 * base * height 
+//   console.log("The area of the triangle which has a base of " + base + " and a height of " + height +" has the area of" + area);
+// // para for string is string, x, y e.g. ()
+// text("Area: " + area, 400,200)
+// for (let i = 0; i <= 10; i+= 2) {
+//   console.log(i)
+// }
   // --- Exercise: Sum of first 10 even numbers ---
   // write your codes here
 for (let i = 0; i <= 20; i+=2) {
   console.log(i)
+  
 }
   // --- Exercise: Age category classification ---
   // write your codes here
