@@ -6,7 +6,7 @@ function setup() {
   console.log("Hello World")
  let a = 1;
  let b = 2;
- 
+ let sum = (a+b) * (a+b) / b
   // --- Exercise: Area of Triangle ---
   // write your codes here
 
