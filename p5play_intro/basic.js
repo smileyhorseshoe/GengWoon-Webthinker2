@@ -52,8 +52,10 @@ function setup() {
   // write your codes here
   let i = 19
   while(i >=1) {
-    console.log(i)
-    i -= 2
+    if (num % 2 === 1) {
+      console.log(i)
+    }
+  
   }
   // --- Exercise: Array operations (groceries) ---
   // write your codes here
