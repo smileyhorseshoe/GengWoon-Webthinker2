@@ -36,21 +36,21 @@ function setup() {
 //   text("Sum of first 10 even numbers:" + sum, 150, 100)
   // --- Exercise: Age category classification ---
   // write your codes here
-let age = 10
-if (age <= 9) {
-  console.log("Lower Primary")
-} else if (age >= 10 && age <=12) {
-  console.log("Upper Primary")
-}else if (age >= 13 && age <=16 ) {
-    console.log("Secondary School")
-  }else {
-    console.log("N/A.")
-  }
+// let age = 10
+// if (age <= 9) {
+//   console.log("Lower Primary")
+// } else if (age >= 10 && age <=12) {
+//   console.log("Upper Primary")
+// }else if (age >= 13 && age <=16 ) {
+//     console.log("Secondary School")
+//   }else {
+//     console.log("N/A.")
+//   }
 
 
   // --- Exercise: Display odd numbers backward using while loop ---
   // write your codes here
-
+  while
   // --- Exercise: Array operations (groceries) ---
   // write your codes here
 }
