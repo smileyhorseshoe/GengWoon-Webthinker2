@@ -50,16 +50,22 @@ function setup() {
 
   // --- Exercise: Display odd numbers backward using while loop ---
   // write your codes here
-  let i = 19
-  while(i >=1) {
-    if (i % 2 === 1) {
-      console.log(i)
-    }else if (num % 2 === 0) {
-      num -=1
-    }
+  // let i = 19
+  // while(i >=1) {
+  //   if (i
+  //      % 2 === 1) {
+  //     console.log(i)
+  //   }else if (num % 2 === 0) {
+  //     num -=1
+  //   }
   
-  }
+  // }
   // --- Exercise: Array operations (groceries) ---
   // write your codes here
+let groceries = ["apple","bread","milk"];
+groceries.push("orange")
+groceries.push("butter")
+groceries.shift();
+console.log(groceries)
 }
 
