@@ -52,7 +52,8 @@ function setup() {
   // write your codes here
   let i = 19
   while(i >=1) {
-    
+    console.log(i)
+    i -= 2
   }
   // --- Exercise: Array operations (groceries) ---
   // write your codes here
