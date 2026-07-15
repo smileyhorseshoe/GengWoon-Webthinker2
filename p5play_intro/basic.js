@@ -27,7 +27,8 @@ function setup() {
   let y = 200
 for (let i = 0; i <= 20; i+=2) {
   console.log(i)
-  text("First 10 Even Numbers" + i, x, y)
+  text("First 10 Even Numbers" + x, 100)
+  text(i, )
   x = x + 100
 }
   // --- Exercise: Age category classification ---
