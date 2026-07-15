@@ -11,7 +11,7 @@ function setup() {
 //  console.log(sum)
   // --- Exercise: Area of Triangle ---
   // write your codes here
-  let 
+  let base = 5 
 
   // --- Exercise: Sum of first 10 even numbers ---
   // write your codes here
