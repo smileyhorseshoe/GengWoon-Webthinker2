@@ -1,9 +1,9 @@
 function setup() {
   // write your codes here
   new Canvas(800,400);
-  background(250)
-  textsize(24)
-
+  background(250);
+  textSize(24);
+f
   // console.log("Hello World")
 //  let a = 1;
 //  let b = 2;
