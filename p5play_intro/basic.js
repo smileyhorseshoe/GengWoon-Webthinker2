@@ -24,7 +24,7 @@ for (let i = 0; i <= 10; i+= 2) {
   // --- Exercise: Sum of first 10 even numbers ---
   // write your codes here
 for (let i = 0; i <= 20; i+=2) {
-
+  console.log(i)
 }
   // --- Exercise: Age category classification ---
   // write your codes here
