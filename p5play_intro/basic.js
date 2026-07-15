@@ -68,6 +68,7 @@ groceries.push("butter")
 groceries.shift(); // remove first item
 // groceries.pop(); // remove last item
 // groceries.splice(1,1); // syntax: how much u want to remove and starting from where
+groceries.splice(1,1, "kaya")
 console.log(groceries)
 }
 
