@@ -54,6 +54,8 @@ function setup() {
   while(i >=1) {
     if (num % 2 === 1) {
       console.log(i)
+    }else if (num % 2 === 0) {
+      
     }
   
   }
