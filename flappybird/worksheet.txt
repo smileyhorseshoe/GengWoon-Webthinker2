@@ -55,8 +55,9 @@ Bird fly up on click or space
 
 3. pipes and other obstacles
 the pipes have a fixed distance between ea/ other
-
+y position of pipe is random
 4. scrolling and camera pos
+
 Background repeats itself
 
 sprite collision and game over
