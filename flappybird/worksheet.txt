@@ -57,7 +57,7 @@ Bird fly up on click or space
 the pipes have a fixed distance between ea/ other
 y position of pipe is random
 4. scrolling and camera pos
-
+either sprite or map moving
 Background repeats itself
 
 sprite collision and game over
