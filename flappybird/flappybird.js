@@ -20,7 +20,7 @@ function setup() {
     // background(250)
     //create new sprite
     bird = new Sprite();
-    bird.img = birdMIdImg;
+    bird.img = birdMidImg;
     bird.width=30;
     birtd.height=30;
 }
