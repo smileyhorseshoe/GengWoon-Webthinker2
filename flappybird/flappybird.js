@@ -8,7 +8,10 @@ let day = loadImage("assets/background-day.png")
 let night = loadImage("assets/background-night.png")
 let base = loadImage("assets/base.png")
 function preload(){
-    
+    let birdMidImg = loadImage("assets/yellowbird-midflap.png") 
+    let day = loadImage("assets/background-day.png")
+let night = loadImage("assets/background-night.png")
+let base = loadImage("assets/base.png")
 }
 
 
