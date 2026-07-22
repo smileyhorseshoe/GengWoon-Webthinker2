@@ -34,6 +34,7 @@ function setup() {
     //create floor sprite
     floor = new Sprite();
     floor.img=base
+    floor.width = width
 }
 
 
