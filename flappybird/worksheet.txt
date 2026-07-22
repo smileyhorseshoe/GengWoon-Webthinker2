@@ -52,7 +52,7 @@ Character is in the middle of the screen
 Bird always moving down bc of gravity
 Bird can fly up on click
 
-3. pipes and other obstacvles
+3. pipes and other obstacles
 4. scrolling and camera pos
 sprite collision and game over
 score tracking and sounds
