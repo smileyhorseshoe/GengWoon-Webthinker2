@@ -29,7 +29,9 @@ function setup() {
     bird.drag = 0.02; // air resistance, higher = more resistantce
     bird.bounciness = 1; // higher = bouncier
     bird.collider = "dynamic"; // collidable, movable and affected by physics
-    fill("red")          
+    fill("red")
+    textSize(14);
+              
     //create floor sprite
     floor = new Sprite();
     floor.img=base
