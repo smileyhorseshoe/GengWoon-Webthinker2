@@ -3,8 +3,8 @@ let bird;
 let floor;
 
 // Image assets
-let birdMidImg = loadImage("assets/yellowbird-midflap.png") 
-let day = loadImage("assets/background-day.png")
+let birdMidImg;
+let day;
 let night;
 let base;
 function preload(){
