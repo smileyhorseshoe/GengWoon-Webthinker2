@@ -36,7 +36,7 @@ function setup() {
     floor.img=base
     floor.width = width;
     floor.height = height;
-    
+    floor.x = width/2
 }
 
 
