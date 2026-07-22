@@ -54,7 +54,7 @@ Bird can fly up on click
 
 3. pipes and other obstacles
 4. scrolling and camera pos
-
+Background repeats
 
 sprite collision and game over
 sprite hit pipe or ground = DIE
