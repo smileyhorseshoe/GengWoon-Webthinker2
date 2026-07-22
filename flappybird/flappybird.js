@@ -27,7 +27,7 @@ function setup() {
     world.gravity.y = 10;
     // bird.mass = 2;  how heavy, heavier = affected by gravity motr
     bird.drag = 0.02; // air resistance, higher = more resistantce
-    bird.bounciness = 3; // higher = bouncier
+    bird.bounciness = 1; // higher = bouncier
     bird.collider = "dynamic"; // collidable, movable and affected by physics
 
 
