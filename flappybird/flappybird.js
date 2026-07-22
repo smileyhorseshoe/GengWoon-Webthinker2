@@ -18,8 +18,9 @@ function preload(){
 function setup() {
     new Canvas(400,600);
     background(250)
-d
-}0
+    //create new sprite
+    bird = new SpeechRecognitionErrorEvent()
+}
 
 
 function draw() {
