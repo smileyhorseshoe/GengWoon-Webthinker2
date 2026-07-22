@@ -17,7 +17,7 @@ function preload(){
 
 function setup() {
     new Canvas(400,600);
-    background(250)
+    // background(250)
     //create new sprite
     bird = new Sprite();
     bird.img = birdMIdImg;
