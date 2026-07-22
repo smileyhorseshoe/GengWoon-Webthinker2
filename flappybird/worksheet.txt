@@ -55,6 +55,8 @@ Bird can fly up on click
 3. pipes and other obstacles
 4. scrolling and camera pos
 
+
 sprite collision and game over
 sprite hit pipe or ground = DIE
 score tracking and sounds
+1 pipe = sound and +1 point
