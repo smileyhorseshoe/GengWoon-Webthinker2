@@ -54,6 +54,8 @@ Bird can fly up on click
 Bird fly up on click or space
 
 3. pipes and other obstacles
+the pipes have a fixed distance between ea/ other
+
 4. scrolling and camera pos
 Background repeats itself
 
