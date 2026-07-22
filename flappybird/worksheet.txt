@@ -64,4 +64,5 @@ Background repeats itself
 sprite collision and game over
 sprite hit pipe or ground = DIE
 
-score tracking and sound
+score tracking and sounds
+score increases when bird go thru pipe
