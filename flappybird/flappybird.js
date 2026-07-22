@@ -29,6 +29,11 @@ function setup() {
     bird.drag = 0.02;
     bird.bounciness = 0.5;
     bird.collider = "dynamic";
+
+
+    //create floor sprite
+    floor = new Sprite();
+    
 }
 
 
