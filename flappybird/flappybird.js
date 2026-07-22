@@ -28,7 +28,8 @@ function setup() {
     // fill("red")
     // textSize(14);
     console.log("vel.y" + bird.vel.y.toFixed(2)); 
-    console.log("isMoving:" + bird.isMOving, 10 ,40) 
+    console.log("isMoving:" + bird.isMOving, 10 ,40);
+    console.log 
     // bird.mass = 2;  how heavy, heavier = affected by gravity motr
     bird.drag = 0.02; // air resistance, higher = more resistantce
     bird.bounciness = 1; // higher = bouncier
