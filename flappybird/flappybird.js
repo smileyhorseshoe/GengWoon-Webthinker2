@@ -27,5 +27,5 @@ function setup() {
 
 
 function draw() {
-    image(background,0,0,width,height); // image u drawing, x, y, width, height
+    image(day,0,0,width,height); // image u drawing, x, y, width, height
 }
