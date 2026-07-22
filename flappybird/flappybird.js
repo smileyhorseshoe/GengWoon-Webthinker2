@@ -22,7 +22,7 @@ function setup() {
     bird = new Sprite();
     bird.img = birdMidImg;
     bird.width=30;
-    birtd.height=30;
+    bird.height=30;
 }
 
 
