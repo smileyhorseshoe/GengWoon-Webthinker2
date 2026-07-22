@@ -1,5 +1,4 @@
-
-
+let bird;
 function preload(){
     
 }
