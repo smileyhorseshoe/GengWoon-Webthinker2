@@ -68,3 +68,4 @@ score tracking and sounds
 score increases when bird go thru pipe
 bird flap sound effect
 sound when the bird go through pipe
+sound effect when bird bonk pipe
