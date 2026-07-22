@@ -25,7 +25,7 @@ function setup() {
     bird.height=30;
 
     world.gravity.y = 500;
-    bird.mass = 2;
+    // bird.mass = 2;  how heavy, heavier = affected by gravity
     bird.drag = 0.02;
     bird.bounciness = 3;
     bird.collider = "dynamic";
