@@ -46,6 +46,7 @@ function draw() {
     image(day,0,0,width,height); // image u drawing, x, y, width, height
 
     if (kb.presses("space") || mouse.presses("left")) {
+        bird.sleeping =false
         bird.vel.y = -5; // up velocity
     }
 }
