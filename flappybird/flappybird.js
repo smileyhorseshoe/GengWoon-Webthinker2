@@ -25,6 +25,8 @@ function setup() {
     bird.height=30;
 
     world.gravity.y = 10
+    bird.mass = 2;
+    
 }
 
 
