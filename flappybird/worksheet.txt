@@ -63,5 +63,5 @@ Background repeats itself
 
 sprite collision and game over
 sprite hit pipe or ground = DIE
-score tracking and sounds
-1 pipe = sound and +1 point
+
+score tracking and sound
