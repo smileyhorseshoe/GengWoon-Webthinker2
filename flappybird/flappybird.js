@@ -37,6 +37,7 @@ function setup() {
     floor.width = width;
     floor.height = height;
     floor.x = width/2
+    floor.y = height
 }
 
 
