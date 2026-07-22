@@ -24,11 +24,11 @@ function setup() {
     bird.width=30;
     bird.height=30;
 
-    world.gravity.y = 500;
-    // bird.mass = 2;  how heavy, heavier = affected by gravity
-    bird.drag = 0.02;
-    bird.bounciness = 3;
-    bird.collider = "dynamic";
+    world.gravity.y = 10;
+    // bird.mass = 2;  how heavy, heavier = affected by gravity motr
+    bird.drag = 0.02; // air resistance, higher = more resistantce
+    bird.bounciness = 3; // higher = bouncier
+    bird.collider = "dynamic"; // collidable, movable and affected by physics
 
 
     //create floor sprite
