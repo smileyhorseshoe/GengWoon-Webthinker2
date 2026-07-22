@@ -30,7 +30,6 @@ function setup() {
     bird.bounciness = 1; // higher = bouncier
     bird.collider = "dynamic"; // collidable, movable and affected by physics
 
-
     //create floor sprite
     floor = new Sprite();
     floor.img=base
