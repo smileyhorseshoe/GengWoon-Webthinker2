@@ -33,7 +33,7 @@ function setup() {
 
     //create floor sprite
     floor = new Sprite();
-    
+    floor.img=(bas)
 }
 
 
