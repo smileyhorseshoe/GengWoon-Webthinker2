@@ -1,7 +1,7 @@
 // Game objects
 let bird;
 let floor;
-
+let kb;
 // Image assets
 let birdMidImg;
 let day;
@@ -44,4 +44,8 @@ function setup() {
 
 function draw() {
     image(day,0,0,width,height); // image u drawing, x, y, width, height
+
+    if (kb.presses("space")) {
+        
+    }
 }
