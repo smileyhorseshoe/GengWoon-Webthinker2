@@ -19,7 +19,10 @@ function setup() {
     new Canvas(400,600);
     background(250)
     //create new sprite
-    bird = new SpeechRecognitionErrorEvent()
+    bird = new Sprite();
+    bird.img = birdMIdImg;
+    bird.width=30;
+    birtd.height=30;
 }
 
 
