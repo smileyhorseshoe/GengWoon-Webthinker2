@@ -25,9 +25,9 @@ function setup() {
     bird.height=30;
 
     world.gravity.y = 10;
-    // fill("red")
-    // textSize(14);
-    console.log("vel.y" + bird.vel.y.toFixed(2)); 
+    fill("red")
+    textSize(14);
+    text("vel.y" + bird.vel.y.toFixed(2)); 
     console.log("isMoving:" + bird.isMOving, 10 ,40);
     console.log 
     // bird.mass = 2;  how heavy, heavier = affected by gravity motr
