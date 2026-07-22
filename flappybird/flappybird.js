@@ -1,7 +1,7 @@
 // Game objects
 let bird;
 let floor;
-let kb;
+
 // Image assets
 let birdMidImg;
 let day;
