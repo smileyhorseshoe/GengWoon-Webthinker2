@@ -24,7 +24,7 @@ function setup() {
     bird.width=30;
     bird.height=30;
 
-    world.gravity.y = 10;
+    world.gravity.y = 1.625;
     bird.mass = 2;
     bird.drag = 0.02;
     bird.bounciness = 0.5;
