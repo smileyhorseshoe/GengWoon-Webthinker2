@@ -13,7 +13,7 @@ function preload(){
     night = loadImage("assets/background-night.png")
     base = loadImage("assets/base.png")
     flapUpImg = loadImage ("assets/yellowbird-upflap.png")
-    flapDownImg = loadimage("")
+    flapDownImg = loadimage("assets/yellowbird-downflap.png")
 }
 
 
