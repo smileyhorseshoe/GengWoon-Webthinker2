@@ -107,7 +107,7 @@ function draw() {
         gameoverlabel.layer= 100; // make this come to front
         gameoverlabel.x = camera.x;
         noLoop();
-  }
+    }
   }
 }
 function spawnPipePair() {
