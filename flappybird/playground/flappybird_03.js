@@ -89,7 +89,7 @@ text("sleeping:" + bird.sleeping,10,60);
       pipe.remove();
     }
   }
-  if (bird.collides(pipeGroup) || bird.collides(floor))  {
+  if (bird.collides(pipeGroup) || bird.collides(floor) || bird.y < -30)  {
     gameoverlabel = new Sprite(width/2,height/2,192,42);
     gameoverlabel.img = gameoverimg;
     gameoverlabel.layer= 100; // make this come to front
