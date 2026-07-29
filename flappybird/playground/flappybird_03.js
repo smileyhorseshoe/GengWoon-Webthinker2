@@ -75,6 +75,9 @@ text("sleeping:" + bird.sleeping,10,60);
     bird.img = birdMidImg;
     bird.rotation = 0;
   }
+  bird.x+3
+  camera.x=bird.x
+  
 
 }
 function spawnPipePair() {
