@@ -50,8 +50,8 @@ function draw() {
         bird.sleeping =false
         bird.vel.y = -5; // up velocity
     // debug info
+}
 text("vel.y" + bird.vel.y.toFixed(2),10,20); // text,x,y
 text("isMoving:" + bird.isMOving, 10 ,40);
 text("sleeping:" + bird.sleeping,10,60)
-    }
 }
