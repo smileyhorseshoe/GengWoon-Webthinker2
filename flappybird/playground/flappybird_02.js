@@ -8,12 +8,12 @@ let day;
 let night;
 let base;
 function preload(){
-    birdMidImg = loadImage("assets/yellowbird-midflap.png") 
-    day = loadImage("assets/background-day.png")
-    night = loadImage("assets/background-night.png")
-    base = loadImage("assets/base.png")
-    flapUpImg = loadImage ("assets/yellowbird-upflap.png")
-    flapDownImg = loadImage("assets/yellowbird-downflap.png")
+    birdMidImg = loadImage("assets/yellowbird-midflap.png") ;
+    day = loadImage("assets/background-day.png");
+    night = loadImage("assets/background-night.png");
+    base = loadImage("assets/base.png");
+    flapUpImg = loadImage ("assets/yellowbird-upflap.png");
+    flapDownImg = loadImage("assets/yellowbird-downflap.png");
 }
 
 
