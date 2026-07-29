@@ -64,7 +64,8 @@ function draw() {
   if (kb.presses("space") || mouse.presses()) {
     startGame=true;
     startScreenLabel.visible =false;
-      
+    bird.visible = true;
+    bird.collider = 'dynamic';
   }
 }
 if (startGame){
