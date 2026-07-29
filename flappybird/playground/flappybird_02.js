@@ -1,7 +1,7 @@
 // Game objects
 let bird;
 let floor;
-let flapUpImg,flapDownImg
+let flapUpImg,flapDownImg;
 // Image assets
 let pipeGroup;
 let birdMidImg;
