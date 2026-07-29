@@ -80,4 +80,6 @@ text("sleeping:" + bird.sleeping,10,60);
 function spawnPipePair() {
     let gap =50
     let midY = height /2
+
+    bottomPipe = new sprite
 }
