@@ -26,7 +26,7 @@ function setup() {
     bird.img = birdMidImg;
     bird.width=30;
     bird.height=30;
-
+    pipeGroup =
     world.gravity.y = 10;
     fill("255,0,0")
     textSize(14);
