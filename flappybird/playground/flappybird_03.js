@@ -63,7 +63,7 @@ function draw() {
     startGame=true
     startScreenLabel.visible =false  
   }
-
+}
 if (startGame){
     image(day,0,0,width,height); // image u drawing, x, y, width, height
 
@@ -124,5 +124,5 @@ function spawnPipePair() {
     topPipe.img = pipe;
     topPipe.rotation = 180;
     pipeGroup.add(topPipe);
-}
+
 }
