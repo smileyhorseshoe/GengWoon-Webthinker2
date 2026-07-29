@@ -36,7 +36,7 @@ function setup() {
     
     //create floor sprite
     floor = new Sprite();
-    floor.img=base
+    floor.img=base;
     floor.width = width;
     floor.height = 125;
     floor.x = width/2;
@@ -49,7 +49,7 @@ function draw() {
     image(day,0,0,width,height); // image u drawing, x, y, width, height
 
     if (kb.presses("space") || mouse.presses("left")) {
-        bird.sleeping =false
+        bird.sleeping =false;
         bird.vel.y = -5; // up velocity
     // debug info
 }
