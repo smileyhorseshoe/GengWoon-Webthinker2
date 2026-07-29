@@ -20,7 +20,7 @@ function preload(){
     flapUpImg = loadImage ("assets/yellowbird-upflap.png");
     flapDownImg = loadImage("assets/yellowbird-downflap.png");
     pipe = loadImage("assets/pipe-green.png");
-    let gameoverimg = loadImage("flappybird/assets/gameover.png")
+    let gameoverimg = loadImage("assets/gameover.png")
 }
 
 
