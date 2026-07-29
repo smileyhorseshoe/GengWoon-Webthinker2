@@ -89,7 +89,7 @@ text("sleeping:" + bird.sleeping,10,60);
       pipe.remove()
     }
   }
-  if (birdcollides) {}
+  if (birdcollides(pipeGroup) || bird.collides)  {}
 }
 function spawnPipePair() {
     let gap =50;
