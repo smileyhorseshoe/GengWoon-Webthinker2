@@ -83,7 +83,7 @@ text("sleeping:" + bird.sleeping,10,60);
   }
   for (pipe of pipeGroup) {
     if (pipe.x < -50){
-      
+      pipe.remove()
     }
   }
 }
