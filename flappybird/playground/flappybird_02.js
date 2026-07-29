@@ -3,6 +3,7 @@ let bird;
 let floor;
 let flapUpImg,flapDownImg
 // Image assets
+let pipeGroup
 let birdMidImg;
 let day;
 let night;
