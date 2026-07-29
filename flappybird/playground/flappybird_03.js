@@ -89,7 +89,7 @@ text("sleeping:" + bird.sleeping,10,60);
 }
 function spawnPipePair() {
     let gap =50
-    let midY = height 
+    let midY = random(250, height-250)
   
     bottomPipe = new Sprite(400,midY + gap/2 + 200,52,320,'static');
     bottomPipe.img = pipe;
