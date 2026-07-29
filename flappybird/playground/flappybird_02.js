@@ -66,6 +66,6 @@ text("sleeping:" + bird.sleeping,10,60);
   }
   else {
     bird.img = bird.MidImg;
-    
+    bird.rotation = 0
   }
 }
