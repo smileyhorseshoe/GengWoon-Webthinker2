@@ -86,12 +86,12 @@ text("sleeping:" + bird.sleeping,10,60);
   }
   for (let pipe of pipeGroup) {
     if (pipe.x < -50){
-      pipe.remove()
+      pipe.remove();
     }
   }
   if (birdcollides(pipeGroup) || bird.collides(floor))  {
-    gameoverlabel = new Sprite(width/2,height/2,192,42)
-    gameol
+    gameoverlabel = new Sprite(width/2,height/2,192,42);
+    gameoverlabel.img
   }
 }
 function spawnPipePair() {
