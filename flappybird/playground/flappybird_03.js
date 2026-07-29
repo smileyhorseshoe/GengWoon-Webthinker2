@@ -61,8 +61,10 @@ function setup() {
 function draw() {
   if (kb.presses('space') || mouse.presses()) {
     startGame=true
-    startScreenLabel.visible =fasle 
+    startScreenLabel.visible =false  
   }
+
+if (startGame){}
     image(day,0,0,width,height); // image u drawing, x, y, width, height
 
     if (kb.presses("space") || mouse.presses("left")) {
