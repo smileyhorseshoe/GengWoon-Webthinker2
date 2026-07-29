@@ -59,13 +59,15 @@ function setup() {
 
 
 function draw() {
+     image(day,0,0,width,height); // image u drawing, x, y, width, height
+     
   if (kb.presses("space") || mouse.presses()) {
     startGame=true
     startScreenLabel.visible =false  
   }
 }
 if (startGame){
-    image(day,0,0,width,height); // image u drawing, x, y, width, height
+ 
 
     if (kb.presses("space") || mouse.presses("left")) {
         bird.sleeping =false;
