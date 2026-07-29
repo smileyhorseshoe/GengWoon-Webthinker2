@@ -17,7 +17,7 @@ function preload(){
     base = loadImage("assets/base.png");
     flapUpImg = loadImage ("assets/yellowbird-upflap.png");
     flapDownImg = loadImage("assets/yellowbird-downflap.png");
-    pipe = loadImage("assets/pipe-green.png")
+    pipe = loadImage("assets/pipe-green.png");
 }
 
 
@@ -31,7 +31,7 @@ function setup() {
     bird.height=30;
     pipeGroup = new Group();
     world.gravity.y = 10;
-    fill("255,0,0")
+    fill("255,0,0");
     textSize(14);
     // bird.mass = 2;  how heavy, heavier = affected by gravity motr
     bird.drag = 0.02; // air resistance, higher = more resistantce
