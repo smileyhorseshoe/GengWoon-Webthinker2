@@ -93,7 +93,8 @@ text("sleeping:" + bird.sleeping,10,60);
     gameoverlabel = new Sprite(width/2,height/2,192,42);
     gameoverlabel.img = gameoverimg;
     gameoverlabel.layer= 100; // make this come to front
-    
+    gameoverlabel.x = camera.x;
+    noLoop();
   }
 }
 function spawnPipePair() {
