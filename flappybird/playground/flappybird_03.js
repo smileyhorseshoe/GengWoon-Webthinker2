@@ -68,50 +68,50 @@ function draw() {
     bird.collider = 'dynamic';
   }
   }
-if (startGame){
- 
+  if (startGame){
+  
 
-    if (kb.presses("space") || mouse.presses("left")) {
-        bird.sleeping =false;
-        bird.vel.y = -5; // up velocity
-    // debug info
-  }
-  text("vel.y" + bird.vel.y.toFixed(2),10,20); // text,x,y
-  text("isMoving:" + bird.isMOving, 10 ,40);
-  text("sleeping:" + bird.sleeping,10,60);
-    if (frameCount === 1) {
-      spawnPipePair();
+      if (kb.presses("space") || mouse.presses("left")) {
+          bird.sleeping =false;
+          bird.vel.y = -5; // up velocity
+      // debug info
     }
-    if (bird.vel.y <-1) {
-      bird.img = flapUpImg;
-      bird.rotation = -30;
-    }
-    else if (bird.vel.y > 1) {
-      bird.img = flapDownImg
-      bird.rotation = 30;
-    }
-    else {
-      bird.img = birdMidImg;
-      bird.rotation = 0;
-    }
-    bird.x+=3;
-    camera.x=bird.x;
-    floor.x=bird.x;//so floor doesnt get left behind
-    if (frameCount % 90 ===0) { 
-      spawnPipePair();
-    }
-    for (let pipe of pipeGroup) {
-      if (pipe.x < -50){
-        pipe.remove();
+    text("vel.y" + bird.vel.y.toFixed(2),10,20); // text,x,y
+    text("isMoving:" + bird.isMOving, 10 ,40);
+    text("sleeping:" + bird.sleeping,10,60);
+      if (frameCount === 1) {
+        spawnPipePair();
       }
-    }
-    if (bird.collides(pipeGroup) || bird.collides(floor) || bird.y < -30)  {
-      gameoverlabel = new Sprite(width/2,height/2,192,42);
-      gameoverlabel.img = gameoverimg;
-      gameoverlabel.layer= 100; // make this come to front
-      gameoverlabel.x = camera.x;
-      noLoop();
-   }
+      if (bird.vel.y <-1) {
+        bird.img = flapUpImg;
+        bird.rotation = -30;
+      }
+      else if (bird.vel.y > 1) {
+        bird.img = flapDownImg
+        bird.rotation = 30;
+      }
+      else {
+        bird.img = birdMidImg;
+        bird.rotation = 0;
+      }
+      bird.x+=3;
+      camera.x=bird.x;
+      floor.x=bird.x;//so floor doesnt get left behind
+      if (frameCount % 90 ===0) { 
+        spawnPipePair();
+      }
+      for (let pipe of pipeGroup) {
+        if (pipe.x < -50){
+          pipe.remove();
+        }
+      }
+      if (bird.collides(pipeGroup) || bird.collides(floor) || bird.y < -30)  {
+        gameoverlabel = new Sprite(width/2,height/2,192,42);
+        gameoverlabel.img = gameoverimg;
+        gameoverlabel.layer= 100; // make this come to front
+        gameoverlabel.x = camera.x;
+        noLoop();
+  }
   
 }
 function spawnPipePair() {
