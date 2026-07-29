@@ -59,6 +59,7 @@ function setup() {
 
 
 function draw() {
+  
     image(day,0,0,width,height); // image u drawing, x, y, width, height
 
     if (kb.presses("space") || mouse.presses("left")) {
@@ -102,6 +103,7 @@ text("sleeping:" + bird.sleeping,10,60);
     gameoverlabel.x = camera.x;
     noLoop();
   }
+  
 }
 function spawnPipePair() {
     let gap =50;
