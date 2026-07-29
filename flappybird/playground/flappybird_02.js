@@ -87,5 +87,5 @@ function spawnPipePair() {
     pipeGroup.add(bottomPipe);
     pipeGroup.layer= 0// go behind other sprites
 
-    topPipe = new Sprite(400,mid-Y)
+    topPipe = new Sprite(400,midY -gap/2-200,52,320,'static')
 }
