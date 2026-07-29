@@ -81,5 +81,5 @@ function spawnPipePair() {
     let gap =50
     let midY = height /2
 
-    bottomPipe = new sprite
+    bottomPipe = new Sprite(400,midY,)
 }
