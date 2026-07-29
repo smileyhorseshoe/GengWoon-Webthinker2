@@ -72,4 +72,6 @@ text("sleeping:" + bird.sleeping,10,60);
     bird.img = birdMidImg;
     bird.rotation = 0;
   }
+
 }
+function spawnPipePair() {}
