@@ -66,8 +66,7 @@ function draw() {
     bird.visible = true;
     bird.collider = 'dynamic';
   }
-  }
-  if (startGame){}
+  if (startGame){
       if (kb.presses("space") || mouse.presses("left")) {
           bird.sleeping =false;
           bird.vel.y = -5; // up velocity
@@ -109,7 +108,7 @@ function draw() {
         gameoverlabel.x = camera.x;
         noLoop();
   }
-  
+  }
 }
 function spawnPipePair() {
     let gap =50;
