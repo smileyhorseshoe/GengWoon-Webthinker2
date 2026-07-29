@@ -12,6 +12,7 @@ function preload(){
     day = loadImage("assets/background-day.png")
     night = loadImage("assets/background-night.png")
     base = loadImage("assets/base.png")
+    flapUpImg()
 }
 
 
