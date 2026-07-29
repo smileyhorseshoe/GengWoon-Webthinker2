@@ -69,8 +69,6 @@ function draw() {
   }
   }
   if (startGame){
-  
-
       if (kb.presses("space") || mouse.presses("left")) {
           bird.sleeping =false;
           bird.vel.y = -5; // up velocity
