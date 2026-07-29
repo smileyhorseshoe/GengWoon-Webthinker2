@@ -20,7 +20,7 @@ function preload(){
     flapUpImg = loadImage ("assets/yellowbird-upflap.png");
     flapDownImg = loadImage("assets/yellowbird-downflap.png");
     pipe = loadImage("assets/pipe-green.png");
-    let gameoverimg = loadImage("assets/gameover.png")
+    gameoverimg = loadImage("assets/gameover.png");
 }
 
 
@@ -89,7 +89,7 @@ text("sleeping:" + bird.sleeping,10,60);
       pipe.remove();
     }
   }
-  if (birdcollides(pipeGroup) || bird.collides(floor))  {
+  if (bird.collides(pipeGroup) || bird.collides(floor))  {
     gameoverlabel = new Sprite(width/2,height/2,192,42);
     gameoverlabel.img = gameoverimg;
     gameoverlabel.layer= 100; // make this come to front
