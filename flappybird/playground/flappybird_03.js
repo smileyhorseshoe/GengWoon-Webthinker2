@@ -78,6 +78,9 @@ text("sleeping:" + bird.sleeping,10,60);
   bird.x+3;
   camera.x=bird.x;
   floor.x=bird.x//so floor doesnt get left behind
+  if (frameCount % 90 ===0) {
+    spawnPipePair()
+  }
 }
 function spawnPipePair() {
     let gap =50
