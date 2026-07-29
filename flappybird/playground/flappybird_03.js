@@ -64,7 +64,7 @@ function draw() {
     startScreenLabel.visible =false  
   }
 
-if (startGame){}
+if (startGame){
     image(day,0,0,width,height); // image u drawing, x, y, width, height
 
     if (kb.presses("space") || mouse.presses("left")) {
@@ -124,4 +124,5 @@ function spawnPipePair() {
     topPipe.img = pipe;
     topPipe.rotation = 180;
     pipeGroup.add(topPipe);
+}
 }
