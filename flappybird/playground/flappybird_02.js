@@ -2,6 +2,8 @@
 let bird;
 let floor;
 let flapUpImg,flapDownImg;
+let pipe;
+let bottomPipe;
 // Image assets
 let pipeGroup;
 let birdMidImg;
@@ -15,6 +17,7 @@ function preload(){
     base = loadImage("assets/base.png");
     flapUpImg = loadImage ("assets/yellowbird-upflap.png");
     flapDownImg = loadImage("assets/yellowbird-downflap.png");
+    pipe = loadImage
 }
 
 
