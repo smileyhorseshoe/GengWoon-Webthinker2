@@ -75,23 +75,23 @@ text("sleeping:" + bird.sleeping,10,60);
     bird.img = birdMidImg;
     bird.rotation = 0;
   }
-  bird.x+3;
+  bird.x+=3;
   camera.x=bird.x;
-  floor.x=bird.x//so floor doesnt get left behind
+  floor.x=bird.x;//so floor doesnt get left behind
   if (frameCount % 90 ===0) { 
     spawnPipePair();
   }
-  for (pipe of pipeGroup) {
+  for (let pipe of pipeGroup) {
     if (pipe.x < -50){
       pipe.remove()
     }
   }
 }
 function spawnPipePair() {
-    let gap =50
-    let midY = random(250, height-250)
+    let gap =50;
+    let midY = random(250, height-250);
   
-    bottomPipe = new Sprite(400,midY + gap/2 + 200,52,320,'static');
+    bottomPipe = new Sprite(bird.x +400,midY + gap/2 + 200,52,320,'static');
     bottomPipe.img = pipe;
 
     pipeGroup.add(bottomPipe);
