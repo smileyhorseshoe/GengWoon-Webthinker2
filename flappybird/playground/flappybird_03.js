@@ -8,6 +8,7 @@ let gameoverimg;
 let gameoverlabel;
 let startScreenLabel;
 let startScreenImg;
+let startGame =false
 // Image assets
 let pipeGroup;
 let birdMidImg;
