@@ -43,8 +43,8 @@ function setup() {
     // bird.mass = 2;  how heavy, heavier = affected by gravity motr
     bird.drag = 0.02; // air resistance, higher = more resistantce
     bird.bounciness = 1; // higher = bouncier
-    bird.collider = "dynamic"; // collidable, movable and affected by physics
-    
+    bird.collider = "static"; // collidable, movable and affected by physics
+    bird.visible = false;
     //create floor sprite
     floor = new Sprite();
     floor.img=base;
@@ -60,7 +60,7 @@ function setup() {
 
 function draw() {
      image(day,0,0,width,height); // image u drawing, x, y, width, height
-     
+
   if (kb.presses("space") || mouse.presses()) {
     startGame=true
     startScreenLabel.visible =false  
