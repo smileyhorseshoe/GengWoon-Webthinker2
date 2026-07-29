@@ -3,7 +3,7 @@ let bird;
 let floor;
 let flapUpImg,flapDownImg
 // Image assets
-let pipeGroup
+let pipeGroup;
 let birdMidImg;
 let day;
 let night;
@@ -26,7 +26,7 @@ function setup() {
     bird.img = birdMidImg;
     bird.width=30;
     bird.height=30;
-    pipeGroup =
+    pipeGroup = new Group();
     world.gravity.y = 10;
     fill("255,0,0")
     textSize(14);
