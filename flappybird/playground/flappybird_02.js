@@ -57,7 +57,9 @@ function draw() {
 text("vel.y" + bird.vel.y.toFixed(2),10,20); // text,x,y
 text("isMoving:" + bird.isMOving, 10 ,40);
 text("sleeping:" + bird.sleeping,10,60);
-  if (frameCount === 1)
+  if (frameCount === 1) {
+    spawnPipePair();
+  }
   if (bird.vel.y <-1) {
     bird.img = flapUpImg;
     bird.rotation = -30;
