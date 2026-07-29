@@ -90,7 +90,7 @@ text("sleeping:" + bird.sleeping,10,60);
     }
   }
   if (birdcollides(pipeGroup) || bird.collides(floor))  {
-    gameoverlabel = new Sprite
+    gameoverlabel = new Sprite(width/2,height/2)
   }
 }
 function spawnPipePair() {
