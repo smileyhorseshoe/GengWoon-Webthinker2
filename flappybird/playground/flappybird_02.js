@@ -60,4 +60,7 @@ text("sleeping:" + bird.sleeping,10,60);
     bird.img = flapUpImg;
     bird.rotation = -30
   }
+  else if (bird.vel.y > 1) {
+    
+  }
 }
