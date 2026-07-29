@@ -5,6 +5,7 @@ let flapUpImg,flapDownImg;
 let pipe;
 let bottomPipe;
 let gameoverimg;
+let gameoverlabel;
 // Image assets
 let pipeGroup;
 let birdMidImg;
@@ -19,6 +20,7 @@ function preload(){
     flapUpImg = loadImage ("assets/yellowbird-upflap.png");
     flapDownImg = loadImage("assets/yellowbird-downflap.png");
     pipe = loadImage("assets/pipe-green.png");
+    let gamoe
 }
 
 
