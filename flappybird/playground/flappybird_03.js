@@ -23,7 +23,7 @@ function preload(){
     flapDownImg = loadImage("assets/yellowbird-downflap.png");
     pipe = loadImage("assets/pipe-green.png");
     gameoverimg = loadImage("assets/gameover.png");
-    startScreenImg
+    startScreenImg = loadImage()
 }
 
 
