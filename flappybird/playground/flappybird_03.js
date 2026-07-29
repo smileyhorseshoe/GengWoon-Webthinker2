@@ -52,7 +52,7 @@ function setup() {
     floor.x = width/2;
     floor.y = height -20;
     floor.collider = "static" // collidable but no move
-    startScreenLabel = new Sprite
+    startScreenLabel = new Sprite(width/2,height/2,50,50,'none')
 }
 
 
