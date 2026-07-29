@@ -4,6 +4,7 @@ let floor;
 let flapUpImg,flapDownImg;
 let pipe;
 let bottomPipe;
+let gameoverimg;
 // Image assets
 let pipeGroup;
 let birdMidImg;
