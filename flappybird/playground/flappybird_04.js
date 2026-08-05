@@ -75,7 +75,7 @@ function draw() {
     bird.visible = true;
     bird.collider = 'dynamic';
   }
-  drawScore(width/2,20,score,24,36)
+  drawScore(width/2,20,score,24,36);
   if (startGame){
       if (kb.presses("space") || mouse.presses("left")) {
           bird.sleeping =false;
@@ -120,7 +120,7 @@ function draw() {
     }
   }
 }
-
+function drawScore(x,y,) {}
 function spawnPipePair() {
     let gap =50;
     let midY = random(250, height-250);
