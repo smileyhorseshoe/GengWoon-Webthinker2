@@ -123,7 +123,7 @@ function draw() {
 function drawScore(x,y,score,digitWidth,digitHeight) {
   //Clear all old digit sprites
   scoreDigits.removeAll();
-  // make it a string
+  // make it a string so we can get each digit individually rather than a value
 }
 function spawnPipePair() {
     let gap =50;
