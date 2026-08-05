@@ -124,7 +124,10 @@ function draw() {
       // center pos - half bird width = right edge pos
       let birdLeftEdge = bird.x-bird.w/2;
       // compare x coords of player and pipes
-      if (pipe.passed == false && pipeRightEdge < birdLeftEdge) 
+      if (pipe.passed == false && pipeRightEdge < birdLeftEdge) {
+        pipe.passed = true;
+        score++
+      }
     }
   }
 
