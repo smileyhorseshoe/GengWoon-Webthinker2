@@ -118,9 +118,10 @@ function draw() {
         gameoverlabel.x = camera.x;
         noLoop();
     }
-    // let 
+    // increase score if pipe passed
     for (let pipe of pipeGroup) {
-
+      let pipeRightEdge = pipe.x+pipe.w /2
+      
     }
   }
 
