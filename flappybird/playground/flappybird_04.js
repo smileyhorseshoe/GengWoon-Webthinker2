@@ -122,7 +122,8 @@ function draw() {
     for (let pipe of pipeGroup) {
       let pipeRightEdge = pipe.x+pipe.w /2
       // center pos - half bird width = right edge pos
-      let left 
+      let birdLeftEdge = bird.x-bird.w/2
+       
     }
   }
 
