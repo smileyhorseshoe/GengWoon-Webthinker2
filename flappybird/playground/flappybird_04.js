@@ -118,8 +118,9 @@ function draw() {
         gameoverlabel.x = camera.x;
         noLoop();
     }
+    // let 
     for (let pipe of pipeGroup) {
-      
+
     }
   }
 
