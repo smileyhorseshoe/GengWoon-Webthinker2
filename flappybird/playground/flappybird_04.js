@@ -141,7 +141,7 @@ function drawScore(x,y,score,digitWidth,digitHeight) {
   // total width taken up by all digits
   let totalWidth = scoreStr.length*digitWidth;
   // starting x coords
-  let Startx= x - totalWidth /2;
+  let startX= x - totalWidth /2;
   // loop through each digit
   for (let i = 0; i < scoreStr.length; i++) {
     // gets number digit from the score string (e.g. "4" or "2")
