@@ -120,7 +120,9 @@ function draw() {
     }
   }
 }
-function drawScore(x,y,score,digitWidth,) {}
+function drawScore(x,y,score,digitWidth,digitHeight) {
+  //Clear all 
+}
 function spawnPipePair() {
     let gap =50;
     let midY = random(250, height-250);
