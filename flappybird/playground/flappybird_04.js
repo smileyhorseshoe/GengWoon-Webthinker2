@@ -75,7 +75,7 @@ function draw() {
     bird.visible = true;
     bird.collider = 'dynamic';
   }
-  drawScore(width)
+  drawScore(width/2,20,score,24,36)
   if (startGame){
       if (kb.presses("space") || mouse.presses("left")) {
           bird.sleeping =false;
