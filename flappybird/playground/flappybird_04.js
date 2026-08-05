@@ -148,7 +148,8 @@ function moveGroup(group,targetX,spacing) {
   let totalWidth = (group.length-1) * spacing;
   // find left-most x pos
   // shifts the starting point left, so the entire group becomes centered
-    
+  let startX = (targetX - totalWidth/2);
+  
 }
 function spawnPipePair() {
     let gap =50;
