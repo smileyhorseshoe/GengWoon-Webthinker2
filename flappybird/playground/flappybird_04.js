@@ -120,10 +120,11 @@ function draw() {
     }
     // increase score if pipe passed
     for (let pipe of pipeGroup) {
-      let pipeRightEdge = pipe.x+pipe.w /2
+      let pipeRightEdge = pipe.x+pipe.w /2;
       // center pos - half bird width = right edge pos
-      let birdLeftEdge = bird.x-bird.w/2
-       
+      let birdLeftEdge = bird.x-bird.w/2;
+      // compare x coords of player and pipes
+      if (pipe.passed == false && pipeRightEdge < birdLeftEdge) 
     }
   }
 
