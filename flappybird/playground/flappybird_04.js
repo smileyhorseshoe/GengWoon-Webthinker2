@@ -44,7 +44,8 @@ function setup() {
     bird.height=30;
     pipeGroup = new Group();
     scoreDigits = new Group();
-    
+    scoreDigits.collider = 'none';
+    scoreDigits.layer = 1000
     world.gravity.y = 15;
     fill("255,0,0");
     textSize(14);
