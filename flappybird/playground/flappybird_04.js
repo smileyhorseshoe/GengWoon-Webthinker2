@@ -43,7 +43,7 @@ function setup() {
     bird.width=30;
     bird.height=30;
     pipeGroup = new Group();
-
+    
     world.gravity.y = 15;
     fill("255,0,0");
     textSize(14);
