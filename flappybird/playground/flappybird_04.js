@@ -8,7 +8,7 @@ let gameoverimg;
 let gameoverlabel;
 let startScreenLabel;
 let startScreenImg;
-let score = 0;
+let score = 99;
 let numberImages = [];
 let scoreDigits;
 let startGame =false
