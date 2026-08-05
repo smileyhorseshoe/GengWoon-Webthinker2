@@ -143,7 +143,9 @@ function drawScore(x,y,score,digitWidth,digitHeight) {
     
   }
 }
-function moveGroup()
+function moveGroup(group,targetX,spacing) {
+  
+}
 function spawnPipePair() {
     let gap =50;
     let midY = random(250, height-250);
