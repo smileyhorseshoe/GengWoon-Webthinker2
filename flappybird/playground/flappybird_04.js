@@ -144,7 +144,7 @@ function drawScore(x,y,score,digitWidth,digitHeight) {
   }
 }
 function moveGroup(group,targetX,spacing) {
-  // e.g. 3 digits -> 
+  // e.g. 3 digits -> 2 gaps -> (3-1) 
 }
 function spawnPipePair() {
     let gap =50;
