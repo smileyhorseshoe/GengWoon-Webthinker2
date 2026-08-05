@@ -118,7 +118,10 @@ function draw() {
         gameoverlabel.x = camera.x;
         noLoop();
     }
+    
   }
+
+
 }
 function drawScore(x,y,score,digitWidth,digitHeight) {
   //Clear all old digit sprites
