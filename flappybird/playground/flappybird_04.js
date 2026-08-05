@@ -121,7 +121,9 @@ function draw() {
   }
 }
 function drawScore(x,y,score,digitWidth,digitHeight) {
-  //Clear all 
+  //Clear all old digit sprites
+  scoreDigits.removeAll()
+  
 }
 function spawnPipePair() {
     let gap =50;
