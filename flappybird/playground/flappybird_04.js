@@ -136,7 +136,8 @@ function drawScore(x,y,score,digitWidth,digitHeight) {
     //  x-position of this digit, next character will move right
     let xPos = startX + i* digitWidth;
     //create a new sprite the size of the digit image
-    let digitSprite = new scoreDigits.Sprite(xpos,y)
+    let digitSprite = new scoreDigits.Sprite(xPos,y,digitWidth,digitHeight);
+    
 
     
   }
