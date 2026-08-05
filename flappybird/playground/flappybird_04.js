@@ -149,7 +149,10 @@ function moveGroup(group,targetX,spacing) {
   // find left-most x pos
   // shifts the starting point left, so the entire group becomes centered
   let startX = (targetX - totalWidth/2);
-  
+  // Place each sprite into the Group.
+  for (let i =0 ; i < group.length; i++) {
+    group[i]
+  }
 }
 function spawnPipePair() {
     let gap =50;
