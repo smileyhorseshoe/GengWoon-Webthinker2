@@ -137,7 +137,7 @@ function drawScore(x,y,score,digitWidth,digitHeight) {
     let xPos = startX + i* digitWidth;
     //create a new sprite the size of the digit image
     let digitSprite = new scoreDigits.Sprite(xPos,y,digitWidth,digitHeight);
-    // get the digit image
+    // get the digit image from the array based on placement order
 
     
   }
