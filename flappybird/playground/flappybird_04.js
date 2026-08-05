@@ -151,7 +151,7 @@ function moveGroup(group,targetX,spacing) {
   let startX = (targetX - totalWidth/2);
   // Place each sprite into the Group.
   for (let i =0 ; i < group.length; i++) {
-    group[i]
+    group[i].x = startX + i * spacing
   }
 }
 function spawnPipePair() {
