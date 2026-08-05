@@ -138,11 +138,12 @@ function drawScore(x,y,score,digitWidth,digitHeight) {
     //create a new sprite the size of the digit image
     let digitSprite = new scoreDigits.Sprite(xPos,y,digitWidth,digitHeight);
     // get the digit image from the array based on placement order which corresponds to the digit
-    digitSprite.img = numberImages[digit]
-
+    digitSprite.img = numberImages[digit];
+    moveGroup(scoreDigits,camera.x,24);
     
   }
 }
+function moveGroup()
 function spawnPipePair() {
     let gap =50;
     let midY = random(250, height-250);
