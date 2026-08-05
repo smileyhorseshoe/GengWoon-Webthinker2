@@ -126,7 +126,9 @@ function drawScore(x,y,score,digitWidth,digitHeight) {
   // make it a string so we can get each digit individually rather than a value
   let scoreStr = str(score);
   // total width taken up by all digits
-  let totalWidth = scoreStr.length
+  let totalWidth = scoreStr.length*digitWidth;
+  // starting x coords
+  let Startx= x
 }
 function spawnPipePair() {
     let gap =50;
