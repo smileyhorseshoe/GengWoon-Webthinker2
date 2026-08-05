@@ -10,7 +10,7 @@ let startScreenLabel;
 let startScreenImg;
 let score = 0;
 let numberImages = [];
-let score
+let scoreDigits;
 let startGame =false
 // Image assets
 let pipeGroup;
