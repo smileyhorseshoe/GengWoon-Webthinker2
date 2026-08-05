@@ -145,7 +145,9 @@ function drawScore(x,y,score,digitWidth,digitHeight) {
 }
 function moveGroup(group,targetX,spacing) {
   // e.g. 3 digits -> 2 gaps -> (3-1) * 24 = 48px
-  let totalWidth = (group.length-1) *
+  let totalWidth = (group.length-1) * spacing;
+  // find left-most x pos
+  
 }
 function spawnPipePair() {
     let gap =50;
