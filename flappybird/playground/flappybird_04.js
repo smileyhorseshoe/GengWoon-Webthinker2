@@ -8,6 +8,9 @@ let gameoverimg;
 let gameoverlabel;
 let startScreenLabel;
 let startScreenImg;
+let score = 0;
+let numberImages = [];
+let score
 let startGame =false
 // Image assets
 let pipeGroup;
