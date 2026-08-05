@@ -121,7 +121,8 @@ function draw() {
     // increase score if pipe passed
     for (let pipe of pipeGroup) {
       let pipeRightEdge = pipe.x+pipe.w /2
-      
+      // center pos - half bird width = right edge pos
+        
     }
   }
 
