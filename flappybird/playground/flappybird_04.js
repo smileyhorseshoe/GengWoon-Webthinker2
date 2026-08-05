@@ -132,8 +132,8 @@ function drawScore(x,y,score,digitWidth,digitHeight) {
   // loop through each digit
   for (let i = 0; i < scoreStr.length; i++) {
     // gets number digit from the score string (e.g. "4" or "2")
-    x pos 
     let digit= int(scoreString[i]);
+    //  x-position
     
   }
 }
