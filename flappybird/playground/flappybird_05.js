@@ -88,7 +88,7 @@ function draw() {
       if (kb.presses("space") || mouse.presses("left")) {
         bird.sleeping =false;
         bird.vel.y = -5; // up velocity
-        bird.
+        flapSound.play()
       // debug info
     }
     text("vel.y" + bird.vel.y.toFixed(2),10,20); // text,x,y
