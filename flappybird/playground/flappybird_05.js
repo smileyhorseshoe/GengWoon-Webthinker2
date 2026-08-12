@@ -132,8 +132,7 @@ function draw() {
         setTimeout(() => {
           score = 0;
           startGame = false;
-          pipe.remove4
-          (); 
+          pipe.remove(); 
           bird.vel.x = 0;
           bird.vel.y = 0;
           bird.rotation = 0
