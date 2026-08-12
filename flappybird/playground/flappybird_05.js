@@ -132,13 +132,14 @@ function draw() {
         setTimeout(() => {
           score = 0;
           startGame = false;
-          pipes.removeAll(); 
+          pipe.removeAll(); 
           bird.vel.x = 0;
           bird.vel.y = 0;
           bird.rotation = 0
           bird.collider ='static'
           bird.y = 200;
           gameoverLabel.remove();
+          startMessageLabel.visible
         },3000)
       
         }
