@@ -132,7 +132,7 @@ function draw() {
         setTimeout(() => {
           score = 0;
         },3000)
-
+      
         }
     }
     // increase score if pipe passed
