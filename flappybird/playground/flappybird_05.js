@@ -132,7 +132,8 @@ function draw() {
         setTimeout(() => {
           score = 0;
           startGame = false;
-          pipes.removeAll()
+          pipes.removeAll() 
+          
         },3000)
       
         }
