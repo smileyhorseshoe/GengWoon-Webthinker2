@@ -86,8 +86,9 @@ function draw() {
   drawScore(width/2,20,score,24,36);
   if (startGame){
       if (kb.presses("space") || mouse.presses("left")) {
-          bird.sleeping =false;
-          bird.vel.y = -5; // up velocity
+        bird.sleeping =false;
+        bird.vel.y = -5; // up velocity
+        bird.
       // debug info
     }
     text("vel.y" + bird.vel.y.toFixed(2),10,20); // text,x,y
