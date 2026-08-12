@@ -129,7 +129,7 @@ function draw() {
         gameoverlabel.x = camera.x;
         noLoop();
         
-        0
+        setTimeout()
     }
     // increase score if pipe passed
     for (let pipe of pipeGroup) {
