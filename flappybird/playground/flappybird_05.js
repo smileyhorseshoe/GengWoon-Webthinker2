@@ -18,6 +18,8 @@ let birdMidImg;
 let day;
 let night;
 let base;
+// Sound assets
+
 function preload(){
     birdMidImg = loadImage("assets/yellowbird-midflap.png") ;
     day = loadImage("assets/background-day.png");
