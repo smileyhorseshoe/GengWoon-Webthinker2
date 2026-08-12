@@ -131,7 +131,7 @@ function draw() {
         
         setTimeout(() => {
           score = 0;
-          startGame = false;><><></></>
+          startGame = false;
         },3000)
       
         }
