@@ -128,6 +128,8 @@ function draw() {
         gameoverlabel.layer= 100; // make this come to front
         gameoverlabel.x = camera.x;
         noLoop();
+        
+        0
     }
     // increase score if pipe passed
     for (let pipe of pipeGroup) {
