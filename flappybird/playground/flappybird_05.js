@@ -73,28 +73,27 @@ function setup() {
     floor.collider = "static" // collidable but no move
     startScreenLabel = new Sprite(width/2,height/2,50,50,'none');
     startScreenLabel.img = startScreenImg
-}
-
-
-function draw() {
-  image(day,0,0,width,height); // image u drawing, x, y, width, height
-  if (kb.presses("space") || mouse.presses()) {
-    startGame=true;
-    startScreenLabel.visible =false;
-    bird.visible = true;
-    bird.collider = 'dynamic';
   }
-  drawScore(width/2,20,score,24,36);
-  if (startGame){
+  
+  
+  function draw() {
+    image(day,0,0,width,height); // image u drawing, x, y, width, height
+    if (kb.presses("space") || mouse.presses()) {
+      startGame=true;
+      startScreenLabel.visible =false;
+      bird.visible = true;
+      bird.collider = 'dynamic';
+    }
+    if (startGame){
       if (kb.presses("space") || mouse.presses("left")) {
         bird.sleeping =false;
         bird.vel.y = -5; // up velocity
         flapSound.play()
-      // debug info
-    }
-    text("vel.y" + bird.vel.y.toFixed(2),10,20); // text,x,y
-    text("isMoving:" + bird.isMoving, 10 ,40);
-    text("sleeping:" + bird.sleeping,10,60);
+        // debug info
+      }
+      text("vel.y" + bird.vel.y.toFixed(2),10,20); // text,x,y
+      text("isMoving:" + bird.isMoving, 10 ,40);
+      text("sleeping:" + bird.sleeping,10,60);
       if (frameCount === 1) {
         spawnPipePair();
       }
@@ -142,10 +141,11 @@ function draw() {
           startScreenLabel.visible= true;
           startScreenLabel.x = bird.x
           startScreemLabel.y = height/2-50
-
+          
         },3000)
-      
-        }
+        drawScore(width/2,20,score,24,36);
+        
+      }
     }
     // increase score if pipe passed
     for (let pipe of pipeGroup) {
@@ -160,17 +160,17 @@ function draw() {
       }
     }
   }
-
-
-
-function drawScore(x,y,score,digitWidth,digitHeight) {
-  //Clear all old digit sprites
-  scoreDigits.removeAll();
-  // make it a string so we can get each digit individually rather than a value
-  let scoreStr = str(score);
-  // total width taken up by all digits
-  let totalWidth = scoreStr.length*digitWidth;
-  // starting x coords
+  
+  
+  
+  function drawScore(x,y,score,digitWidth,digitHeight) {
+    //Clear all old digit sprites
+    scoreDigits.removeAll();
+    // make it a string so we can get each digit individually rather than a value
+    let scoreStr = str(score);
+    // total width taken up by all digits
+    let totalWidth = scoreStr.length*digitWidth;
+    // starting x coords
   let startX= x - totalWidth /2;
   // loop through each digit
   for (let i = 0; i < scoreStr.length; i++) {
@@ -198,18 +198,18 @@ function moveGroup(group,targetX,spacing) {
   }
 }
 function spawnPipePair() {
-    let gap =50;
-    let midY = random(250, height-250);
+  let gap =50;
+  let midY = random(250, height-250);
   
-    bottomPipe = new Sprite(bird.x +400,midY + gap/2 + 200,52,320,'static');
-    bottomPipe.img = pipe;
-
-    pipeGroup.add(bottomPipe);
-    pipeGroup.layer= 0// go behind other sprites
-
-    topPipe = new Sprite(bird.x + 400,midY -gap/2-200,52,320,'static');
-    topPipe.img = pipe;
-    topPipe.rotation = 180;
-    pipeGroup.add(topPipe);
-    topPipe.passed = false
+  bottomPipe = new Sprite(bird.x +400,midY + gap/2 + 200,52,320,'static');
+  bottomPipe.img = pipe;
+  
+  pipeGroup.add(bottomPipe);
+  pipeGroup.layer= 0// go behind other sprites
+  
+  topPipe = new Sprite(bird.x + 400,midY -gap/2-200,52,320,'static');
+  topPipe.img = pipe;
+  topPipe.rotation = 180;
+  pipeGroup.add(topPipe);
+  topPipe.passed = false
 }
