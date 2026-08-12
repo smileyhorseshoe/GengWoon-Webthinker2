@@ -23,6 +23,7 @@ let flapSound,pointSound,failSound;
 
 
 function preload(){
+  // preload sound
     flapSound = load
     pointSound =
     failSound =
