@@ -24,31 +24,30 @@ let flapSound,pointSound,failSound;
 
 function preload(){
   // preload sound
-    flapSound = createAudio("assets/sfx_wing.mp3"); 
-    pointSound = createAudio("assets/sfx_point.mp3"); 
-    failSound = createAudio("assets/sfx_die.mp3");  
-    // 
-    birdMidImg = loadImage("assets/yellowbird-midflap.png") ;
-    day = loadImage("assets/background-day.png");
-    night = loadImage("assets/background-night.png");
-    base = loadImage("assets/base.png");
-    flapUpImg = loadImage ("assets/yellowbird-upflap.png");
-    flapDownImg = loadImage("assets/yellowbird-downflap.png");
-    pipe = loadImage("assets/pipe-green.png");
-    gameoverimg = loadImage("assets/gameover.png");
-    startScreenImg = loadImage("assets/message.png");
-    for (let i = 0; i <10; i++) {
-      numberImages[i] = loadImage('assets/' + i + '.png');
-    }
+  flapSound = createAudio("assets/sfx_wing.mp3"); 
+  pointSound = createAudio("assets/sfx_point.mp3"); 
+  failSound = createAudio("assets/sfx_die.mp3");  
+  // 
+  birdMidImg = loadImage("assets/yellowbird-midflap.png") ;
+  day = loadImage("assets/background-day.png");
+  night = loadImage("assets/background-night.png");
+  base = loadImage("assets/base.png");
+  flapUpImg = loadImage ("assets/yellowbird-upflap.png");
+  flapDownImg = loadImage("assets/yellowbird-downflap.png");
+  pipe = loadImage("assets/pipe-green.png");
+  gameoverimg = loadImage("assets/gameover.png");
+  startScreenImg = loadImage("assets/message.png");
+  for (let i = 0; i <10; i++) {
+    numberImages[i] = loadImage('assets/' + i + '.png');
   }
-  
-  drawScore(width/2,20,score,24,36);
+}
+
 
 function setup() {
-    new Canvas(400,600);
-    // background(250)
-    //create new sprite
-    bird = new Sprite();
+  new Canvas(400,600);
+  // background(250)
+  //create new sprite
+  bird = new Sprite();
     bird.img = birdMidImg;
     bird.width=30;
     bird.height=30;
@@ -85,6 +84,7 @@ function setup() {
       bird.visible = true;
       bird.collider = 'dynamic';
     }
+    drawScore(width/2,20,score,24,36);
     if (startGame){
       if (kb.presses("space") || mouse.presses("left")) {
         bird.sleeping =false;
