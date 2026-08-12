@@ -27,9 +27,9 @@ function preload(){
     flapDownImg = loadImage("assets/yellowbird-downflap.png");
     pipe = loadImage("assets/pipe-green.png");
     gameoverimg = loadImage("assets/gameover.png");
-    startScreenImg = loadImage("assets/message.png")
+    startScreenImg = loadImage("assets/message.png");
     for (let i = 0; i <10; i++) {
-      numberImages[i] = loadImage('assets/' + i + '.png')
+      numberImages[i] = loadImage('assets/' + i + '.png');
     }
 }
 
