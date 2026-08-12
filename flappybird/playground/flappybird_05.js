@@ -19,7 +19,9 @@ let day;
 let night;
 let base;
 // Sound assets
-
+let dieSound;
+let
+let
 function preload(){
     birdMidImg = loadImage("assets/yellowbird-midflap.png") ;
     day = loadImage("assets/background-day.png");
