@@ -129,7 +129,11 @@ function draw() {
         gameoverlabel.x = camera.x;
         noLoop();
         
-        setTimeout()
+        setTimeout(() => {
+          score = 0;
+        },3000)
+
+        }
     }
     // increase score if pipe passed
     for (let pipe of pipeGroup) {
@@ -146,7 +150,7 @@ function draw() {
   }
 
 
-}
+
 function drawScore(x,y,score,digitWidth,digitHeight) {
   //Clear all old digit sprites
   scoreDigits.removeAll();
