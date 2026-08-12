@@ -40,8 +40,9 @@ function preload(){
     for (let i = 0; i <10; i++) {
       numberImages[i] = loadImage('assets/' + i + '.png');
     }
-}
-
+  }
+  
+  drawScore(width/2,20,score,24,36);
 
 function setup() {
     new Canvas(400,600);
@@ -143,7 +144,6 @@ function setup() {
           startScreenLabel.y = height/2-50
           
         },3000)
-        drawScore(width/2,20,score,24,36);
         
       }
     }
