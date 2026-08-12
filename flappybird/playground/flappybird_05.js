@@ -19,7 +19,7 @@ let day;
 let night;
 let base;
 // Sound assets
-let dieSound;
+let flapSound;
 let pointSound
 let failSound
 function preload(){
