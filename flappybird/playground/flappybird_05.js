@@ -140,7 +140,7 @@ function setup() {
           gameoverlabel.remove();
           startScreenLabel.visible= true;
           startScreenLabel.x = bird.x
-          startScreemLabel.y = height/2-50
+          startScreenLabel.y = height/2-50
           
         },3000)
         drawScore(width/2,20,score,24,36);
