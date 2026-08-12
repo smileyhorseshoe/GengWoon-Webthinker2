@@ -19,9 +19,9 @@ let day;
 let night;
 let base;
 // Sound assets
-let flapSound;
-let pointSound
-let failSound
+let flapSound,pointSound,failSound;
+
+
 function preload(){
     birdMidImg = loadImage("assets/yellowbird-midflap.png") ;
     day = loadImage("assets/background-day.png");
