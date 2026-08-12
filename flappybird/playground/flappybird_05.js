@@ -130,7 +130,6 @@ function setup() {
         noLoop();
         
         setTimeout(() => {
-          score = 0;
           startGame = false;
           pipeGroup.removeAll(); 
           bird.vel.x = 0;
@@ -142,6 +141,8 @@ function setup() {
           startScreenLabel.visible= true;
           startScreenLabel.x = bird.x
           startScreenLabel.y = height/2-50
+          loop();
+          score=0;
           
         },3000)
         
