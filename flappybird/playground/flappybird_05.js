@@ -141,7 +141,7 @@ function draw() {
           gameoverlabel.remove();
           startMessageLabel.visible();
           startScreenLabel.x = bird.x
-          startScreemLabel.y 
+          startScreemLabel.y = height/2-50
 
         },3000)
       
