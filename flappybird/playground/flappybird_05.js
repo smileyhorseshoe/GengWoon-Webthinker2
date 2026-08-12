@@ -23,7 +23,9 @@ let flapSound,pointSound,failSound;
 
 
 function preload(){
-    flapSound 
+    flapSound =
+    pointSound =
+    failSound =
     birdMidImg = loadImage("assets/yellowbird-midflap.png") ;
     day = loadImage("assets/background-day.png");
     night = loadImage("assets/background-night.png");
