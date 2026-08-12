@@ -135,7 +135,10 @@ function draw() {
           pipes.removeAll() 
           bird.vel.x = 0;
           bird.vel.y = 0;
-          b
+          bird.rotation = 0
+          bird.collider ='static'
+          bird.y = 200;
+          
         },3000)
       
         }
