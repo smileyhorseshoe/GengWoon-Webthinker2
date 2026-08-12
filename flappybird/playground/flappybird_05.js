@@ -25,7 +25,7 @@ let flapSound,pointSound,failSound;
 function preload(){
   // preload sound
     flapSound = createAudio("assets/sfx_wing.mp3")
-    pointSound =
+    pointSound = createAudio("flappybird/assets/sfx_point.mp3")
     failSound =
     birdMidImg = loadImage("assets/yellowbird-midflap.png") ;
     day = loadImage("assets/background-day.png");
