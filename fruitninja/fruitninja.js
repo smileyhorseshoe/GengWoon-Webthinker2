@@ -41,5 +41,6 @@ function draw() {
     setInterval(1); //=wait(1)
 }
 function spawnPeach() {
-    // create
+    // create peach sprite
+    
 }
