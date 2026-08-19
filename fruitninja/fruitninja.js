@@ -17,6 +17,7 @@ function setup() {
   fill("red")
   textSize(50)
   text("Framecount:" + framecount, 10,40)
+  if(frameCount)
 // Sprites
 watermelon = new Sprite();
 watermelon.img = watermelonWhole;
