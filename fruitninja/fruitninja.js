@@ -14,6 +14,8 @@ function preload(){
 function setup() {
   new Canvas(800,600);
   world.gravity.y = 10
+  fill("red")
+  textSize(50)
 // Sprites
 watermelon = new Sprite();
 watermelon.img = watermelonWhole;
