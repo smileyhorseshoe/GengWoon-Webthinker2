@@ -18,6 +18,8 @@ function setup() {
 peach = new Sprite();
 peach.img = peachWhole;
 peach.width = 50;
+peach.height=50;
+peach.mass=2;
 
 }
 
