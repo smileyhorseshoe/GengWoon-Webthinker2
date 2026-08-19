@@ -35,5 +35,5 @@ watermelon.collider="dynamic"
 
 function draw() {
     image(background,0,0,width,height);
-    set8
+    setInterval(1); //
 }
