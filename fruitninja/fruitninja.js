@@ -15,14 +15,6 @@ function setup() {
   new Canvas(800,600);
   world.gravity.y = 10
 // Sprites
-peach = new Sprite();
-peach.img = peachWhole;
-peach.width = 100;
-peach.height=100;
-peach.scale =peach.width/peachWhole.width;
-peach.mass=2;
-peach.drag=0.02 
-peach.collider="dynamic"
 watermelon = new Sprite();
 watermelon.img = watermelonWhole;
 watermelon.width=100;
@@ -42,5 +34,13 @@ function draw() {
 }
 function spawnPeach() {
     // create peach sprite
-
+    peach = new Sprite();
+    peach.img = peachWhole;
+    peach.width = 100;
+    peach.height=100;
+    peach.scale =peach.width/peachWhole.width;
+    peach.mass=2;
+    peach.drag=0.02 
+    peach.collider="dynamic"
+    
 }
