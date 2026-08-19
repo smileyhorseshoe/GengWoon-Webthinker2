@@ -24,6 +24,9 @@ peach.mass=2;
 peach.drag=0.02 
 peach.collider="dynamic"
 watermelon = new Sprite();
+watermelon.img = watermelonwhole;
+watermelon.width=200
+watermelon.height=200
 
 }
 
