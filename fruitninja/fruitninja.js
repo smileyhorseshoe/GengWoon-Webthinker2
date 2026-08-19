@@ -32,7 +32,8 @@ watermelon.mass=2
 watermelon.drag=0.02
 watermelon.collider="dynamic"
 // group
-peachGroup =n
+peachGroup = new Group();
+
 }
 
 function draw() {
