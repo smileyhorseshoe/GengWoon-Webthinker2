@@ -16,7 +16,7 @@ function setup() {
   world.gravity.y = 10
   fill("red")
   textSize(50)
-  text("Framecount:" + framecount, 10,40)
+  text("Framecount:" + frameCount, 10,40)
   if(frameCount ) {
     spawnPeach();
   }
