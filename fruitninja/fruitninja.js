@@ -30,7 +30,7 @@ watermelon.height=300;
 watermelon.scale=watermelon.width/watermelonWhole.width;
 watermelon.mass=2
 watermelon.drag=0.02
-watmerlon.collider="dynamic"
+watermelon.collider="dynamic"
 }
 
 function draw() {
