@@ -19,10 +19,11 @@ peach = new Sprite();
 peach.img = peachWhole;
 peach.width = 200;
 peach.height=200;
-peach.scale =peach.width/;
+peach.scale =peach.width/peachWhole.width;
 peach.mass=2;
 peach.drag=0.02 
 peach.collider="dynamic"
+watermelon = new Sprite()
 }
 
 function draw() {
