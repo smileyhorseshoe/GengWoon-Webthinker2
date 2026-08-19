@@ -37,7 +37,6 @@ peachGroup = new Group();
 function draw() {
     image(background,0,0,width,height);
     spawnPeach()
-    setInterval(1); //=wait(1)
 }
 function spawnPeach() {
     // create peach sprite
