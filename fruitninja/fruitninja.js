@@ -43,5 +43,5 @@ function draw() {
 function spawnPeach() {
     // create peach sprite
     let peach = new peachGroup.Sprite()
-    p
+    peach.img = peachWhole;
 }
