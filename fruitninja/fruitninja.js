@@ -23,7 +23,8 @@ peach.scale =peach.width/peachWhole.width;
 peach.mass=2;
 peach.drag=0.02 
 peach.collider="dynamic"
-watermelon = new Sprite()
+watermelon = new Sprite();
+
 }
 
 function draw() {
