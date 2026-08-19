@@ -19,7 +19,7 @@ peach = new Sprite();
 peach.img = peachWhole;
 peach.width = 50;
 peach.height=50;
-
+peach.scale =100/peach.width;
 peach.mass=2;
 peach.drag=0.02 
 peach.collider="dynamic"
