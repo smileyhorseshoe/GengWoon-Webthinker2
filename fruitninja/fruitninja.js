@@ -17,7 +17,7 @@ function setup() {
   fill("red")
   textSize(50)
   text("Framecount:" + frameCount, 10,40)
-  if(frameCount ) {
+  if(frameCount%60 ) {
     spawnPeach();
   }
 // Sprites
@@ -36,7 +36,6 @@ peachGroup = new Group();
 
 function draw() {
     image(background,0,0,width,height);
-    spawnPeach()
 }
 function spawnPeach() {
     // create peach sprite
