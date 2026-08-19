@@ -17,16 +17,16 @@ function setup() {
 // Sprites
 peach = new Sprite();
 peach.img = peachWhole;
-peach.width = 200;
-peach.height=200;
+peach.width = 100;
+peach.height=100;
 peach.scale =peach.width/peachWhole.width;
 peach.mass=2;
 peach.drag=0.02 
 peach.collider="dynamic"
 watermelon = new Sprite();
 watermelon.img = watermelonWhole;
-watermelon.width=300;
-watermelon.height=300;
+watermelon.width=100;
+watermelon.height=100;
 watermelon.scale=watermelon.width/watermelonWhole.width;
 watermelon.mass=2
 watermelon.drag=0.02
