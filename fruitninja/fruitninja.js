@@ -3,11 +3,11 @@ let background;
 let watermelon;
 let peach;
 let peachhole
-let watermelonhole
+let watermelonwhole
 function preload(){
     background = loadImage('assets/dojobackground.png');
-    watermelonhole = loadImage('assets/watermelonwhole.png');
-    peach = loadImage('peachwhole.png')
+    watermelonwhole = loadImage('assets/watermelonwhole.png');
+    peachwhole = loadImage('peachwhole.png')
 
 }
 
