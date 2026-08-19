@@ -17,7 +17,9 @@ function setup() {
   fill("red")
   textSize(50)
   text("Framecount:" + framecount, 10,40)
-  if(frameCount)
+  if(frameCount ) {
+    spawnPeach()
+  }
 // Sprites
 watermelon = new Sprite();
 watermelon.img = watermelonWhole;
