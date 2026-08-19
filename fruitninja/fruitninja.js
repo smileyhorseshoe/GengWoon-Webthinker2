@@ -1,8 +1,10 @@
 // write your codes here
 let background;
-
+let watermelon;
+let peach;
 function preload(){
     background = loadImage('assets/dojobackground.png');
+    watermelon = 
 }
 
 function setup() {
