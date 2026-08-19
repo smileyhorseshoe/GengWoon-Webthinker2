@@ -2,7 +2,7 @@
 let background;
 
 function preload(){
-    background = loadImage('assets/dojobackground.png')
+    background = loadImage('assets/dojobackground.png');
 }
 
 function setup() {
@@ -11,5 +11,5 @@ function setup() {
 }
 
 function draw() {
-    image(background,0,0,width,height)
+    image(background,0,0,width,height);
 }
