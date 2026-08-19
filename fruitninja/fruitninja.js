@@ -16,6 +16,7 @@ function setup() {
   world.gravity.y = 10
   fill("red")
   textSize(50)
+  text("Framecount =")
 // Sprites
 watermelon = new Sprite();
 watermelon.img = watermelonWhole;
