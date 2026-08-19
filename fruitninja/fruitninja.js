@@ -16,7 +16,7 @@ function setup() {
   world.gravity.y = 10
 // Sprites
 peach = new Sprite();
-peach.image
+peach.img
 }
 
 function draw() {
