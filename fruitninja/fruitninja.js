@@ -17,7 +17,7 @@ function setup() {
   fill("red")
   textSize(50)
   text("Framecount:" + frameCount, 10,40)
-  if(frameCount%60 ) {
+  if(frameCount%60==0 ) {
     spawnPeach();
   }
 // Sprites
