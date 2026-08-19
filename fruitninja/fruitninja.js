@@ -18,7 +18,7 @@ function setup() {
   textSize(50)
   text("Framecount:" + framecount, 10,40)
   if(frameCount ) {
-    spawnPeach()
+    spawnPeach();
   }
 // Sprites
 watermelon = new Sprite();
@@ -26,9 +26,9 @@ watermelon.img = watermelonWhole;
 watermelon.width=100;
 watermelon.height=100;
 watermelon.scale=watermelon.width/watermelonWhole.width;
-watermelon.mass=2
-watermelon.drag=0.02
-watermelon.collider="dynamic"
+watermelon.mass=2;
+watermelon.drag=0.02;
+watermelon.collider="dynamic";
 // group
 peachGroup = new Group();
 
@@ -48,7 +48,7 @@ function spawnPeach() {
     peach.height=100;
     peach.scale =peach.width/peachWhole.width;
     peach.mass=2;
-    peach.drag=0.02 
-    peach.collider="dynamic"
+    peach.drag=0.02 ;
+    peach.collider="dynamic";
     
 }
