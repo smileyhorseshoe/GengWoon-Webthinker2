@@ -28,7 +28,9 @@ watermelon.img = watermelonwhole;
 watermelon.width=200;
 watermelon.height=200;
 watermelon.scale=watermelon.width/watermelonWhole.width;
-watermel
+watermelon.mass=2
+watermelon.drag=0.02
+watmerlon.collider="dynamic"
 }
 
 function draw() {
