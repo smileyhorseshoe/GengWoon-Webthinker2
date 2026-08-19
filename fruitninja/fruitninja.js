@@ -2,7 +2,7 @@
 let background;
 let watermelon;
 let peach;
-let peachhole
+let peachwhole
 let watermelonwhole
 function preload(){
     background = loadImage('assets/dojobackground.png');
@@ -15,7 +15,7 @@ function setup() {
   new Canvas(800,600);
   world.gravity.y = 10
 // Sprites
-
+peach = new Sprite
 }
 
 function draw() {
