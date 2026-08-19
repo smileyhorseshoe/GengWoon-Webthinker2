@@ -2,7 +2,7 @@
 let background;
 let watermelon;
 let peach;
-let peachwhole;
+let peachWhole;
 let watermelonWhole;
 function preload(){
     background = loadImage('assets/dojobackground.png');
