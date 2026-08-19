@@ -6,10 +6,10 @@ function preload(){
 }
 
 function setup() {
-  new Canvas(400,600);
+  new Canvas(800,400);
   
 }
 
 function draw() {
-    image(background,)
+    image(background,0,0,width,height)
 }
