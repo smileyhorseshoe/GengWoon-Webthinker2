@@ -21,7 +21,7 @@ peach.width = 50;
 peach.height=50;
 peach.mass=2;
 peach.drag=0.02
-peach.collider=dynamic
+peach.collider="dynamic"
 }
 
 function draw() {
