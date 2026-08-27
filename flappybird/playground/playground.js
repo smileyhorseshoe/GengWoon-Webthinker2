@@ -82,6 +82,8 @@ function drawScore() {
         scoreGroup.collider= "none"
 
     }
+    // adjust digits
+    moveGroup()
 }
 
 function moveGroup() {
