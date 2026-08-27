@@ -83,7 +83,7 @@ function drawScore() {
 
     }
     // adjust digits
-    moveGroup()
+    moveGroup(  )
 }
 
 function moveGroup() {
