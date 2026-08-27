@@ -91,5 +91,5 @@ function moveGroup() {
 
     let centerSingle = 25/2;
     let difference= centerScoreGroup - centerSingle;
-
+    for (let one of scoreGroup)
 }
