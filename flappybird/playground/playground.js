@@ -56,7 +56,7 @@ function draw() {
 
     score = constrain(score,0,999); // keep the variable within the digits
     drawScore();
-    camera.x
+    camera.x+=3
 }
 
 function drawScore() {
