@@ -78,6 +78,7 @@ function drawScore() {
         offset = offset + 25;
         scoreGroup.add(s);
         scoreGroup.layer =1000 // display front
+        // note for layer - higher number = more front it is, starts from *
         scoreGroup.collider=none
 
     }
