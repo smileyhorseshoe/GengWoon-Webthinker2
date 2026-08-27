@@ -79,7 +79,7 @@ function drawScore() {
         scoreGroup.add(s);
         scoreGroup.layer =1000; // display front
         // note for layer - higher number = more front it is, starts from 0*
-        scoreGroup.collider=
+        scoreGroup.collider= "none"
 
     }
 }
