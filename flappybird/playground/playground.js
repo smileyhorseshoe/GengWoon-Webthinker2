@@ -77,6 +77,8 @@ function drawScore() {
 
         offset = offset + 25;
         scoreGroup.add(s);
+        scoreGroup.layer =1000
+        
     }
 }
 
