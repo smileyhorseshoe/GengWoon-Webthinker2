@@ -106,7 +106,7 @@ function splitFruit(x, y, fruitData) {
     left.vel.y = random(-5, -2);
     left.rotationSpeed = -5;
     left.life = 60; // remove after 30 frames
-    left.collider = "none"; // dynamic -- yes gravity no collision / static - no gravity and yes collision / none 
+    left.collider = "none"; // dynamic -- yes gravity and yes collision / static - no gravity and yes collision / none - no gravity a
 
     // create right half
     let right = new fruitHalves.Sprite(x + 10, y, 40, 40);
