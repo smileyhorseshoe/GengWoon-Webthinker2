@@ -48,6 +48,9 @@ function preload() {
         half1: loadImage("assets/apple2.png"),
         half2: loadImage("assets/apple2.png"),
     }
+    let orange = {
+        whole:loadImage("assets/orange1.png")
+    }
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple];
 
