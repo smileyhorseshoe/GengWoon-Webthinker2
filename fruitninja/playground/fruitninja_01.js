@@ -23,8 +23,9 @@ function preload() {
     }
     let strawberry = {
         whole: loadImage("assets/strawberry1.png"),
-        half1: loadImage("assets/watermelonhalf.png"),
-        half2: loadImage("assets/watermelonhalf.png"),
+        half1: loadImage("assets/strawberry3.png"),
+        half2: loadImage("assets/strawberry3.png"),
+        
 
     }
     
