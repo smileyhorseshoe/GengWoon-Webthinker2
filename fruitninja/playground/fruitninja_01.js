@@ -29,7 +29,9 @@ function preload() {
 
     }
     let corn = {
-        whole: loadImage("assets/corn4.png")
+        whole: loadImage("assets/corn4.png"),
+        half1: loadImage("assets/corn5.png"),
+        half2: loadImage("assets/corn5.png"),
     }
     
     // store the fruit objects into an array
