@@ -25,12 +25,12 @@ function preload() {
         whole: loadImage("assets/strawberry1.png"),
         half1: loadImage("assets/strawberry3.png"),
         half2: loadImage("assets/strawberry3.png"),
-        
+
 
     }
     
     // store the fruit objects into an array
-    fruitTypes = [peach, watermelon];
+    fruitTypes = [peach, watermelon,strawberry];
 
 }
 
