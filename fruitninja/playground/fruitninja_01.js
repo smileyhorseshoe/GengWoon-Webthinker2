@@ -35,7 +35,7 @@ function preload() {
     }
     
     // store the fruit objects into an array
-    fruitTypes = [peach, watermelon,strawberry];
+    fruitTypes = [peach, watermelon,strawberry,corn];
 
 }
 
