@@ -111,6 +111,7 @@ function splitFruit(x, y, fruitData) {
     left.life = 60; // remove after 30 frames
     left.collider = "dynamic"; // dynamic -- yes gravity and yes collision / static - no gravity and yes collision / none - no gravity and no collision
     left.overlaps(allSprites);  // disable collision 
+    left.layer= 1;
     // create right half
     let right = new fruitHalves.Sprite(x + 10, y, 40, 40);
     right.img = fruitData.half2;
@@ -120,4 +121,5 @@ function splitFruit(x, y, fruitData) {
     right.life = 60; // remove after 30 frames
     right.collider = "dynamic"; // dynamic -- yes gravity and yes collision / static - no gravity and yes collision / none - no gravity and no collision
     right.overlaps(allSprites); // disable collision 
+    right.layer=1;
 }
