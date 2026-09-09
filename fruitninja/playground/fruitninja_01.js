@@ -28,6 +28,7 @@ function preload() {
 
 
     }
+    let corn =
     
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry];
