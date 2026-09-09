@@ -36,7 +36,7 @@ function preload() {
     let dragonfruit = {
         whole: loadImage("assets/dragonfruit1.png"),
         half1: loadImage("assets/dragonfruit2.png"),
-        half2: loadImage("assets/dragonfruit2.png")
+        half2: loadImage("assets/dragonfruit2.png"),
     }
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn];
@@ -48,7 +48,8 @@ function setup() {
     new Canvas(800, 600);
     world.gravity.y = 10;
     fruitGroup = new Group();
-    fruitGroup.w = 50
+    fruitGroup.w = 50;
+    fruitGroup.h = 50;
     fruitHalves = new Group(); // group for fruit halves
 }
 
