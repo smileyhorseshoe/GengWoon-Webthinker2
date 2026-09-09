@@ -115,5 +115,6 @@ function splitFruit(x, y, fruitData) {
     right.vel.y = random(-5, -2);
     right.rotationSpeed = 5;
     right.life = 60; // remove after 30 frames
-    
+    right.collider = "dynamic"; // dynamic -- yes gravity and yes collision / static - no gravity and yes collision / none - no gravity and no collision
+    right.overlaps(allSprites);
 }
