@@ -97,6 +97,7 @@ function spawnFruit() {
     fruit.friction = 0; // no friction
     fruit.collider = "dynamic"; // dynamic -- yes gravity and yes collision / static - no gravity and yes collision / none - no gravity and no collision
     fruit.overlaps(allSprites); // disable collision
+    fruit.layer = 2; // 
 }
 
 // split a fruit into two halves and animate them
