@@ -144,8 +144,8 @@ function draw() {
 
     } else if (gameState === "playing") {
 
-        
-    }
+
+    }else if (gameState === "gameOver")
 
     
     // // Debug text
