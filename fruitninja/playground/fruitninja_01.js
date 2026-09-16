@@ -120,11 +120,13 @@ function draw() {
     // // Debug text
     // fill("#dadada") // Text colour
     // textSize(50);
-    // text("frameCount:"+ frameCount, 10, 40);4
+    // text("frameCount:"+ frameCount, 10, 40);
 
     fill("#dadada") // Text colour
     textSize(50);
-    text("Score:"+ score, 10, 40);
+        // text("frameCount:"+ frameCount, 10, 40);
+
+    text("Score:"+ score, 10, 100);
 
 
     // call spawnFruit function
