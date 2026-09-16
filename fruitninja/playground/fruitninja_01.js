@@ -171,7 +171,7 @@ function splitFruit(x, y, fruitData) {
     left.overlaps(allSprites);  // disable collision 
     left.layer= 1;
     // sizefix - scalemod
-    left
+    left.scale = fruitData.scaleMod;
     // create right half
     let right = new fruitHalves.Sprite(x + 10, y, 40, 40);
     right.img = fruitData.half2;
