@@ -143,7 +143,7 @@ function preload() {
     }
 
     // store the fruit objects into an array
-    fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato,pumpkin,tomato,banana,papaya,paparika];
+    fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato,pumpkin,tomato,banana,papaya,];
     
 }
 
