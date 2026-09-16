@@ -5,6 +5,7 @@ let fruitTypes  = []; // store fruit image objects
 let trail;
 let fruitHalves; // new group for sliced halves
 let score=0;
+let missed = 0;
 
 function preload() {
     // Load image
