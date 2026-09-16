@@ -138,7 +138,8 @@ function setup() {
 function draw() {
     clear();
     image(background, 0, 0, width, height); // image(image, x, y, width, height)
-
+    // draw depending on gameState
+    if(gameState === "start")
     // // Debug text
     // fill("#dadada") // Text colour
     // textSize(50);
@@ -148,6 +149,7 @@ function draw() {
     text("Score:"+ score, 10, 40);
     fill("rgba(136,9,9,0.5") // ("rgba(red,green,blue,alpba)") alpha=  transparency the lower the number the more transparent it is. fully opaque is one can also use slider to control
     text("Missed: " + missed,10,100)
+
 
     // check if fruits fall 
     missedFruit();
