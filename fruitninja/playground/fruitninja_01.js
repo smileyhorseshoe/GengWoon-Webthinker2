@@ -157,7 +157,15 @@ function preload() {
         scaleMod:2.5,
     }
     let onion = {
-        whole:
+        whole:loadImage("assets/onion1.png"),
+        half1:loadImage("assets/onion3.png"),
+        half2:loadIMage("assets/onion3.png"),
+        
+    }
+    let redOnion = {
+        whole:loadImage("assets/red_onion1.png"),
+        half1:loadImage("assets/red_onion3.png"),
+        half2:loadImage("assets/redonion3.png"),
     }
 
     // store the fruit objects into an array
