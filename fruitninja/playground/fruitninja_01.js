@@ -121,7 +121,7 @@ function preload() {
         scaleMod:2.5,
     }
     let tomato = {
-        
+        whole
     }
 
     // store the fruit objects into an array
