@@ -201,6 +201,7 @@ function draw() {
         fill("rgb(100,255,100)") // text colour
         textSize(100)
         stroke("rgb(0,0,0)")
+        strokeWidth(10)
         textAlign(CENTER,CENTER); // (horizontal,vertical) - LEFT, RIGHT, TOP, BOTTOM note it is in da american spelling
         // start menu
         text("fruitNinja", width/2,height /2); // string, xpos, ypos
