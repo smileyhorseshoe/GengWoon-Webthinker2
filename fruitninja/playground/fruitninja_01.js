@@ -13,6 +13,8 @@ function preload() {
         whole: loadImage("assets/peachwhole.png"),
         half1: loadImage("assets/peachhalf.png"),
         half2: loadImage("assets/peachhalf2.png"),
+                // add scaleMod
+        scaleMod:1
     }
 
     // declare the watermelon object
@@ -20,11 +22,15 @@ function preload() {
         whole: loadImage("assets/watermelonwhole.png"),
         half1: loadImage("assets/watermelonhalf.png"),
         half2: loadImage("assets/watermelonhalf.png"),
+                // add scaleMod
+        scaleMod:1
     }
     let strawberry = {
         whole: loadImage("assets/strawberry1.png"),
         half1: loadImage("assets/strawberry3.png"),
         half2: loadImage("assets/strawberry3.png"),
+                // add scaleMod
+        scaleMod:2
 
 
     }
@@ -32,33 +38,46 @@ function preload() {
         whole: loadImage("assets/corn4.png"),
         half1: loadImage("assets/corn5.png"),
         half2: loadImage("assets/corn5.png"),
+        // add scaleMod
+        scaleMod:2
     }
     let dragonfruit = {
         whole: loadImage("assets/dragonfruit1.png"),
         half1: loadImage("assets/dragonfruit2.png"),
         half2: loadImage("assets/dragonfruit2.png"),
+        // add scaleMod
+        scaleMod:2
     }
     let kiwi = {
         whole: loadImage("assets/kiwi1.png"),
         half1: loadImage("assets/kiwi2.png"),
         half2: loadImage("assets/kiwi2.png"),
+        // add scaleMod
+        scaleMod:2,
     }
     let apple = {
         whole: loadImage("assets/apple1.png"),
         half1: loadImage("assets/apple2.png"),
         half2: loadImage("assets/apple2.png"),
+        // add scaleMod
+        scaleMod:2,
     }
     let orange = {
         whole:loadImage("assets/orange1.png"),
         half1:loadImage("assets/orange2.png"),
         half2:loadImage("assets/orange2.png"),
+        // add scaleMod
+        scaleMod:2,
     }
     let garlic = {
-        whole:loadImage("assets/garlic1.png")
+        whole:loadImage("assets/garlic1.png"),
+        half1:loadImage("assets/garlic2.png"),
+        half2:loadImage("assets/garlic2.png"),
+        // add scaleMod
+        scaleMod:2,
     }
-    // add scaleMod
     // store the fruit objects into an array
-    fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange];
+    fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic];
     
 }
 
@@ -131,6 +150,8 @@ function spawnFruit() {
     fruit.type = fruitData; // store reference to its type i.e. peach or watermelon
     fruit.vel.y = random(-10, -14); // shoot upward at random velocity. Adjust to try!
     fruit.vel.x = random(-2, 2); // sideways curve. Adjust to try!
+    // size fix -scalemod
+    fruit.scale = scaleMod;
     fruit.friction = 0; // no friction
     fruit.collider = "dynamic"; // dynamic -- yes gravity and yes collision / static - no gravity and yes collision / none - no gravity and no collision
     fruit.overlaps(allSprites); // disable collision
