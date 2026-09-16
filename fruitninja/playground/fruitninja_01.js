@@ -142,9 +142,11 @@ function preload() {
         scaleMod:2.5,
     }
     let paparika = {
-       whole:loadImage("assets/paparika1.png") 
-       half1:loadImage("assets/paparika3.png")
-       half2:loadImage("assets/paparika3.png")
+       whole:loadImage("assets/paparika1.png"),
+       half1:loadImage("assets/paparika3.png"),
+       half2:loadImage("assets/paparika3.png"),
+    //    add scaleMod
+       scaleMod:2.5
     }
 
     // store the fruit objects into an array
