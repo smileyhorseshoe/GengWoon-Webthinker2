@@ -162,10 +162,10 @@ function sliceFruit(){
 
         // calculate distance between mouse and fruit
         let d = dist(mouse.x, mouse.y, fruit.x, fruit.y);
-        // fri
+        // fruit is sliced
         if (d < ((fruit.d / 2) + 5)) {
             fruit.sliced = true; // prevent repeat slicing
-
+            score+=1
             const fx = fruit.x; // x coordinate for the sliced food
             const fy = fruit.y; // y coordinate for the sliced food
 
