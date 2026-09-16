@@ -106,13 +106,13 @@ function preload() {
         // add scaleMod
         scaleMod:2.5,
     }
-    // let pineapple = {
-    //     whole:loadImage("assets/pineapple1"),
-    //     half1:loadImage("assets/pineapple3"),
-    //     half2:loadImage("assets/pineapple3"),
-    //     // add scaleMod
-    //     scaleMod:2.5,
-    // }
+    let pineapple = {
+        whole:loadImage("assets/pineapple1"),
+        half1:loadImage("assets/pineapple2"),
+        half2:loadImage("assets/pineapple3"),
+        // add scaleMod
+        scaleMod:2.5,
+    }
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear, ];
     
