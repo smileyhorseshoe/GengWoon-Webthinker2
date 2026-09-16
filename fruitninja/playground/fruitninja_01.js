@@ -133,7 +133,7 @@ function draw() {
     fill("#dadada") // Text colour
     textSize(50);
     text("frameCount:"+ frameCount, 10, 40);
-
+    fill("")
     text("Score:"+ score, 10, 100);
 
 
