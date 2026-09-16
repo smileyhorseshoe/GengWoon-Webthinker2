@@ -131,7 +131,7 @@ function draw() {
     // text("frameCount:"+ frameCount, 10, 40);
 
     fill("rgb(0,255,0)")
-    text("Score:"+ score, 10, 100);
+    text("Score:"+ score, 10, 40);
     fill("rgba(136,9,9,0.5") // ("rgba(red,green,blue,alpba)") alpha=  transparency the lower the number the more transparent it is. fully opaque is one can also use slider to control
     text("Missed: " + missed,10,100)
 
