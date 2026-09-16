@@ -142,7 +142,7 @@ function preload() {
         scaleMod:2.5,
     }
     let coconut = {
-        whole:loadImage()
+        whole:loadImage("assets/coconut1.png")
     }
 
     // store the fruit objects into an array
