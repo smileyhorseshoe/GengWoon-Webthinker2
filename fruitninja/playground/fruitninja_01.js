@@ -54,9 +54,10 @@ function preload() {
         half2:loadImage("assets/orange2.png"),
     }
     let garlic = {}
+    // add scaleMod
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange];
-    // add scaleMod
+    
 }
 
 function setup() {
