@@ -178,7 +178,8 @@ function preload() {
         scaleMod:2.5,
     }
     let starfruit = {
-        whole:loadImage("assets/starfruit1.png")
+        whole:loadImage("assets/starfruit1.png"),
+        half1:loadImage("assets/starfruit2.png")
     }
 
     // store the fruit objects into an array
