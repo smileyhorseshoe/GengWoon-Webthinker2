@@ -141,6 +141,9 @@ function draw() {
     // draw depending on gameState
     if(gameState === "start"){
 
+
+    } else if (gameState === "playing") {
+
         
     }
 
