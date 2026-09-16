@@ -171,8 +171,11 @@ function preload() {
         scaleMod:2.5,
     }
     let mangoSteen = {
-        whole:loadImage("assets/mangosteen1.png")
-        half1:loadImage("assets/mangosteen2.png")
+        whole:loadImage("assets/mangosteen1.png"),
+        half1:loadImage("assets/mangosteen2.png"),
+        half2:loadIMage("assets/mangosteen3.png"),
+        // add scaleMod
+        scaleMod:2.5,
     }
 
     // store the fruit objects into an array
