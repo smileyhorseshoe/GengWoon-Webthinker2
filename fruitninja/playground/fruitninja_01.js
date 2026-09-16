@@ -124,7 +124,7 @@ function draw() {
 
     fill("#dadada") // Text colour
     textSize(50);
-    text("Score:"+ Score, 10, 40);
+    text("Score:"+ score, 10, 40);
 
 
     // call spawnFruit function
