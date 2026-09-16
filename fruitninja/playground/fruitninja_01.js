@@ -163,7 +163,7 @@ function draw() {
     // draw depending on gameState
     if(gameState === "start"){
         // start menu
-        if (kb.presses("a")) {
+        if (kb.presses(" ")) {
             gameState = "playing"
         }
         
