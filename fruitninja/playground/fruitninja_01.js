@@ -77,7 +77,8 @@ function preload() {
         scaleMod:2.5,
     }
     let lemon = {
-        whole:
+        whole:loadImage("assets/lemon1.png"),
+        half1:loadImage("assets/lemon2.png")
     }
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic];
