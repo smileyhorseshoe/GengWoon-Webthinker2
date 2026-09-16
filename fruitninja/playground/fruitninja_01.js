@@ -135,7 +135,7 @@ function draw() {
     text("frameCount:"+ frameCount, 10, 40);
     fill("rgb(0,255,0)")
     text("Score:"+ score, 10, 100);
-    fill("")
+    fill("rgba")
     text("Missed: " + missed,10,100)
 
 
