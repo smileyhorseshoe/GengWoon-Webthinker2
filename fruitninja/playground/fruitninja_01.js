@@ -159,7 +159,7 @@ function preload() {
     let onion = {
         whole:loadImage("assets/onion1.png"),
         half1:loadImage("assets/onion3.png"),
-        half2:loadIMage("assets/onion3.png"),
+        half2:loadImage("assets/onion3.png"),
         // add scaleMod
         scaleMod:2.5,
     }
