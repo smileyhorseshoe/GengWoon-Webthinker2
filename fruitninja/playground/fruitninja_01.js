@@ -184,6 +184,11 @@ function preload() {
         // add scaleMOd
         scaleMod:2.5
     }
+    let cherry = {
+        whole:loadImage("assets/cherry2.png")
+        half1:loadImage("assets/cherry1.png")
+        half2:loadImage("assets/cherry1.png")
+    }
 
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato,pumpkin,tomato,banana,papaya,coconut,fig,onion,redOnion,mangoSteen,starfruit];
