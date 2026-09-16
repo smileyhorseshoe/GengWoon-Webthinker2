@@ -134,6 +134,7 @@ function preload() {
         // add scaleMod
         scaleMod:2.5,
     }
+    let papaya
 
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato,pumpkin,tomato,banana];
