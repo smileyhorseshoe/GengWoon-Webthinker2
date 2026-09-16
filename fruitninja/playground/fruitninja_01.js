@@ -106,7 +106,10 @@ function preload() {
         // add scaleMod
         scaleMod:2.5,
     }
-    let pineapple
+    let pineapple = {
+        whole:loadImage("assets/pineapple1")
+        half1:loadImage("assets/pineapple2")
+    }
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear];
     
@@ -223,5 +226,5 @@ function splitFruit(x, y, fruitData) {
     right.layer=1;
 }
 function missedFruit() {
-    
+
 }
