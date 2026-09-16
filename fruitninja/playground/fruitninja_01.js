@@ -202,7 +202,7 @@ function draw() {
         textSize(100)
         textAlign(CENTER,CENTER); // (horizontal,vertical) - LEFT, RIGHT, TOP, BOTTOM note it is in da american spelling
         // start menu
-        text("fruitNinja", width/2,height /2)
+        text("fruitNinja", width/2,height /2); // string, xpos, ypos
         if (kb.presses(" ") || mouse.presses()) {
             gameState = "playing"
         }
