@@ -163,10 +163,15 @@ function draw() {
     // draw depending on gameState
     if(gameState === "start"){
         // start menu
+        if (kb.presses(" ")) {
+            gameState = "playing"
+        }
+        
         
 
         
         return;
+    
     } else if (gameState === "playing") {
         // Gameplay
          // // Debug text
