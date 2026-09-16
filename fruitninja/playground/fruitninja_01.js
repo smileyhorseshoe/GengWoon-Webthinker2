@@ -78,7 +78,7 @@ function draw() {
     text("frameCount:"+ frameCount, 10, 40);
 
     // call spawnFruit function
-    if (frameCount % 0 == 0) {
+    if (frameCount % 20 == 0) {
         // 60 frames =1 second
         spawnFruit();
     }
