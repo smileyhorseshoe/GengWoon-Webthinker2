@@ -137,7 +137,7 @@ function draw() {
 
 
     // call spawnFruit function
-    if (frameCount % 20 == 0) {
+    if (frameCount % 2 == 0) {
         // 60 frames =1 second
         spawnFruit();
     }
@@ -165,7 +165,7 @@ function sliceFruit(){
         // fruit is sliced
         if (d < ((fruit.d / 2) + 5)) {
             fruit.sliced = true; // prevent repeat slicing
-            score+=1
+            score+=1 // increment score(shorthand)
             const fx = fruit.x; // x coordinate for the sliced food
             const fy = fruit.y; // y coordinate for the sliced food
 
