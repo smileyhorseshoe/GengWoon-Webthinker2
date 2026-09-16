@@ -6,7 +6,7 @@ let trail;
 let fruitHalves; // new group for sliced halves
 let score=0;
 let missed = 0;
-let gameState="start"; // "start", "playing", "gameover"
+let gameState="playing"; // "start", "playing", "gameover"
 function preload() {
     // Load image
     background = loadImage("assets/dojobackground.png");
@@ -121,9 +121,11 @@ function preload() {
         scaleMod:2.5,
     }
     let redOnion = {
-        whole:loadImage("assets/red_onion1.png")
-        half1:loadImage("assets/red_onion2.png")
-        half2:loadImage("assets/red_onion2.png")
+        whole:loadImage("assets/red_onion1.png"),
+        half1:loadImage("assets/red_onion2.png"),
+        half2:loadImage("assets/red_onion2.png"),
+        // add scaleMod
+        scaleMod:2.5,
     }
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato,pumpkin,redOnion];
