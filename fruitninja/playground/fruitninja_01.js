@@ -185,7 +185,7 @@ function draw() {
         return;
     }
 
-    
+}
    
 // check if any fruit is sliced by the mouse
 function sliceFruit(){
@@ -211,7 +211,7 @@ function sliceFruit(){
         }
     }
 }
-}
+
 function spawnFruit() {
     let fruitData = random(fruitTypes); // pick one at random
     let randomX = random(300, 500); // random X to spawn. Rem that canvas width is 800
