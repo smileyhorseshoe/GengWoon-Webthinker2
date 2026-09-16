@@ -170,6 +170,8 @@ function splitFruit(x, y, fruitData) {
     left.collider = "dynamic"; // dynamic -- yes gravity and yes collision / static - no gravity and yes collision / none - no gravity and no collision
     left.overlaps(allSprites);  // disable collision 
     left.layer= 1;
+    // sizefix - scalemod
+    left
     // create right half
     let right = new fruitHalves.Sprite(x + 10, y, 40, 40);
     right.img = fruitData.half2;
