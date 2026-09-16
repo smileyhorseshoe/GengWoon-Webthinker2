@@ -108,7 +108,7 @@ function preload() {
     }
     let pineapple = {
         whole:loadImage("assets/pineapple1"),
-        half1:loadImage("assets/pineapple2"),
+        half1:loadImage("assets/pineapple3"),
         half2:loadImage("assets/pineapple3"),
         // add scaleMod
         scaleMod:2.5,
