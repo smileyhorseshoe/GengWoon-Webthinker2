@@ -163,6 +163,7 @@ function draw() {
     // draw depending on gameState
     if(gameState === "start"){
         // start menu
+        
 
         
         return;
