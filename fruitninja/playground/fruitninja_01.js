@@ -113,6 +113,10 @@ function preload() {
         // add scaleMod
         scaleMod:2.5,
     }
+    let pumpkin = {
+        whole:loadImage("assets/pumpkin1.png")
+        half1:loadImage("assets/pumpkin3.png")
+    }
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato];
     
