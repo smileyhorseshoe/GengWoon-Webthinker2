@@ -143,7 +143,7 @@ function draw() {
     text("Missed: " + missed,10,100)
 
     // check if fruits fall 
-    missedFruits();
+    missedFruit();
     // call spawnFruit function
     if (frameCount % 20 == 0) {
         // 60 frames =1 second
