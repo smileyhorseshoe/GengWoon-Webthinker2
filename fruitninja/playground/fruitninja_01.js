@@ -141,13 +141,6 @@ function preload() {
         // add scaleMod
         scaleMod:2.5,
     }
-    let paparika = {
-       whole:loadImage("assets/paparika1.png"),
-       half1:loadImage("assets/paparika3.png"),
-       half2:loadImage("assets/paparika3.png"),
-    //    add scaleMod
-       scaleMod:2.5
-    }
 
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato,pumpkin,tomato,banana,papaya,paparika];
