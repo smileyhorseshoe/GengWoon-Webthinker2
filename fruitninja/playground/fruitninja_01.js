@@ -4,7 +4,7 @@ let fruitGroup; // group for whole fruits
 let fruitTypes  = []; // store fruit image objects
 let trail;
 let fruitHalves; // new group for sliced halves
-let score;
+let score=0;
 
 function preload() {
     // Load image
@@ -124,7 +124,7 @@ function draw() {
 
     fill("#dadada") // Text colour
     textSize(50);
-        // text("frameCount:"+ frameCount, 10, 40);
+    text("frameCount:"+ frameCount, 10, 40);
 
     text("Score:"+ score, 10, 100);
 
