@@ -179,7 +179,8 @@ function preload() {
     }
     let starfruit = {
         whole:loadImage("assets/starfruit1.png"),
-        half1:loadImage("assets/starfruit2.png")
+        half1:loadImage("assets/starfruit2.png"),
+        half2:loadImage("assets/starfruit2.png")
     }
 
     // store the fruit objects into an array
