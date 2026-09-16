@@ -146,9 +146,10 @@ function draw() {
         return;
     } else if (gameState === "playing") {
         // Gameplay
-
+        return;
     }else if (gameState === "gameOver") {
         // Game Over Screen
+        return;
     }
 
     
