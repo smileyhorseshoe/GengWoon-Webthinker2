@@ -139,7 +139,12 @@ function draw() {
     clear();
     image(background, 0, 0, width, height); // image(image, x, y, width, height)
     // draw depending on gameState
-    if(gameState === "start")
+    if(gameState === "start"){
+
+        
+    }
+
+    
     // // Debug text
     // fill("#dadada") // Text colour
     // textSize(50);
