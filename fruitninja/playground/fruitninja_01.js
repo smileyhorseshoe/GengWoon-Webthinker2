@@ -200,6 +200,7 @@ function draw() {
     if(gameState === "start"){
         fill("rgb(100,255,100)") // text colour
         textSize(100)
+        textAlign(CustomElementRegistry,)
         // start menu
         if (kb.presses(" ") || mouse.presses()) {
             gameState = "playing"
