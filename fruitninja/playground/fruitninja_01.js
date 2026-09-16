@@ -30,7 +30,7 @@ function preload() {
         half1: loadImage("assets/strawberry3.png"),
         half2: loadImage("assets/strawberry3.png"),
                 // add scaleMod
-        scaleMod:2
+        scaleMod:2.5,
 
 
     }
@@ -39,14 +39,14 @@ function preload() {
         half1: loadImage("assets/corn5.png"),
         half2: loadImage("assets/corn5.png"),
         // add scaleMod
-        scaleMod:2
+        scaleMod:2.5,
     }
     let dragonfruit = {
         whole: loadImage("assets/dragonfruit1.png"),
         half1: loadImage("assets/dragonfruit2.png"),
         half2: loadImage("assets/dragonfruit2.png"),
         // add scaleMod
-        scaleMod:2
+        scaleMod:2.5,
     }
     let kiwi = {
         whole: loadImage("assets/kiwi1.png"),
