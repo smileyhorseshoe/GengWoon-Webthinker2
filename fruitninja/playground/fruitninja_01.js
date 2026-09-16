@@ -130,7 +130,7 @@ function draw() {
     // textSize(50);
     // text("frameCount:"+ frameCount, 10, 40);
 
-    fill("#dadada") // Text colour
+    fill("#2ac528") // Text colour
     textSize(50);
     text("frameCount:"+ frameCount, 10, 40);
 
