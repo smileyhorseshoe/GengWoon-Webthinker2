@@ -137,7 +137,9 @@ function preload() {
     let papaya = {
         whole:loadImage("assets/papaya1.png"),
         half1:loadImage("assets/papaya2.png"),
-        half2:loadImage("assets/papaya3.png")
+        half2:loadImage("assets/papaya3.png"),
+        // add scaleMod
+        scaleMod:2.5,
     }
 
     // store the fruit objects into an array
