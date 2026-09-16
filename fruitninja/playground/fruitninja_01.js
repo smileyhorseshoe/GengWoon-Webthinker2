@@ -241,7 +241,7 @@ function draw() {
         trail.collider = 'none';
         trail.color = 'red';
         trail.life = 10;
-        noStroke()
+        noStroke() // remove outline
         sliceFruit(); // add this line to call function
     }
 
