@@ -121,7 +121,11 @@ function preload() {
         scaleMod:2.5,
     }
     let tomato = {
-        whole
+        whole:loadImage("assets/tomato1.png"),
+        half1:loadImage("assets/tomato2.png"),
+        half2:loadImage("assets/tomato2.png"),
+        // add scaleMod
+        scaleMod:2.5,
     }
 
     // store the fruit objects into an array
