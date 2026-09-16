@@ -140,7 +140,7 @@ function draw() {
     image(background, 0, 0, width, height); // image(image, x, y, width, height)
     // draw depending on gameState
     if(gameState === "start"){
-    
+        // start menu
 
     } else if (gameState === "playing") {
         // Gameplay
