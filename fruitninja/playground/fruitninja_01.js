@@ -142,7 +142,8 @@ function draw() {
     fill("rgba(136,9,9,0.5") // ("rgba(red,green,blue,alpba)") alpha=  transparency the lower the number the more transparent it is. fully opaque is one can also use slider to control
     text("Missed: " + missed,10,100)
 
-    // check if fruits
+    // check if fruits fall 
+    missedFruits();
     // call spawnFruit function
     if (frameCount % 20 == 0) {
         // 60 frames =1 second
