@@ -198,6 +198,7 @@ function draw() {
     image(background, 0, 0, width, height); // image(image, x, y, width, height)
     // draw depending on gameState
     if(gameState === "start"){
+        fill("rgb(100,255,100")
         // start menu
         if (kb.presses(" ") || mouse.presses()) {
             gameState = "playing"
