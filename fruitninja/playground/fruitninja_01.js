@@ -121,10 +121,12 @@ function preload() {
         scaleMod:2.5,
     }
     let redOnion = {
-        whole:loa
+        whole:loadImage("assets/red_onion1.png")
+        half1:loadImage("assets/red_onion2.png")
+        half2:loadImage("assets/red_onion2.png")
     }
     // store the fruit objects into an array
-    fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato];
+    fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato,pumpkin,redOnion];
     
 }
 
