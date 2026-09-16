@@ -229,5 +229,9 @@ function splitFruit(x, y, fruitData) {
     right.layer=1;
 }
 function missedFruit() {
+    // loop through spawn fruits
+    for (let fruit of fruitGroup) {
+        
+    }
 
 }
