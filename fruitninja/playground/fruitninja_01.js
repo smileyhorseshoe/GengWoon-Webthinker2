@@ -172,6 +172,7 @@ function preload() {
     }
     let mangoSteen = {
         whole:loadImage("assets/mangosteen1.png")
+        half1:loadImage("assets/mangosteen2.png")
     }
 
     // store the fruit objects into an array
