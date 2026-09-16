@@ -153,7 +153,8 @@ function preload() {
         whole:loadImage("assets/fig1.png"),
         half1:loadImage("assets/fig2.png"),
         half2:loadImage("assets/fig3.png"),
-    
+        // add scaleMod
+        scaleMod:2.5,
     }
 
     // store the fruit objects into an array
