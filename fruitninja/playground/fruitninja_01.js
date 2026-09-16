@@ -106,6 +106,7 @@ function preload() {
         // add scaleMod
         scaleMod:2.5,
     }
+    let pineapple
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear];
     
@@ -220,4 +221,7 @@ function splitFruit(x, y, fruitData) {
     right.collider = "dynamic"; // dynamic -- yes gravity and yes collision / static - no gravity and yes collision / none - no gravity and no collision
     right.overlaps(allSprites); // disable collision 
     right.layer=1;
+}
+function missedFruit() {
+    
 }
