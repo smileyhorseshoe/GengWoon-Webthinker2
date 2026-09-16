@@ -129,6 +129,8 @@ function preload() {
     }
     let banana = {
         whole:loadImage("assets/banana1.png")
+        half1:loadImage("assets/banana3.png")
+        half2:loadImage("assets/banana3.png")
     }
 
     // store the fruit objects into an array
