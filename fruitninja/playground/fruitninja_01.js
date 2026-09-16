@@ -149,14 +149,7 @@ function draw() {
         return;
     } else if (gameState === "playing") {
         // Gameplay
-        return;
-    }else if (gameState === "gameOver") {
-        // Game Over Screen
-        return;
-    }
-
-    
-    // // Debug text
+         // // Debug text
     // fill("#dadada") // Text colour
     // textSize(50);
     // text("frameCount:"+ frameCount, 10, 40);
@@ -185,7 +178,15 @@ function draw() {
     }
 
    
-}
+    
+        return;
+    } else if (gameState === "gameOver") {
+        // Game Over Screen
+        return;
+    }
+
+    
+   
 // check if any fruit is sliced by the mouse
 function sliceFruit(){
     for (let fruit of fruitGroup) {
@@ -210,7 +211,7 @@ function sliceFruit(){
         }
     }
 }
-
+}
 function spawnFruit() {
     let fruitData = random(fruitTypes); // pick one at random
     let randomX = random(300, 500); // random X to spawn. Rem that canvas width is 800
