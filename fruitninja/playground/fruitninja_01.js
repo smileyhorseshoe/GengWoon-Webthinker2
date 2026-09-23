@@ -291,11 +291,12 @@ function draw() {
     return;
 } else if (gameState === "lose") {
     // Game Over Screen
-    fill("rgb(255,0,0)")
-    stroke("rgb(20,20,20)")
+    fill("rgb(255,0,0)");
+    stroke("rgb(20,20,20)");
     strokeWeight(20);
     textSize(100);
-    textAlign(CENTER,CENTER)
+    textAlign(CENTER,CENTER);
+    text("Game Over!")
     return;
 }
 
