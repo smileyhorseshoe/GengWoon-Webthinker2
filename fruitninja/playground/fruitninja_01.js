@@ -284,7 +284,7 @@ function draw() {
     }
     
     gameTimer = floor((millis() - gameStartTime)/1000)
-    text("Time: " + g, width/2,60);
+    text("Time: " + (gameDuration - gameTimer), width/2,60);
     // ceil(1.1) - round up
     // .toFixed(2) - nearest decimal place  
     // win / lose condition
