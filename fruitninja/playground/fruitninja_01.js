@@ -290,12 +290,12 @@ function draw() {
     // win / lose condition
     if ((gameDuration - gameTimer) <= 0) {
 
+        if (missed >=5 || score < 10 ) {
+            gameState = "lose"
+        }
         if (score >= 10) {
             gameState = "win";
     
-        }
-        else if (missed >=5 || score < 10 ) {
-            gameState = "lose"
         }
     }
     
