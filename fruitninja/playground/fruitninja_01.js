@@ -290,7 +290,8 @@ function draw() {
     // Game Over Screen
     fill("rgb(255,0,0)")
     stroke("rgb(20,20,20)")
-    strokeWeight
+    strokeWeight(20);
+    textSize
     return;
 }
 
