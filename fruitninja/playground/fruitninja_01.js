@@ -279,7 +279,7 @@ function draw() {
     }
     
     // win / lose condition
-    if (score === 100) {
+    if (score === 100 ) {
         gameState = "gameover"
     }
     
