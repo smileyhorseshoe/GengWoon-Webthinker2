@@ -283,7 +283,7 @@ function draw() {
         sliceFruit(); // add this line to call function
     }
     
-    gameTimer = millis
+    gameTimer = millis() - gameStartTime
     // win / lose condition
     if (score === 50) {
         gameState = "win";
