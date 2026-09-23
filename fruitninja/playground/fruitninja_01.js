@@ -270,6 +270,9 @@ function draw() {
         // 60 frames =1 second
         spawnFruit();
     }
+        if (missed >=5 || score < 10 ) {
+            gameState = "lose"
+        }
     
     // handle slicing when mouse is pressed
     if (mouse.pressing()){
