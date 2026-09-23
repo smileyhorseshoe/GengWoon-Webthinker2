@@ -288,7 +288,7 @@ function draw() {
     // ceil(1.1) - round up
     // .toFixed(2) - nearest decimal place  
     // win / lose condition
-    if ((gameDuration - gameTimer))
+    if ((gameDuration - gameTimer) <= 0)
     if (score === 50) {
         gameState = "win";
 
