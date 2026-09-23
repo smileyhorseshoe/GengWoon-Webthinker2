@@ -260,16 +260,12 @@ function draw() {
 
     // check if fruits fall 
     missedFruit();
-    // win / lose condition
-    if (score === 100) {
-        gameState = "gameover"
-    }
     // call spawnFruit function
     if (frameCount % 1 == 0) {
         // 60 frames =1 second
         spawnFruit();
     }
-
+    
     // handle slicing when mouse is pressed
     if (mouse.pressing()){
         noStroke();
@@ -281,17 +277,21 @@ function draw() {
         noStroke() // remove outline
         sliceFruit(); // add this line to call function
     }
-
-   
     
-        return;
-    } else if (gameState === "gameOver") {
-        // Game Over Screen
-        return;
+    
+    // win / lose condition
+    if (score === 100) {
+        gameState = "gameover"
     }
+    
+    return;
+} else if (gameState === "gameOver") {
+    // Game Over Screen
+    return;
+}
 
 }
-   
+
 // check if any fruit is sliced by the mouse
 function sliceFruit(){
     for (let fruit of fruitGroup) {
