@@ -7,6 +7,7 @@ let fruitHalves; // new group for sliced halves
 let score=0;
 let missed = 0;
 let gameState="start"; // "start", "playing", "win" , lose
+let gameS
 function preload() {
     // Load image
     background = loadImage("assets/dojobackground.png");
@@ -261,7 +262,7 @@ function draw() {
     // check if fruits fall 
     missedFruit();
     // call spawnFruit function
-    if (frameCount % 1 == 0) {
+    if (frameCount % 20 == 0) {
         // 60 frames =1 second
         spawnFruit();
     }
