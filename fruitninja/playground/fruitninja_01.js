@@ -243,6 +243,7 @@ function draw() {
             gameState = "playing"
             gameStartTime = millis();//returns time since programme started
             gameTimer=0;
+            
         }
         
         
@@ -251,6 +252,7 @@ function draw() {
         return;
         
     } else if (gameState === "playing") {
+
         // Gameplay
         // // Debug text
         // fill("#dadada") // Text colour
