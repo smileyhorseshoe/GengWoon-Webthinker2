@@ -296,7 +296,7 @@ function draw() {
     strokeWeight(20);
     textSize(100);
     textAlign(CENTER,CENTER);
-    text("Game Over! You Lose!")
+    text("Game Over! You Lose!", width/2, height/2, height * )
     return;
 }
 
