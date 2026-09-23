@@ -8,8 +8,8 @@ let score=0;
 let missed = 0;
 let gameState="start"; // "start", "playing", "win" , lose
 let gameStartTime = 0;//time when game starts
-let gameTimer = 0; //track time
-let gameDuration = 300;
+let gameTimer = 0; //track time elapsed
+let gameDuration = 300; // time limit
 function preload() {
     // Load image
     background = loadImage("assets/dojobackground.png");
