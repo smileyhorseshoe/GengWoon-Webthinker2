@@ -7,7 +7,8 @@ let fruitHalves; // new group for sliced halves
 let score=0;
 let missed = 0;
 let gameState="start"; // "start", "playing", "win" , lose
-let gameS
+let gameStartTime = 0;
+
 function preload() {
     // Load image
     background = loadImage("assets/dojobackground.png");
