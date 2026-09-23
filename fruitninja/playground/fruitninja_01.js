@@ -351,6 +351,7 @@ function sliceFruit(){
             fruit.remove(); // remove whole fruit
 
             splitFruit(fx, fy, fruit.type); // spawn halves
+            
 
             break; // only slice one fruit per frame
         }
