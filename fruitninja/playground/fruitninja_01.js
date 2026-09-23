@@ -268,7 +268,7 @@ function draw() {
     missedFruit();
     // win / lose condition
     if (score === 100) {
-        gameState = gameover
+        gameState = "gameover"
     }
     // call spawnFruit function
     if (frameCount % 20 == 0) {
