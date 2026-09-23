@@ -6,7 +6,7 @@ let trail;
 let fruitHalves; // new group for sliced halves
 let score=0;
 let missed = 0;
-let gameState="start"; // "start", "playing", "gameover"
+let gameState="start"; // "start", "playing", "win" , lose
 function preload() {
     // Load image
     background = loadImage("assets/dojobackground.png");
@@ -279,10 +279,11 @@ function draw() {
     }
     
     // win / lose condition
-    if (score === 50 || missed === 30) {
-        gameState = "gameover"
+    if (score === 50) {
+        gameState = "win";
 
     }
+    
     
     
     return;
@@ -291,7 +292,7 @@ function draw() {
     fill("rgb(255,0,0)")
     stroke("rgb(20,20,20)")
     strokeWeight(20);
-    textSize
+    textSize(100);
     return;
 }
 
