@@ -266,6 +266,8 @@ function draw() {
 
     // check if fruits fall 
     missedFruit();
+    // win / lose condition
+    if (score === 100)
     // call spawnFruit function
     if (frameCount % 20 == 0) {
         // 60 frames =1 second
