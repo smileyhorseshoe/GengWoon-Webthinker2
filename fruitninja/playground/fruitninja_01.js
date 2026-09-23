@@ -238,6 +238,7 @@ function draw() {
         text("Fruit Ninja", width/2,height /2); // string, xpos, ypos
         if (kb.presses(" ") || mouse.presses()) {
             gameState = "playing"
+            gameStartTime = milis()
         }
         
         
