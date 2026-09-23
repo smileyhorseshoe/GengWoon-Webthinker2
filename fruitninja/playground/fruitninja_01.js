@@ -283,7 +283,7 @@ function draw() {
         sliceFruit(); // add this line to call function
     }
     
-    gameTimer = floor((millis() - gameStartTime)/1000)
+    gameTimer = ((millis() - gameStartTime)/1000).tofixed(2)
     text("Time: " + (gameDuration - gameTimer), width/2,60);
     // ceil(1.1) - round up
     // .toFixed(2) - nearest decimal place  
