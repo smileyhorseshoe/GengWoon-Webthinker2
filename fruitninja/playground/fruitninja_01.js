@@ -284,7 +284,7 @@ function draw() {
     }
     
     gameTimer = (millis() - gameStartTime)/1000
-    text("Time: " + gameTimer)
+    text("Time: " + gameTimer, width/2,60);
     // win / lose condition
     if (score === 50) {
         gameState = "win";
