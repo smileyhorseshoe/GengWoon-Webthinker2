@@ -279,7 +279,7 @@ function draw() {
     }
     
     // win / lose condition
-    if (score === 50 || missed === 10) {
+    if (score === 50 || missed === 30) {
         gameState = "gameover"
     }
     
