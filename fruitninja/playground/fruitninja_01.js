@@ -214,6 +214,7 @@ function preload() {
     // store the fruit objects into an array
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato,pumpkin,tomato,banana,papaya,coconut,fig,onion,redOnion,mangoSteen,starfruit,cherry,avocado,CT];
     bgMusic = loadSound("assets/fruit-ninja-bgtrack.mp3")
+    sliceSound = loadSound("")
 }
 
 function setup() {
