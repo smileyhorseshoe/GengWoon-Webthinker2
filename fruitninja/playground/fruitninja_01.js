@@ -279,14 +279,14 @@ function draw() {
     }
     
     
-    // win / lose condition
-    if (score === 100) {
-        gameState = "gameover"
-    }
     
     return;
 } else if (gameState === "gameOver") {
     // Game Over Screen
+    // win / lose condition
+    if (score === 100) {
+        gameState = "gameover"
+    }
     return;
 }
 
