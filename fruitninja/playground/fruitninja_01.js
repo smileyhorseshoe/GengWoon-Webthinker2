@@ -243,7 +243,7 @@ function draw() {
             gameState = "playing"
             gameStartTime = millis();//returns time since programme started
             gameTimer=0;
-            
+            bgMusic.loop()
         }
         
         
