@@ -294,7 +294,7 @@ function draw() {
             gameState = "win";
     
         }
-        else if (missed >=5) {
+        else if (missed >=5 ) {
             gameState = "lose"
         }
     }
