@@ -297,7 +297,7 @@ function draw() {
     textSize(100);
     textAlign(CENTER,CENTER);
     text("Game Over!", width/2, height/2, height * 0.3)
-    text("You Lose!", width/2)
+    text("You Lose!", width/2, height/2, height * 0.5)
     return;
 }
 
