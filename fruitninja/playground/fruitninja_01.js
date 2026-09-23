@@ -247,6 +247,7 @@ function draw() {
     text("Score:"+ score, 10, 50);
     fill("rgba(136,9,9,0.5") // ("rgba(red,green,blue,alpba)") alpha=  transparency the lower the number the more transparent it is. fully opaque is one can also use slider to control
     text("Missed: " + missed,10,110)
+    
 
 
     // check if fruits fall 
@@ -259,6 +260,7 @@ function draw() {
 
     // handle slicing when mouse is pressed
     if (mouse.pressing()){
+        
         trail = new Sprite(mouse.x, mouse.y, 7);
         trail.collider = 'none';
         trail.color = 'red';
