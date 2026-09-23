@@ -289,7 +289,8 @@ function draw() {
 } else if (gameState === "gameOver") {
     // Game Over Screen
     fill("rgb(255,0,0)")
-    stroke("rgv")
+    stroke("rgb(20,20,20)")
+    strokeWeight
     return;
 }
 
