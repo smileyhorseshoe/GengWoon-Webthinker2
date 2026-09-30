@@ -12,6 +12,8 @@ let gameTimer = 0; //track time elapsed
 let gameDuration = 10; // time limit in SECONDS
 let bgMusic; // background music
 let sliceSound;
+let winSound;
+let loseSound;
 function preload() {
     // Load image
     background = loadImage("assets/dojobackground.png");
