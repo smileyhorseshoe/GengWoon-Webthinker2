@@ -322,6 +322,7 @@ function draw() {
         // stop bgmusic
         bgMusic.stop()
     }
+    loseSound.play()
     fill("rgb(255,0,0)");
     stroke("rgb(20,20,20)");
     strokeWeight(20);
