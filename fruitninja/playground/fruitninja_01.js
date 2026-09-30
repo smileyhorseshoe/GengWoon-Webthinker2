@@ -265,7 +265,11 @@ function draw() {
         return;
         
     } else if (gameState === "playing") {
-        
+        if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0 && difficultyIncrease === false) {
+	    console.log("5 seconds passed");
+	    difficultyIncrease =true;
+	    difficultyLevel +=1
+    }
 
         // Gameplay
         // // Debug text
