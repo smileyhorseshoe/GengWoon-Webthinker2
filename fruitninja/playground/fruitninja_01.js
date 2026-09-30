@@ -259,7 +259,7 @@ function draw() {
         // // Debug text
         // fill("#dadada") // Text colour
     // textSize(50);
-    // text("frameCount:"+ frameCount, 10, 40);
+    // text("frameCount:"+ game, 10, 40);
     textAlign(LEFT, BOTTOM) // default alignment
     
     textSize(50)
