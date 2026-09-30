@@ -264,7 +264,7 @@ function draw() {
     }
         
 
-}else if (gameState === "playing") {
+else if (gameState === "playing") {
     
     // Gameplay
     // // Debug text
