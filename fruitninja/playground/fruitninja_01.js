@@ -313,6 +313,7 @@ function draw() {
     text("Time: " + (gameDuration - gameTimer).toFixed(2), width/2,60);
     // ceil(1.1) - round up
     // .toFixed(2) - nearest decimal place  
+    console.log(floor(gameTimer))
     if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0 && difficultyIncrease === false) {
     console.log("5 seconds passed");
     difficultyIncrease =true;
