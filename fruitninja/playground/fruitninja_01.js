@@ -258,11 +258,11 @@ function draw() {
             bgMusic.loop()
         }
     
-        
-        
-        
-        
         return;
+        
+        
+        
+        
 
 }else if (gameState === "playing") {
         if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0 && difficultyIncrease === false) {
