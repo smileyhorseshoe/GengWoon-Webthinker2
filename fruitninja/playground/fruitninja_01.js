@@ -314,7 +314,7 @@ function draw() {
 } else if (gameState === "lose") {
     // Game Over Screen
     allSprites.removeAll(); // delete all fruits
-    if (bgMusic.isplaying === true) {
+    if (bgMusic.isPlaying === true) {
         // stop bgmusic
         bgMusic.stop()
     }
@@ -330,7 +330,7 @@ function draw() {
 } else if (gameState === "win") {
     // Game Over Screen
     allSprites.removeAll(); // delete all fruits
-    if (bgMusic.isplaying === true) {
+    if (bgMusic.isPlaying === true) {
         // stop bgmusic
         bgMusic.stop()
     }
