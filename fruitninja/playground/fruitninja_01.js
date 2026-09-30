@@ -339,6 +339,7 @@ function draw() {
         // stop bgmusic
         bgMusic.stop();
     }
+    winSound.play()
     fill("rgb(0,255,0)");
     stroke("rgb(20,20,20)");
     strokeWeight(20);
