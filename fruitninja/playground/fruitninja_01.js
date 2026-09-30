@@ -217,6 +217,7 @@ function preload() {
     fruitTypes = [peach, watermelon,strawberry,corn,dragonfruit,kiwi,apple,orange,garlic,lemon,lime,mango,pear,potato,pumpkin,tomato,banana,papaya,coconut,fig,onion,redOnion,mangoSteen,starfruit,cherry,avocado,CT];
     bgMusic = loadSound("assets/fruit-ninja-bgtrack.mp3")
     sliceSound = loadSound("assets/fruit-ninja-combo.mp3")
+    winSound = loadSound("assets/")
 }
 
 function setup() {
