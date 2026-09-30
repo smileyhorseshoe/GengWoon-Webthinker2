@@ -271,9 +271,6 @@ function draw() {
     // textSize(50);
     // text("frameCount:"+ game, 10, 40);
     
-    if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0) {
-	console.log("3 seconds passed")
-    }
 
 
     textAlign(LEFT, BOTTOM) // default alignment
