@@ -319,6 +319,7 @@ function draw() {
     // .toFixed(2) - nearest decimal place  
     console.log(floor(gameTimer))
     if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0 && difficultyIncreaseTimer === 0) {
+        if (difficultyIncrease===false)
     console.log("difficulty increased: " + difficultyLevel);
     console.logg
     difficultyIncrease =true;
