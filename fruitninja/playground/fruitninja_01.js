@@ -236,6 +236,9 @@ function setup() {
 
 function draw() {
     clear();
+
+
+}
     image(background, 0, 0, width, height); // image(image, x, y, width, height)
     // draw depending on gameState
     if(gameState === "start"){
@@ -266,6 +269,12 @@ function draw() {
         // fill("#dadada") // Text colour
     // textSize(50);
     // text("frameCount:"+ game, 10, 40);
+    
+    if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0) {
+	console.log("3 seconds passed")
+    }
+
+
     textAlign(LEFT, BOTTOM) // default alignment
     
     textSize(50)
@@ -356,7 +365,7 @@ function draw() {
     return;
 
 }
-}
+
 // check if any fruit is sliced by the mouse
 function sliceFruit(){
     for (let fruit of fruitGroup) {
