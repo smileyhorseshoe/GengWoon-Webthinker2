@@ -327,6 +327,7 @@ function draw() {
         spawnRate-=20;
     }
     difficultyLevel +=1
+    difficultyIncrease = false; 
 }
     // win / lose condition
     if ((gameDuration - gameTimer) <= 0) {
