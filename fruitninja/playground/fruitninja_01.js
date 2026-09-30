@@ -338,8 +338,8 @@ function draw() {
     if (bgMusic.isPlaying() === true) {
         // stop bgmusic
         bgMusic.stop();
+        winSound.play()
     }
-    winSound.play()
     fill("rgb(0,255,0)");
     stroke("rgb(20,20,20)");
     strokeWeight(20);
