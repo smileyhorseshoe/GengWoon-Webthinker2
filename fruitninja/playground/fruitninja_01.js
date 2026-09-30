@@ -218,6 +218,7 @@ function preload() {
     bgMusic = loadSound("assets/fruit-ninja-bgtrack.mp3")
     sliceSound = loadSound("assets/fruit-ninja-combo.mp3")
     winSound = loadSound("assets/emotional-damage.mp3")
+    loseSound = loadSound("assets/du-bist-gut-genug.mp3")
 }
 
 function setup() {
