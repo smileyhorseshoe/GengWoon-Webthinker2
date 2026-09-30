@@ -322,7 +322,7 @@ function draw() {
     console.log("difficulty increased: " + difficultyLevel);
     difficultyIncrease =true;
     if (spawnRate >=40) {
-        //increase spawnrate
+        //increase spawnrate aka decrease interval between spawns(Faster)
     }
     difficultyLevel +=1
 }
