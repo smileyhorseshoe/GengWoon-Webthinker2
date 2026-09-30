@@ -14,6 +14,7 @@ let bgMusic; // background music
 let sliceSound;
 let winSound;
 let loseSound;
+let difficultyLevel;
 function preload() {
     // Load image
     background = loadImage("assets/dojobackground.png");
