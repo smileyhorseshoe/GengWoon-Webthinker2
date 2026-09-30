@@ -9,7 +9,7 @@ let missed = 0;
 let gameState="start"; // "start", "playing", "win" , lose
 let gameStartTime = 0;//time when game starts
 let gameTimer = 0; //track time elapsed
-let gameDuration = 30; // time limit in SECONDS
+let gameDuration = 60; // time limit in SECONDS
 let bgMusic; // background music
 let sliceSound;
 let winSound;
