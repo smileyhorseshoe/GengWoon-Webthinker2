@@ -282,7 +282,7 @@ function draw() {
     if (frameCount % 60 == 0) {
         // 60 frames =1 second
         //spawn multiple fruits based on difficulty level
-        for (let i = 0; i <3; i ++)
+        for (let i = 0; i <difficultyLevel; i ++)
         spawnFruit();
     }
         if (missed >=5) {
