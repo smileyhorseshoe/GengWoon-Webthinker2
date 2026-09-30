@@ -265,20 +265,15 @@ function draw() {
         
 
 }else if (gameState === "playing") {
-        if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0 && difficultyIncrease === false) {
-	    console.log("5 seconds passed");
-	    difficultyIncrease =true;
-	    difficultyLevel +=1
-    }
-
-        // Gameplay
-        // // Debug text
-        // fill("#dadada") // Text colour
+    
+    // Gameplay
+    // // Debug text
+    // fill("#dadada") // Text colour
     // textSize(50);
     // text("frameCount:"+ game, 10, 40);
     
-
-
+    
+    
     textAlign(LEFT, BOTTOM) // default alignment
     
     textSize(50)
@@ -296,11 +291,11 @@ function draw() {
         // 60 frames =1 second
         //spawn multiple fruits based on difficulty level
         for (let i = 0; i <difficultyLevel; i ++)
-        spawnFruit();
+            spawnFruit();
     }
-        if (missed >=5) {
-            gameState = "lose"
-        }
+    if (missed >=5) {
+        gameState = "lose"
+    }
     
     // handle slicing when mouse is pressed
     if (mouse.pressing()){
@@ -318,10 +313,14 @@ function draw() {
     text("Time: " + (gameDuration - gameTimer).toFixed(2), width/2,60);
     // ceil(1.1) - round up
     // .toFixed(2) - nearest decimal place  
-    console.log(flooṛ̣̣̣(gameTimer))
+    if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0 && difficultyIncrease === false) {
+    console.log("5 seconds passed");
+    difficultyIncrease =true;
+    difficultyLevel +=1
+}
     // win / lose condition
     if ((gameDuration - gameTimer) <= 0) {
-
+        
         if (missed >=5 || score < 10 ) {
             gameState = "lose"
         }
