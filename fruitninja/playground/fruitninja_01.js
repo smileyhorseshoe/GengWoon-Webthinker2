@@ -235,7 +235,7 @@ function setup() {
     fruitHalves = new Group(); // group for fruit halves
     bgMusic.setVolume(0.1)
     sliceSound.setVolume(0.1)
-    winSound.volume(0.2)
+    winSound.setVolume(0.2)
     loseSound.volume(0.2)
 }
 
