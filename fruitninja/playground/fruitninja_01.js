@@ -321,6 +321,9 @@ function draw() {
     if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0 && difficultyIncrease === false) {
     console.log("difficulty increased: " + difficultyLevel);
     difficultyIncrease =true;
+    if (spawnRate >=40) {
+        //increase spawnrate
+    }
     difficultyLevel +=1
 }
     // win / lose condition
