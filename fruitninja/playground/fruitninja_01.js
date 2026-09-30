@@ -313,7 +313,7 @@ function draw() {
     return;
 } else if (gameState === "lose") {
     // Game Over Screen
-        allSprites.removeAll(); // delete all fruits
+    allSprites.removeAll(); // delete all fruits
     fill("rgb(255,0,0)");
     stroke("rgb(20,20,20)");
     strokeWeight(20);
