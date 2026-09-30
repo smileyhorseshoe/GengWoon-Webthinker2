@@ -327,7 +327,7 @@ function draw() {
                 spawnRate-=20;
             }
             console.log("difficulty increased: " + difficultyLevel);
-            console.log("")
+            console.log("spawn rate increased: every " + spawnRate)
         }
 }
 
