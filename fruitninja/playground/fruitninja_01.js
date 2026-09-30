@@ -324,7 +324,7 @@ function draw() {
     return;
 } else if (gameState === "win") {
     // Game Over Screen
-    fill("rgb(255,0,0)");
+    fill("rgb(0,255,0)");
     stroke("rgb(20,20,20)");
     strokeWeight(20);
     textSize(100);
