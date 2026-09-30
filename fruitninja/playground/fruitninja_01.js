@@ -326,6 +326,7 @@ function draw() {
 } else if (gameState === "win") {
     // Game Over Screen
     allSprites.removeAll(); // delete all fruits
+    if (bgMusic)
     fill("rgb(0,255,0)");
     stroke("rgb(20,20,20)");
     strokeWeight(20);
