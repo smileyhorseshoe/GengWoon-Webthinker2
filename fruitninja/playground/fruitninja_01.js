@@ -261,7 +261,7 @@ function draw() {
         return;
         
         
-        
+    }
         
 
 }else if (gameState === "playing") {
