@@ -242,7 +242,7 @@ function draw() {
         textSize(100)
         // stroke("rgb(0,0,0)")
         strokeWeight(10);
-        text()
+        text(gameState, 10,40)
         textAlign(CENTER,CENTER); // (horizontal,vertical) - LEFT, RIGHT, TOP, BOTTOM note it is in da american spelling
         // start menu
         text("Fruit Ninja", width/2,height /2); // string, xpos, ypos
