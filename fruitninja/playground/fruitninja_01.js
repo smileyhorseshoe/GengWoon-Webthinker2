@@ -318,13 +318,13 @@ function draw() {
     strokeWeight(20);
     textSize(100);
     textAlign(CENTER,CENTER);
-    text("Game Over!", width/2, height * 0.3)
-    text("You Lose!", width/2, height * 0.5)
-    text("Score: "+ score, width/2,height*0.8)
+    text("Game Over!", width/2, height * 0.3);
+    text("You Lose!", width/2, height * 0.5);
+    text("Score: "+ score, width/2,height*0.8);
     return;
 } else if (gameState === "win") {
     // Game Over Screen
-    allSprites.removeAll()
+    allSprites.removeAll();
     fill("rgb(0,255,0)");
     stroke("rgb(20,20,20)");
     strokeWeight(20);
