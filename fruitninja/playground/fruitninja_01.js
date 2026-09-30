@@ -281,6 +281,7 @@ function draw() {
     // call spawnFruit function
     if (frameCount % 20 == 0) {
         // 60 frames =1 second
+        for (let i = 0; i <3; i ++)
         spawnFruit();
     }
         if (missed >=5) {
