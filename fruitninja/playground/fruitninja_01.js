@@ -15,7 +15,7 @@ let sliceSound;
 let winSound;
 let loseSound;
 let difficultyLevel =1;
-let difficultyIncrease = false //
+let difficultyIncrease = false; // make sure difficulty increases
 function preload() {
     // Load image
     background = loadImage("assets/dojobackground.png");
