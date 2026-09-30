@@ -15,6 +15,7 @@ let sliceSound;
 let winSound;
 let loseSound;
 let spawnRate = 60;
+let difficultyIncreaseTimer =10;
 let difficultyLevel =1;
 let difficultyIncrease = false; // make sure difficulty increases
 function preload() {
