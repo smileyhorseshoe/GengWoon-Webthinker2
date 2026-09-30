@@ -236,7 +236,7 @@ function setup() {
     bgMusic.setVolume(0.1)
     sliceSound.setVolume(0.1)
     winSound.setVolume(0.2)
-    loseSound.volume(0.2)
+    loseSound.setVolume(0.2)
 }
 
 function draw() {
