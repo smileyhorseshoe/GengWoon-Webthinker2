@@ -239,7 +239,7 @@ function draw() {
     clear();
 
 
-}
+
     image(background, 0, 0, width, height); // image(image, x, y, width, height)
     // draw depending on gameState
     if(gameState === "start"){
@@ -258,13 +258,13 @@ function draw() {
             bgMusic.loop()
         }
         
-        return;
+    return;
         
         
-    }
+    
         
 
-else if (gameState === "playing") {
+}else if (gameState === "playing") {
     
     // Gameplay
     // // Debug text
@@ -368,7 +368,7 @@ else if (gameState === "playing") {
     return;
 
 }
-
+}
 // check if any fruit is sliced by the mouse
 function sliceFruit(){
     for (let fruit of fruitGroup) {
