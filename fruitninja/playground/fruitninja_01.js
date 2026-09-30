@@ -321,8 +321,8 @@ function draw() {
     if (bgMusic.isPlaying() === true) {
         // stop bgmusic
         bgMusic.stop()
+        loseSound.play()
     }
-    loseSound.play()
     fill("rgb(255,0,0)");
     stroke("rgb(20,20,20)");
     strokeWeight(20);
