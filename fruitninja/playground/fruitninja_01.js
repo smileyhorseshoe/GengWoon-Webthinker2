@@ -332,7 +332,7 @@ function draw() {
     allSprites.removeAll(); // delete all fruits
     if (bgMusic.isPlaying === true) {
         // stop bgmusic
-        bgMusic.stop()
+        bgMusic.stop();
     }
     fill("rgb(0,255,0)");
     stroke("rgb(20,20,20)");
