@@ -318,6 +318,7 @@ function draw() {
     // ceil(1.1) - round up
     // .toFixed(2) - nearest decimal place  
     console.log(floor(gameTimer))
+    // if gameTimer is more than 0 seconds and when gameTimer is a multiple of 10
     if (floor(gameTimer) > 0 && floor(gameTimer) % 5 === 0) {
         if (difficultyIncrease===false) {
             difficultyIncrease = true;
