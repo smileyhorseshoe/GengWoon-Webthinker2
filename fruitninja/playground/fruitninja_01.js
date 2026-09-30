@@ -305,7 +305,7 @@ function draw() {
     text("Time: " + (gameDuration - gameTimer).toFixed(2), width/2,60);
     // ceil(1.1) - round up
     // .toFixed(2) - nearest decimal place  
-    console.log(flooṛ̣̣̣)
+    console.log(flooṛ̣̣̣(gameTimer))
     // win / lose condition
     if ((gameDuration - gameTimer) <= 0) {
 
