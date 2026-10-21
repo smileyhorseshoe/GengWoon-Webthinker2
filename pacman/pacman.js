@@ -150,7 +150,7 @@ function draw() {
 
     // call ghost  movement
     for (let ghost of ghosts) {
-        if (frameCount % 60 ===0||ghosts.collides(wall)) {
+        if (frameCount % 60 ===0||ghosts.collides(walls)) {
         ghostDirection(ghost);
         }
     }
