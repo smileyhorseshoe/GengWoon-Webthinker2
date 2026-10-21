@@ -88,6 +88,7 @@ function setup() {
     clyde.y = 30;
     clyde.color = "orange";
     ghosts = [blinky,pinky,inky,clyde]
+    for (let ghost of ghosts)
 }
 
 function draw() {
