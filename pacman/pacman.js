@@ -133,10 +133,10 @@ function ghostDirection(ghost) {
     if (direction ===1) {
         ghost.vel.x = 0;
         ghost.vel.y = -2;
-    } else if (kb.presses("down") || kb.presses("s")) {
+    } else if (direction===2) {
         ghost.vel.x = 0;
         ghost.vel.y = 2;
-    } else if (kb.presses("left") || kb.presses("a")) {
+    } else if (direction===3) {
         ghost.vel.x = -2;
         ghost.vel.y = 0;
     } else if (kb.presses("right") || kb.presses("d")) {
