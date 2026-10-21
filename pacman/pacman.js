@@ -66,7 +66,7 @@ function setup() {
 
 
 
-    
+
 
     // Ghost sprites
     blinky = new Sprite();
@@ -131,6 +131,7 @@ function draw() {
     }
 
     // call ghost  movement
+    for 
     if (frameCount % 60 ===0) {
     ghostDirection(blinky);
     }
