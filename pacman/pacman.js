@@ -100,7 +100,8 @@ function setup() {
         ghost.friction=0;
     }
     for (let i=0;i <ghost.length;i++) {
-        /
+        // allow ghost to pass through pacman
+        ghost[i]
     }
 }
 
