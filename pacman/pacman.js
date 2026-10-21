@@ -1,4 +1,4 @@
-const { jsx } = require("react/jsx-runtime");
+// const { jsx } = require("react/jsx-runtime");
 
 // Sprite groups
 let walls;
