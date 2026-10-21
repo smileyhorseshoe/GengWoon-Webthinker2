@@ -164,6 +164,8 @@ function draw() {
         }else {
             character.x = character.lane;
         }
+
+        character.vel.x
     }
 }
 
