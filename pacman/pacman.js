@@ -91,7 +91,7 @@ function setup() {
     clyde.diameter = 18;
     clyde.color = "orange";
     clyde.collider = "none";
-    ghosts = [blinky,pinky]
+    ghosts = [blinky,pinky,inky,clyde]
 }
 
 function draw() {
