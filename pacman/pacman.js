@@ -64,6 +64,10 @@ function setup() {
     pacman.bounciness = 0;
     pacman.friction=0;
 
+
+
+    
+
     // Ghost sprites
     blinky = new Sprite();
     blinky.x = 50;
