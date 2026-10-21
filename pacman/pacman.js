@@ -174,5 +174,5 @@ function ghostDirection(ghost) {
 }
 // center sprite movement
 function setMovement(character) {
-    character.x= round(character.x-10/20*20+10) 
+    character.x= round((character.x-10)/20*20+10) 
 }
