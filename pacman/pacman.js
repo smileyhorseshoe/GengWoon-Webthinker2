@@ -15,8 +15,8 @@ let score = 0;
 let tilemap = [
     "wwwwwwwwww",
     "w        w",
-    "w  dddd  w",
-    "w  wwww w",
+    "w        w",
+    "w  wwww  w",
     "w  dddd  w",
     "w  dddd  w",
     "w  dddd  w",
