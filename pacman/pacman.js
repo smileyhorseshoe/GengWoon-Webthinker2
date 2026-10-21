@@ -65,6 +65,7 @@ function setup() {
     pacman.color = "yellow";
     pacman.bounciness = 0;
     pacman.friction=0;
+    
 
 
 
