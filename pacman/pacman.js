@@ -88,9 +88,8 @@ function setup() {
     clyde = new Sprite();
     clyde.x = 110;
     clyde.y = 30;
-    clyde.diameter = 18;
+    
     clyde.color = "orange";
-    clyde.collider = "none";
     ghosts = [blinky,pinky,inky,clyde]
 }
 
