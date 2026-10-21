@@ -129,6 +129,19 @@ function draw() {
 function ghostDirection(ghost) {
     // Random number to choose direction
     let direction = floor(random(1, 5));
-    
+        // Ghost movement
+    if (kb.presses("up") || kb.presses("w")) {
+        pacman.vel.x = 0;
+        pacman.vel.y = -2;
+    } else if (kb.presses("down") || kb.presses("s")) {
+        pacman.vel.x = 0;
+        pacman.vel.y = 2;
+    } else if (kb.presses("left") || kb.presses("a")) {
+        pacman.vel.x = -2;
+        pacman.vel.y = 0;
+    } else if (kb.presses("right") || kb.presses("d")) {
+        pacman.vel.x = 2;
+        pacman.vel.y = 0;
+    }
     
 }
