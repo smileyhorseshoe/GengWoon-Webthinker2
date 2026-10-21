@@ -62,7 +62,7 @@ function setup() {
     pacman.x = 30;
     pacman.y = 30;
     pacman.w=18;
-    pacman.h=   
+    pacman.h=
     pacman.diameter = 18;
     pacman.color = "yellow";
     pacman.bounciness = 0;
