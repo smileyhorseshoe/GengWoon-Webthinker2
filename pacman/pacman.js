@@ -125,17 +125,17 @@ function draw() {
         pacman.vel.x = 0;
         pacman.vel.y = -2;
     } else if (kb.presses("down") || kb.presses("s")) {
-        setMovement(pacman)
         pacman.vel.x = 0;
         pacman.vel.y = 2;
-    } else if (kb.presses("left") || kb.presses("a")) {
         setMovement(pacman)
+    } else if (kb.presses("left") || kb.presses("a")) {
         pacman.vel.x = -2;
         pacman.vel.y = 0;
-    } else if (kb.presses("right") || kb.presses("d")) {
         setMovement(pacman)
+    } else if (kb.presses("right") || kb.presses("d")) {
         pacman.vel.x = 2;
         pacman.vel.y = 0;
+        setMovement(pacman)
     }
 
     // Loop through each dot in group
