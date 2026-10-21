@@ -121,9 +121,9 @@ function draw() {
 
     // Pacman movement
     if (kb.presses("up") || kb.presses("w")) {
-        setMovement(pacman)
         pacman.vel.x = 0;
         pacman.vel.y = -2;
+        setMovement(pacman)
     } else if (kb.presses("down") || kb.presses("s")) {
         pacman.vel.x = 0;
         pacman.vel.y = 2;
