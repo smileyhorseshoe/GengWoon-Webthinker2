@@ -154,7 +154,10 @@ function draw() {
     ghostDirection(ghost);
     }
 }
-    // fix
+    // fix sprite movement
+    for (let character of [pacman, ...ghost]) {
+        
+    }
 }
 
 // Function for ghosts to move in random directions
