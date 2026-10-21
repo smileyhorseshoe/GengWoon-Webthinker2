@@ -123,8 +123,9 @@ function draw() {
     }
 
     // call ghost  movement
-    if (framecount % 60 ===0)
+    if (framecount % 60 ===0) {
     ghostDirection(blinky);
+    }
 }
 
 // Function for ghosts to move in random directions
