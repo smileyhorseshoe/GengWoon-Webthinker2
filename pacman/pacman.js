@@ -42,6 +42,7 @@ function setup() {
     walls.collider = "static";
     walls.bounciness = 0;
     walls.strokeWeight = 0; // remove outline
+    walls.vertexMode = true;
     dots = new Group();
     dots.diameter = 5;
     dots.tile = "d";
