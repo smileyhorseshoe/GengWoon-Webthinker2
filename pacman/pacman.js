@@ -188,7 +188,7 @@ function ghostDirection(ghost) {
         ghost.vel.x = 2;
         ghost.vel.y = 0;
     }
-    setMovement
+    setMovement(ghost);
 }
 // center sprite movement
 function setMovement(character) {
