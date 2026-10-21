@@ -139,7 +139,7 @@ function ghostDirection(ghost) {
     } else if (direction===3) {
         ghost.vel.x = -2;
         ghost.vel.y = 0;
-    } else if (kb.presses("right") || kb.presses("d")) {
+    } else if (direction===4) {
         ghost.vel.x = 2;
         ghost.vel.y = 0;
     }
