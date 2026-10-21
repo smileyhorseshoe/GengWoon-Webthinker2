@@ -101,9 +101,9 @@ function setup() {
         ghost.bounciness=0;
         ghost.friction=0;
     }
-    for (let i=0;i <ghost.length;i++) {
+    for (let i=0;i <ghosts.length;i++) {
         // allow ghost to pass through pacman
-        ghost[i].overlaps(pacman)
+        ghosts[i].overlaps(pacman)
         for (let j = i  + 1; j < ghost.length; j++) {
             //  allow ghosts to pass thru each other
             ghosts[i].overlaps(ghosts[j])
