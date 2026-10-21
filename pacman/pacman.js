@@ -14,7 +14,7 @@ let score = 0;
 // Tile map layout
 let tilemap = [
     "wwwwwwwwww",
-    "w        w",
+    "w  www   w",
     "w  dddd  w",
     "w  dddd  w",
     "w  dddd  w",
