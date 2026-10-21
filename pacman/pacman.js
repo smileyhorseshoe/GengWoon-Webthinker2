@@ -150,10 +150,10 @@ function draw() {
 
     // call ghost  movement
     for (let ghost of ghosts) {
-    if (frameCount % 60 ===0) {
-    ghostDirection(ghost);
+        if (frameCount % 60 ===0) {
+        ghostDirection(ghost);
+        }
     }
-}
     // fix sprite movement
     for (let character of [pacman, ...ghosts]) {
         // skip sprites that are not moving
@@ -192,12 +192,12 @@ function ghostDirection(ghost) {
 }
 // center sprite movement
 function setMovement(character) {
-    character.savedVX = character.vel.x
-    character.savedVY = character.vel.y
+    character.savedVX = character.vel.x;
+    character.savedVY = character.vel.y;
 
-    if (character.savedVX !==0) {
-    character.lane= round((character.x-10)/20)*20+10;
-}else {
-character.y= round((character.y-10)/20)*20+10;
-}
+    if (character.savedVX !== 0) {   
+        character.lane = round((character.y - 10) / 20) * 20 + 10;
+    } else {
+        character.lane = round((character.x - 10) / 20) * 20 + 10;
+    }
 }
