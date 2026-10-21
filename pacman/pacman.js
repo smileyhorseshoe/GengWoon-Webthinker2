@@ -122,7 +122,8 @@ function draw() {
         }
     }
 
-
+    // call ghost  movement
+    
 }
 
 // Function for ghosts to move in random directions
