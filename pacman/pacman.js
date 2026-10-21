@@ -106,7 +106,7 @@ function setup() {
         ghost[i].overlaps(pacman)
         for (let j = i  + 1; j < ghost.length; j++) {
             //  allow ghosts to pass thru each other
-            ghosts[i]
+            ghosts[i].overlaps(ghosts)
         }
     }
 
