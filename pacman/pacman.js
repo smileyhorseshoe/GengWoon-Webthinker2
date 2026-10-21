@@ -99,7 +99,9 @@ function setup() {
         ghost.bounciness=0;
         ghost.friction=0;
     }
-    for (let i=0;i <ghost.length;i++)
+    for (let i=0;i <ghost.length;i++) {
+        /
+    }
 }
 
 function draw() {
