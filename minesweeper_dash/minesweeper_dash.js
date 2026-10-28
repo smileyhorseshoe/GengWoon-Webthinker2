@@ -98,13 +98,12 @@ const STAGES = [
     windows: '#235276',
     hazards: [
       { x: 6780, type: 'gate', lane: 'upper' },
-      { x: 7050, type: 'gate', lane: 'lower' },
-      { x: 7320, type: 'gate', lane: 'upper' },
-      { x: 7590, type: 'gate', lane: 'lower' },
-      { x: 7860, type: 'gate', lane: 'upper' },
-      { x: 8130, type: 'gate', lane: 'lower' },
-      { x: 8400, type: 'gate', lane: 'upper' },
-      { x: 8670, type: 'gate', lane: 'lower' }
+      { x: 7110, type: 'gate', lane: 'lower' },
+      { x: 7440, type: 'gate', lane: 'upper' },
+      { x: 7770, type: 'gate', lane: 'lower' },
+      { x: 8100, type: 'gate', lane: 'upper' },
+      { x: 8430, type: 'gate', lane: 'lower' },
+      { x: 8760, type: 'gate', lane: 'upper' }
     ]
   },
   {
@@ -119,15 +118,13 @@ const STAGES = [
     windows: '#6150a0',
     hazards: [
       { x: 8940, type: 'gate', lane: 'lower' },
-      { x: 9160, type: 'gate', lane: 'upper' },
-      { x: 9380, type: 'gate', lane: 'lower' },
-      { x: 9600, type: 'gate', lane: 'upper' },
-      { x: 9820, type: 'gate', lane: 'lower' },
-      { x: 10040, type: 'gate', lane: 'upper' },
-      { x: 10260, type: 'gate', lane: 'lower' },
-      { x: 10480, type: 'gate', lane: 'upper' },
-      { x: 10700, type: 'gate', lane: 'lower' },
-      { x: 10920, type: 'gate', lane: 'upper' }
+      { x: 9230, type: 'gate', lane: 'upper' },
+      { x: 9520, type: 'gate', lane: 'lower' },
+      { x: 9810, type: 'gate', lane: 'upper' },
+      { x: 10100, type: 'gate', lane: 'lower' },
+      { x: 10390, type: 'gate', lane: 'upper' },
+      { x: 10680, type: 'gate', lane: 'lower' },
+      { x: 10970, type: 'gate', lane: 'upper' }
     ]
   }
 ];
