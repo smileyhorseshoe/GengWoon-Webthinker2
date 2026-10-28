@@ -2,11 +2,13 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
-const JUMP_RUN_SPEED = 3.5;
+const JUMP_RUN_SPEED = 3.2;
 const FINISH_X = 5700;
-const JUMP_SPEED = -8.8;
-const MAX_JUMP_HEIGHT = 44;
-const RUN_GRAVITY = 1.0;
+const JUMP_SPEED = -9.4;
+const MAX_JUMP_HEIGHT = 58;
+const JUMP_BUFFER_FRAMES = 8;
+const COYOTE_FRAMES = 4;
+const RUN_GRAVITY = 0.95;
 
 const STAGES = [
   {
@@ -81,8 +83,9 @@ let powerups = [];
 let stars = [];
 let gameState = 'ready';
 let flying = false;
-let jumpReady = false;
 let jumpStartY = null;
+let jumpBufferUntil = -1;
+let lastGroundedFrame = -COYOTE_FRAMES - 1;
 let flightVelocity = 0;
 let currentStageIndex = 0;
 let invincibleUntil = 0;
@@ -108,8 +111,9 @@ function createLevel() {
   hazards = [];
   powerups = [];
   flying = false;
-  jumpReady = false;
   jumpStartY = null;
+  jumpBufferUntil = -1;
+  lastGroundedFrame = frameCount;
   flightVelocity = 0;
   currentStageIndex = 0;
   invincibleUntil = 0;
@@ -200,13 +204,14 @@ function draw() {
 function startLevel() {
   gameState = 'playing';
   runner.vel.x = STAGES[0].speed;
-  jumpReady = false;
+  jumpBufferUntil = -1;
 }
 
 function updateLevel() {
   currentStageIndex = getStageIndex(runner.x);
   const stage = STAGES[currentStageIndex];
   const grounded = runner.y >= GROUND_Y - runner.h / 2 - 2 && runner.vel.y >= 0;
+  if (grounded) lastGroundedFrame = frameCount;
   runner.vel.x = flying
     ? stage.speed
     : grounded
@@ -216,6 +221,7 @@ function updateLevel() {
   if (stage.mode === 'flight' && !flying) {
     flying = true;
     jumpStartY = null;
+    jumpBufferUntil = -1;
     flightVelocity = 0;
     world.gravity.y = 0;
     runner.vel.y = 0;
@@ -228,12 +234,16 @@ function updateLevel() {
     flightVelocity = lerp(flightVelocity, targetVelocity, 0.22);
     runner.y += flightVelocity;
     runner.y = constrain(runner.y, 150, 410);
-  } else if (!kb.pressing('space')) {
-    jumpReady = true;
-  } else if (jumpReady && kb.presses('space') && runner.y >= GROUND_TOP - runner.h / 2 - 3 && runner.vel.y >= 0) {
-    runner.vel.y = JUMP_SPEED;
-    jumpStartY = runner.y;
-    jumpReady = false;
+  } else {
+    if (kb.presses('space')) jumpBufferUntil = frameCount + JUMP_BUFFER_FRAMES;
+
+    const canJump = grounded || frameCount - lastGroundedFrame <= COYOTE_FRAMES;
+    if (jumpBufferUntil >= frameCount && canJump) {
+      runner.vel.y = JUMP_SPEED;
+      jumpStartY = runner.y;
+      jumpBufferUntil = -1;
+      lastGroundedFrame = -COYOTE_FRAMES - 1;
+    }
   }
 
   if (!flying && jumpStartY !== null) {
