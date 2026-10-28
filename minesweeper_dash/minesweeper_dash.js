@@ -2,13 +2,13 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
-const RUN_SPEED = 4.2;
+const RUN_SPEED = 4.8;
 const GRID_START_X = 300;
 const SECTOR_WIDTH = 300;
 const FINISH_X = 5700;
 const FLIGHT_START_X = 2700;
-const JUMP_SPEED = -6;
-const RUN_GRAVITY = 0.65;
+const JUMP_SPEED = -5.8;
+const RUN_GRAVITY = 0.8;
 
 const MINE_SECTORS = [
   { sector: 2, lane: 'ground' },
@@ -95,10 +95,10 @@ function createLevel() {
     let sprite;
 
     if (hazard.lane === 'ground' && hazard.type === 'block') {
-      sprite = new Sprite(mineX, GROUND_Y - 9, 18, 18, 'static');
+      sprite = new Sprite(mineX, GROUND_Y - 6, 12, 12, 'static');
       sprite.color = '#ffd36e';
     } else if (hazard.lane === 'ground') {
-      sprite = new Sprite(mineX, GROUND_Y - 7, 18, 14, 'static');
+      sprite = new Sprite(mineX, GROUND_Y - 5, 14, 10, 'static');
       sprite.color = '#ff5b4d';
     } else {
       const needsUpperRoute = hazard.lane === 'upper';
@@ -164,8 +164,8 @@ function updateLevel() {
 
   if (flying) {
     runner.vel.y = 0;
-    runner.y += kb.pressing('space') ? -4 : 4;
-    runner.y = constrain(runner.y, 150, 415);
+    runner.y += kb.pressing('space') ? -2.5 : 4.5;
+    runner.y = constrain(runner.y, 230, 390);
   } else if (!kb.pressing('space')) {
     jumpReady = true;
   } else if (jumpReady && kb.presses('space') && runner.y >= GROUND_TOP - runner.h / 2 - 3 && runner.vel.y >= 0) {
