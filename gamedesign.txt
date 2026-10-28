@@ -1,2 +1,3 @@
 genre: sci-fi 
 theme: Geometry Dash(with a twist)
+mechanics: you are controlling a cube trying to pass all obstacles 
