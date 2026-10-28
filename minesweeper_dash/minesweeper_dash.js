@@ -7,7 +7,7 @@ const GRID_START_X = 300;
 const SECTOR_WIDTH = 300;
 const FINISH_X = 5700;
 const FLIGHT_START_X = 2700;
-const JUMP_SPEED = -9.5;
+const JUMP_SPEED = -7.8;
 
 const MINE_SECTORS = [
   { sector: 2, lane: 'ground' },
@@ -18,6 +18,8 @@ const MINE_SECTORS = [
   { sector: 13, lane: 'upper' },
   { sector: 15, lane: 'lower' }
 ];
+
+const BLOCK_SECTORS = [1, 3, 5, 7];
 
 let runner;
 let floor;
@@ -63,15 +65,23 @@ function createLevel() {
   runner.bounciness = 0;
   runner.rotationLock = true;
 
-  for (const mine of MINE_SECTORS) {
-    const mineX = GRID_START_X + (mine.sector + 0.5) * SECTOR_WIDTH;
+  const levelHazards = [
+    ...MINE_SECTORS.map(mine => ({ ...mine, type: 'mine' })),
+    ...BLOCK_SECTORS.map(sector => ({ sector, lane: 'ground', type: 'block' }))
+  ];
+
+  for (const hazard of levelHazards) {
+    const mineX = GRID_START_X + (hazard.sector + 0.5) * SECTOR_WIDTH;
     let sprite;
 
-    if (mine.lane === 'ground') {
-      sprite = new Sprite(mineX, GROUND_Y - 23, 48, 46, 'static');
+    if (hazard.lane === 'ground' && hazard.type === 'block') {
+      sprite = new Sprite(mineX, GROUND_Y - 16, 32, 32, 'static');
+      sprite.color = '#ffd36e';
+    } else if (hazard.lane === 'ground') {
+      sprite = new Sprite(mineX, GROUND_Y - 11, 36, 22, 'static');
       sprite.color = '#ff5b4d';
     } else {
-      const needsUpperRoute = mine.lane === 'upper';
+      const needsUpperRoute = hazard.lane === 'upper';
       const barrierY = needsUpperRoute ? 420 : 195;
       sprite = new Sprite(mineX, barrierY, 58, 240, 'static');
       sprite.color = '#ff5b4d';
@@ -80,7 +90,7 @@ function createLevel() {
     sprite.stroke = '#ffd36e';
     sprite.strokeWeight = 2;
     sprite.visible = false;
-    hazards.push({ sprite, sector: mine.sector, lane: mine.lane });
+    hazards.push({ sprite, sector: hazard.sector, lane: hazard.lane, type: hazard.type });
   }
 
   camera.x = 480;
@@ -141,7 +151,7 @@ function updateLevel() {
     }
   }
 
-  if (runner.y < 120 || runner.y > GROUND_Y - runner.h / 2) {
+  if ((flying && runner.y < 120) || runner.y > GROUND_Y - runner.h / 2) {
     endLevel('lost');
   } else if (runner.x >= FINISH_X) {
     endLevel('won');
@@ -218,7 +228,7 @@ function drawSectorClues() {
   for (let sector = firstSector; sector <= lastSector; sector++) {
     const sectorX = GRID_START_X + (sector + 0.5) * SECTOR_WIDTH;
     const mineCount = MINE_SECTORS.filter(mine => mine.sector >= sector && mine.sector <= sector + 2).length;
-    const nearbyMine = hazards.find(hazard => hazard.sector === sector);
+    const nearbyHazard = hazards.find(hazard => hazard.sector === sector);
 
     stroke('#1d394b');
     strokeWeight(1);
@@ -228,10 +238,11 @@ function drawSectorClues() {
     textSize(22);
     text(String(mineCount), sectorX, 105);
 
-    if (nearbyMine && nearbyMine.sprite.visible) {
+    if (nearbyHazard && nearbyHazard.sprite.visible) {
       fill('#ffb45c');
       textSize(10);
-      text(nearbyMine.lane === 'ground' ? 'MINE' : 'GATE', sectorX, 137);
+      const label = nearbyHazard.type === 'block' ? 'BLOCK' : nearbyHazard.lane === 'ground' ? 'MINE' : 'GATE';
+      text(label, sectorX, 137);
     }
   }
 }
