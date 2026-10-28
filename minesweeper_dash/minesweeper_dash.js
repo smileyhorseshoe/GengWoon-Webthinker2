@@ -244,11 +244,11 @@ function createLevel() {
 function draw() {
   background('#070b16');
 
-  if (gameState === 'ready' && kb.presses('space')) {
+  if (gameState === 'ready' && (kb.presses('space') || mouse.presses('left'))) {
     startLevel();
     return;
   }
-  if (gameState === 'stageClear' && kb.presses('space')) {
+  if (gameState === 'stageClear' && (kb.presses('space') || mouse.presses('left'))) {
     startNextStage();
     return;
   }
@@ -300,7 +300,14 @@ function startNextStage() {
 function updateLevel() {
   currentStageIndex = getStageIndex(runner.x);
   const stage = STAGES[currentStageIndex];
-  const grounded = runner.y >= GROUND_Y - runner.h / 2 - 8 && runner.vel.y >= 0;
+  const floorPosition = GROUND_Y - runner.h / 2;
+  let grounded = !flying && runner.y >= floorPosition - 4 && runner.vel.y >= -1;
+
+  if (grounded) {
+    runner.y = floorPosition;
+    runner.vel.y = 0;
+    runner.gravityScale = 1;
+  }
   if (grounded) lastGroundedFrame = frameCount;
   const targetRunSpeed = flying
     ? stage.speed
@@ -322,12 +329,12 @@ function updateLevel() {
 
   if (flying) {
     runner.vel.y = 0;
-    const targetVelocity = kb.pressing('space') ? -4 : 4;
+    const targetVelocity = kb.pressing('space') || mouse.pressing('left') ? -4 : 4;
     flightVelocity = lerp(flightVelocity, targetVelocity, 0.22);
     runner.y += flightVelocity;
     runner.y = constrain(runner.y, 150, 410);
   } else {
-    if (kb.presses('space')) {
+    if (kb.presses('space') || mouse.presses('left')) {
       jumpBufferUntil = frameCount + JUMP_BUFFER_FRAMES;
     }
 
