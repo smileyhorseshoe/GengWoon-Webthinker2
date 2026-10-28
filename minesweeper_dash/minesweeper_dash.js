@@ -2,13 +2,14 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
-const JUMP_RUN_SPEED = 2.8;
+const JUMP_RUN_SPEED = 3.8;
 const FINISH_X = 5700;
-const JUMP_SPEED = -8.4;
+const JUMP_SPEED = -9.2;
 const MAX_JUMP_HEIGHT = 44;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
-const RUN_GRAVITY = 1.05;
+const RUN_GRAVITY = 1.2;
+const FALL_GRAVITY_SCALE = 1.7;
 
 const STAGES = [
   {
@@ -22,8 +23,10 @@ const STAGES = [
     buildingFar: '#102535',
     windows: '#18374a',
     hazards: [
+      { x: 600, type: 'spike' },
       { x: 720, type: 'block', size: 14 },
       { x: 980, type: 'mine' },
+      { x: 1120, type: 'spike' },
       { x: 1250, type: 'block', size: 14 }
     ]
   },
@@ -39,12 +42,14 @@ const STAGES = [
     windows: '#75542b',
     hazards: [
       { x: 1660, type: 'mine' },
-      { x: 1870, type: 'block', size: 18 },
+      { x: 1770, type: 'spike' },
+      { x: 1900, type: 'block', size: 18 },
       { x: 2090, type: 'block', size: 22 },
-      { x: 2330, type: 'mine' },
-      { x: 2500, type: 'block', size: 18 },
-      { x: 2710, type: 'mine' },
-      { x: 2860, type: 'block', size: 22 }
+      { x: 2240, type: 'spike' },
+      { x: 2380, type: 'mine' },
+      { x: 2520, type: 'block', size: 18 },
+      { x: 2680, type: 'spike' },
+      { x: 2850, type: 'block', size: 22 }
     ]
   },
   {
@@ -147,6 +152,9 @@ function createLevel() {
       const blockSize = hazard.size || 16;
       sprite = new Sprite(mineX, GROUND_Y - blockSize / 2, blockSize, blockSize, 'static');
       sprite.color = '#ffd36e';
+    } else if (hazard.type === 'spike') {
+      sprite = new Sprite(mineX, GROUND_Y - 10, 32, 20, 'static');
+      sprite.visible = false;
     } else if (hazard.type === 'mine') {
       sprite = new Sprite(mineX, GROUND_Y - 5, 14, 10, 'static');
       sprite.color = '#ff5b4d';
@@ -195,6 +203,7 @@ function draw() {
   drawScreenHud();
   camera.on();
   if (gameState === 'playing') {
+    drawSpikeArt();
     drawPowerupLabels();
     drawFinishMarker();
   }
@@ -218,6 +227,7 @@ function updateLevel() {
       ? stage.speed
       : Math.min(stage.speed * 0.72, JUMP_RUN_SPEED);
   runner.vel.x = lerp(runner.vel.x, targetRunSpeed, grounded ? 0.35 : 0.32);
+  if (!flying) runner.gravityScale = runner.vel.y > 0 ? FALL_GRAVITY_SCALE : 1;
 
   if (stage.mode === 'flight' && !flying) {
     flying = true;
@@ -280,7 +290,8 @@ function updateLevel() {
   }
 
   for (const hazard of hazards) {
-    hazard.sprite.visible = hazard.sprite.x < runner.x + 520;
+    hazard.isRevealed = hazard.sprite.x < runner.x + 520;
+    hazard.sprite.visible = hazard.type !== 'spike' && hazard.isRevealed;
     if (!invincible && runner.collides(hazard.sprite)) {
       endLevel('lost');
       return;
@@ -395,6 +406,23 @@ function drawFinishMarker() {
   textAlign(CENTER, CENTER);
   textSize(14);
   text('EXIT', FINISH_X, 126);
+}
+
+function drawSpikeArt() {
+  for (const hazard of hazards) {
+    if (hazard.type !== 'spike' || !hazard.isRevealed) continue;
+
+    const spikeX = hazard.sprite.x;
+    const spikeBaseY = GROUND_Y;
+    const spikeTopY = GROUND_Y - 23;
+    fill('#ff5b4d');
+    stroke('#ffd36e');
+    strokeWeight(2);
+    triangle(spikeX - 16, spikeBaseY, spikeX, spikeTopY, spikeX + 16, spikeBaseY);
+    noStroke();
+    fill('#ffb45c');
+    triangle(spikeX - 6, spikeBaseY - 2, spikeX, spikeTopY + 9, spikeX + 6, spikeBaseY - 2);
+  }
 }
 
 function drawPowerupLabels() {
