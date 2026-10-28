@@ -8,9 +8,9 @@ const GRID_START_X = 300;
 const SECTOR_WIDTH = 300;
 const FINISH_X = 5700;
 const FLIGHT_START_X = 2700;
-const JUMP_SPEED = -5.8;
-const MAX_JUMP_HEIGHT = 14;
-const RUN_GRAVITY = 1.1;
+const JUMP_SPEED = -7.2;
+const MAX_JUMP_HEIGHT = 22;
+const RUN_GRAVITY = 1.2;
 
 const MINE_SECTORS = [
   { sector: 2, lane: 'ground' },
@@ -99,10 +99,10 @@ function createLevel() {
     let sprite;
 
     if (hazard.lane === 'ground' && hazard.type === 'block') {
-      sprite = new Sprite(mineX, GROUND_Y - 5, 10, 10, 'static');
+      sprite = new Sprite(mineX, GROUND_Y - 7, 14, 14, 'static');
       sprite.color = '#ffd36e';
     } else if (hazard.lane === 'ground') {
-      sprite = new Sprite(mineX, GROUND_Y - 4, 12, 8, 'static');
+      sprite = new Sprite(mineX, GROUND_Y - 5, 14, 10, 'static');
       sprite.color = '#ff5b4d';
     } else {
       const needsUpperRoute = hazard.lane === 'upper';
