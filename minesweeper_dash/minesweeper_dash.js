@@ -8,7 +8,6 @@ const JUMP_SPEED = -9.4;
 const MAX_JUMP_HEIGHT = 58;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
-const LANDING_JUMP_COOLDOWN = 6;
 const RUN_GRAVITY = 0.95;
 
 const STAGES = [
@@ -85,8 +84,7 @@ let flying = false;
 let jumpStartY = null;
 let jumpBufferUntil = -1;
 let lastGroundedFrame = -COYOTE_FRAMES - 1;
-let landingCooldownUntil = 0;
-let wasGrounded = true;
+let jumpInputArmed = false;
 let flightVelocity = 0;
 let currentStageIndex = 0;
 let invincibleUntil = 0;
@@ -115,8 +113,7 @@ function createLevel() {
   jumpStartY = null;
   jumpBufferUntil = -1;
   lastGroundedFrame = frameCount;
-  landingCooldownUntil = frameCount;
-  wasGrounded = true;
+  jumpInputArmed = false;
   flightVelocity = 0;
   currentStageIndex = 0;
   invincibleUntil = 0;
@@ -208,22 +205,20 @@ function startLevel() {
   gameState = 'playing';
   runner.vel.x = STAGES[0].speed;
   jumpBufferUntil = -1;
+  jumpInputArmed = false;
 }
 
 function updateLevel() {
   currentStageIndex = getStageIndex(runner.x);
   const stage = STAGES[currentStageIndex];
   const grounded = runner.y >= GROUND_Y - runner.h / 2 - 2 && runner.vel.y >= 0;
-  if (grounded) {
-    lastGroundedFrame = frameCount;
-    if (!wasGrounded) landingCooldownUntil = frameCount + LANDING_JUMP_COOLDOWN;
-  }
-  wasGrounded = grounded;
-  runner.vel.x = flying
+  if (grounded) lastGroundedFrame = frameCount;
+  const targetRunSpeed = flying
     ? stage.speed
     : grounded
       ? stage.speed
       : Math.min(stage.speed * 0.72, JUMP_RUN_SPEED);
+  runner.vel.x = lerp(runner.vel.x, targetRunSpeed, grounded ? 0.35 : 0.12);
 
   if (stage.mode === 'flight' && !flying) {
     flying = true;
@@ -242,16 +237,18 @@ function updateLevel() {
     runner.y += flightVelocity;
     runner.y = constrain(runner.y, 150, 410);
   } else {
-    if (kb.presses('space')) jumpBufferUntil = frameCount + JUMP_BUFFER_FRAMES;
+    if (!kb.pressing('space')) jumpInputArmed = true;
+    if (jumpInputArmed && kb.pressing('space')) {
+      jumpBufferUntil = frameCount + JUMP_BUFFER_FRAMES;
+    }
 
-    const cooldownFinished = frameCount >= landingCooldownUntil;
-    const canJump = cooldownFinished && (grounded || frameCount - lastGroundedFrame <= COYOTE_FRAMES);
+    const canJump = grounded || frameCount - lastGroundedFrame <= COYOTE_FRAMES;
     if (jumpBufferUntil >= frameCount && canJump) {
       runner.vel.y = JUMP_SPEED;
       jumpStartY = runner.y;
       jumpBufferUntil = -1;
       lastGroundedFrame = -COYOTE_FRAMES - 1;
-      wasGrounded = false;
+      jumpInputArmed = false;
     }
   }
 
