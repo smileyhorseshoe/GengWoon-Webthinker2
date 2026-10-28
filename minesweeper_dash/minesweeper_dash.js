@@ -2,14 +2,14 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
-const JUMP_RUN_SPEED = 3.8;
+const JUMP_RUN_SPEED = 4;
 const FINISH_X = 11000;
-const JUMP_SPEED = -9.8;
+const JUMP_SPEED = -10;
 const MAX_JUMP_HEIGHT = 44;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
-const RUN_GRAVITY = 1.4;
-const FALL_GRAVITY_SCALE = 2.2;
+const RUN_GRAVITY = 1.5;
+const FALL_GRAVITY_SCALE = 2;
 
 const STAGES = [
   {
