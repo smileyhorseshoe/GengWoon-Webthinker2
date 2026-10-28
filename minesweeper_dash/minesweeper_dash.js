@@ -9,7 +9,7 @@ const MAX_JUMP_HEIGHT = 44;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
 const RUN_GRAVITY = 1.5;
-const FALL_GRAVITY_SCALE = 2;
+const FALL_GRAVITY_SCALE = 2.6;
 
 const STAGES = [
   {
