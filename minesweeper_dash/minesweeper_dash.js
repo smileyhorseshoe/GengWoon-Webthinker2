@@ -1,7 +1,7 @@
 const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
-const GROUND_TOP = 400;
+const GROUND_TOP = GROUND_Y;
 const RUN_SPEED = 4.2;
 const GRID_START_X = 300;
 const SECTOR_WIDTH = 300;
@@ -97,8 +97,10 @@ function draw() {
 
   drawScreenHud();
   camera.on();
-  drawSectorClues();
-  drawFinishMarker();
+  if (gameState === 'playing') {
+    drawSectorClues();
+    drawFinishMarker();
+  }
 }
 
 function startLevel() {
@@ -120,7 +122,7 @@ function updateLevel() {
   if (flying) {
     runner.vel.y = 0;
     runner.y += kb.pressing('space') ? -4 : 4;
-    runner.y = constrain(runner.y, 150, 435);
+    runner.y = constrain(runner.y, 150, 415);
   } else if (kb.presses('space') && runner.y >= GROUND_TOP - runner.h / 2 - 3 && runner.vel.y >= 0) {
     runner.vel.y = -11.5;
   }
