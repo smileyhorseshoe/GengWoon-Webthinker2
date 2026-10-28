@@ -2,13 +2,13 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
-const JUMP_RUN_SPEED = 2.2;
+const JUMP_RUN_SPEED = 2.8;
 const FINISH_X = 5700;
-const JUMP_SPEED = -9.4;
-const MAX_JUMP_HEIGHT = 58;
+const JUMP_SPEED = -8.4;
+const MAX_JUMP_HEIGHT = 44;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
-const RUN_GRAVITY = 0.95;
+const RUN_GRAVITY = 1.05;
 
 const STAGES = [
   {
@@ -195,7 +195,6 @@ function draw() {
   drawScreenHud();
   camera.on();
   if (gameState === 'playing') {
-    drawSectorClues();
     drawPowerupLabels();
     drawFinishMarker();
   }
@@ -281,7 +280,7 @@ function updateLevel() {
   }
 
   for (const hazard of hazards) {
-    hazard.sprite.visible = hazard.sprite.x < runner.x + 210;
+    hazard.sprite.visible = hazard.sprite.x < runner.x + 520;
     if (!invincible && runner.collides(hazard.sprite)) {
       endLevel('lost');
       return;
@@ -381,34 +380,6 @@ function drawScreenHud() {
     }
   }
   camera.on();
-}
-
-function drawSectorClues() {
-  const firstSector = Math.max(0, Math.floor(runner.x / 300) - 1);
-  const lastSector = Math.ceil((runner.x + 900) / 300);
-  textAlign(CENTER, CENTER);
-
-  for (let sector = firstSector; sector <= lastSector; sector++) {
-    const sectorX = (sector + 0.5) * 300;
-    const mineCount = hazards.filter(hazard =>
-      hazard.type === 'mine' && hazard.sector >= sector && hazard.sector <= sector + 2
-    ).length;
-    const nearbyHazard = hazards.find(hazard => hazard.sector === sector);
-
-    noStroke();
-    fill(mineCount > 0 ? '#ffd36e' : '#62f4d2');
-    textSize(22);
-    text(String(mineCount), sectorX, 105);
-
-    if (nearbyHazard && nearbyHazard.sprite.visible) {
-      fill('#ffb45c');
-      textSize(10);
-      let label = 'MINE';
-      if (nearbyHazard.type === 'block') label = 'BLOCK';
-      if (nearbyHazard.type === 'gate') label = nearbyHazard.lane === 'upper' ? 'GO HIGH' : 'GO LOW';
-      text(label, sectorX, 137);
-    }
-  }
 }
 
 function drawFinishMarker() {
