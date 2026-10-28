@@ -419,8 +419,9 @@ function drawScreenHud() {
   textSize(13);
   text('R: RESTART', CANVAS_WIDTH - 24, 28);
 
-  if (gameState === 'playing') {
-    const progress = constrain(runner.x / FINISH_X, 0, 1);
+  if (gameState === 'playing' || gameState === 'stageClear') {
+    const stage = STAGES[currentStageIndex];
+    const progress = constrain((runner.x - stage.startX) / (stage.endX - stage.startX), 0, 1);
     noFill();
     stroke('#38536b');
     rect(24, 49, 220, 7);
@@ -439,7 +440,7 @@ function drawScreenHud() {
     }
   }
 
-  if (gameState === 'ready' || gameState === 'lost' || gameState === 'won') {
+  if (gameState === 'ready' || gameState === 'stageClear' || gameState === 'lost' || gameState === 'won') {
     fill('rgba(3, 8, 18, 0.82)');
     rect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     textAlign(CENTER, CENTER);
@@ -449,18 +450,32 @@ function drawScreenHud() {
       text('NEON MINES', CANVAS_WIDTH / 2, 205);
       fill('#e8f7ff');
       textSize(16);
-      text('COUNTS SHOW MINES IN THIS SECTOR + THE NEXT TWO', CANVAS_WIDTH / 2, 252);
-      text('PRESS SPACE TO START, THEN RELEASE', CANVAS_WIDTH / 2, 282);
-      text('TAP TO JUMP  /  HOLD TO GO HIGH  /  RELEASE TO GO LOW', CANVAS_WIDTH / 2, 312);
+      text('FIVE LONG STAGES, EACH WITH ITS OWN COURSE', CANVAS_WIDTH / 2, 252);
+      text('SPACE TO START  /  TAP AGAIN TO JUMP', CANVAS_WIDTH / 2, 282);
+      text('FLIGHT: HOLD SPACE TO RISE, RELEASE TO DESCEND', CANVAS_WIDTH / 2, 312);
       fill('#62f4d2');
       text('ONE RARE CYAN SHIELD GIVES 3 SECONDS OF INVINCIBILITY', CANVAS_WIDTH / 2, 342);
       fill('#e8f7ff');
       textSize(13);
-      text('THREE STAGES: NEON RUN  /  MINE RUSH  /  SKY CIRCUIT', CANVAS_WIDTH / 2, 370);
+      text('SPRINT  /  MINE RUSH  /  PARKOUR  /  SKY  /  FINAL FREQUENCY', CANVAS_WIDTH / 2, 370);
+    } else if (gameState === 'stageClear') {
+      const nextStage = STAGES[currentStageIndex + 1];
+      fill(STAGES[currentStageIndex].accent);
+      textSize(32);
+      text(`STAGE ${currentStageIndex + 1} CLEARED`, CANVAS_WIDTH / 2, 220);
+      fill('#e8f7ff');
+      textSize(18);
+      text(STAGES[currentStageIndex].title, CANVAS_WIDTH / 2, 265);
+      fill(nextStage.accent);
+      textSize(20);
+      text(`NEXT: ${nextStage.title}`, CANVAS_WIDTH / 2, 310);
+      fill('#e8f7ff');
+      textSize(15);
+      text('PRESS SPACE WHEN READY', CANVAS_WIDTH / 2, 355);
     } else {
       fill(gameState === 'won' ? '#62f4d2' : '#ff756b');
       textSize(34);
-      text(gameState === 'won' ? 'SECTOR CLEARED' : 'SIGNAL LOST', CANVAS_WIDTH / 2, 230);
+      text(gameState === 'won' ? 'ALL FIVE STAGES CLEARED' : 'SIGNAL LOST', CANVAS_WIDTH / 2, 230);
       fill('#e8f7ff');
       textSize(16);
       text(gameState === 'won' ? 'YOU MADE IT THROUGH THE MINEFIELD' : 'A MINE CAUGHT YOUR SIGNAL', CANVAS_WIDTH / 2, 275);
@@ -471,18 +486,19 @@ function drawScreenHud() {
 }
 
 function drawFinishMarker() {
+  const markerX = STAGES[currentStageIndex].endX;
   noStroke();
   fill('#142b3a');
-  rect(FINISH_X - 38, 112, 76, 28);
+  rect(markerX - 38, 112, 76, 28);
   stroke('#62f4d2');
   strokeWeight(2);
   noFill();
-  rect(FINISH_X - 38, 112, 76, 28);
+  rect(markerX - 38, 112, 76, 28);
   noStroke();
   fill('#62f4d2');
   textAlign(CENTER, CENTER);
   textSize(14);
-  text('EXIT', FINISH_X, 126);
+  text('STAGE EXIT', markerX, 126);
 }
 
 function drawSpikeArt() {
