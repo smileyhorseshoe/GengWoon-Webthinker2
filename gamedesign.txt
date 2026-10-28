@@ -4,7 +4,8 @@ mechanics: you are controlling a cube trying to pass all obstacles and infuse th
 objectives: complete the level w/o dying
 controls space to jump
 game inspiration: geometry dash
-Below is the prompt:
+
+-- 
 
 Role
 
