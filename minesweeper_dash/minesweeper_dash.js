@@ -3,12 +3,14 @@ const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
 const RUN_SPEED = 4.8;
+const JUMP_RUN_SPEED = 3.5;
 const GRID_START_X = 300;
 const SECTOR_WIDTH = 300;
 const FINISH_X = 5700;
 const FLIGHT_START_X = 2700;
 const JUMP_SPEED = -5.8;
-const RUN_GRAVITY = 0.8;
+const MAX_JUMP_HEIGHT = 14;
+const RUN_GRAVITY = 1.1;
 
 const MINE_SECTORS = [
   { sector: 2, lane: 'ground' },
@@ -41,6 +43,7 @@ let stars = [];
 let gameState = 'ready';
 let flying = false;
 let jumpReady = false;
+let jumpStartY = null;
 let invincibleUntil = 0;
 let invincibilityActive = false;
 
@@ -65,6 +68,7 @@ function createLevel() {
   powerups = [];
   flying = false;
   jumpReady = false;
+  jumpStartY = null;
   invincibleUntil = 0;
   invincibilityActive = false;
   gameState = 'ready';
@@ -95,10 +99,10 @@ function createLevel() {
     let sprite;
 
     if (hazard.lane === 'ground' && hazard.type === 'block') {
-      sprite = new Sprite(mineX, GROUND_Y - 6, 12, 12, 'static');
+      sprite = new Sprite(mineX, GROUND_Y - 5, 10, 10, 'static');
       sprite.color = '#ffd36e';
     } else if (hazard.lane === 'ground') {
-      sprite = new Sprite(mineX, GROUND_Y - 5, 14, 10, 'static');
+      sprite = new Sprite(mineX, GROUND_Y - 4, 12, 8, 'static');
       sprite.color = '#ff5b4d';
     } else {
       const needsUpperRoute = hazard.lane === 'upper';
@@ -153,10 +157,12 @@ function startLevel() {
 }
 
 function updateLevel() {
-  runner.vel.x = RUN_SPEED;
+  const grounded = runner.y >= GROUND_Y - runner.h / 2 - 2 && runner.vel.y >= 0;
+  runner.vel.x = grounded ? RUN_SPEED : JUMP_RUN_SPEED;
 
   if (!flying && runner.x >= FLIGHT_START_X) {
     flying = true;
+    jumpStartY = null;
     world.gravity.y = 0;
     runner.vel.y = 0;
     runner.y = 390;
@@ -170,7 +176,17 @@ function updateLevel() {
     jumpReady = true;
   } else if (jumpReady && kb.presses('space') && runner.y >= GROUND_TOP - runner.h / 2 - 3 && runner.vel.y >= 0) {
     runner.vel.y = JUMP_SPEED;
+    jumpStartY = runner.y;
     jumpReady = false;
+  }
+
+  if (!flying && jumpStartY !== null) {
+    const jumpCeiling = jumpStartY - MAX_JUMP_HEIGHT;
+    if (runner.y < jumpCeiling) {
+      runner.y = jumpCeiling;
+      runner.vel.y = 0;
+    }
+    if (runner.vel.y >= 0 && runner.y >= jumpStartY - 1) jumpStartY = null;
   }
 
   for (const powerup of powerups) {
