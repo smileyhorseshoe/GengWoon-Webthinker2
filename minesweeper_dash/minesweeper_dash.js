@@ -199,7 +199,7 @@ function draw() {
 
 function startLevel() {
   gameState = 'playing';
-  runner.vel.x = RUN_SPEED;
+  runner.vel.x = STAGES[0].speed;
   jumpReady = false;
 }
 
