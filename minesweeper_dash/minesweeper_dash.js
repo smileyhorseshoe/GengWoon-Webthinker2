@@ -28,14 +28,21 @@ const GATE_SECTORS = [
   { sector: 15, lane: 'upper' },
   { sector: 16, lane: 'lower' }
 ];
+const POWERUP_POSITIONS = [
+  { x: 1850, y: GROUND_Y - 28 },
+  { x: 2350, y: GROUND_Y - 28 }
+];
 
 let runner;
 let floor;
 let hazards = [];
+let powerups = [];
 let stars = [];
 let gameState = 'ready';
 let flying = false;
 let jumpReady = false;
+let invincibleUntil = 0;
+let invincibilityActive = false;
 
 function setup() {
   new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -53,9 +60,13 @@ function createLevel() {
   if (runner) runner.remove();
   if (floor) floor.remove();
   for (const hazard of hazards) hazard.sprite.remove();
+  for (const powerup of powerups) powerup.sprite.remove();
   hazards = [];
+  powerups = [];
   flying = false;
   jumpReady = false;
+  invincibleUntil = 0;
+  invincibilityActive = false;
   gameState = 'ready';
   world.gravity.y = RUN_GRAVITY;
 
@@ -102,6 +113,15 @@ function createLevel() {
     hazards.push({ sprite, sector: hazard.sector, lane: hazard.lane, type: hazard.type });
   }
 
+  for (const [index, position] of POWERUP_POSITIONS.entries()) {
+    const sprite = new Sprite(position.x, position.y, 22, 22, 'none');
+    sprite.color = '#62f4d2';
+    sprite.stroke = '#e8ffff';
+    sprite.strokeWeight = 2;
+    sprite.rotation = 45;
+    powerups.push({ sprite, homeY: position.y, phase: index * 2 });
+  }
+
   camera.x = 480;
   camera.y = CANVAS_HEIGHT / 2;
 }
@@ -114,7 +134,7 @@ function draw() {
 
   if (gameState === 'playing') updateLevel();
 
-  camera.x = gameState === 'playing' ? runner.x + 300 : 480;
+  camera.x = gameState === 'ready' ? 480 : runner.x + 300;
   camera.y = CANVAS_HEIGHT / 2;
 
   drawScreenHud();
@@ -152,9 +172,28 @@ function updateLevel() {
     jumpReady = false;
   }
 
+  for (const powerup of powerups) {
+    if (powerup.collected) continue;
+    powerup.sprite.y = powerup.homeY + sin(frameCount * 0.08 + powerup.phase) * 5;
+    powerup.sprite.rotation += 1;
+    if (runner.overlaps(powerup.sprite)) {
+      powerup.collected = true;
+      powerup.sprite.remove();
+      invincibleUntil = frameCount + 300;
+    }
+  }
+
+  const invincible = frameCount < invincibleUntil;
+  if (invincible !== invincibilityActive) {
+    for (const hazard of hazards) {
+      hazard.sprite.collider = invincible ? 'none' : 'static';
+    }
+    invincibilityActive = invincible;
+  }
+
   for (const hazard of hazards) {
     hazard.sprite.visible = hazard.sprite.x < runner.x + 210;
-    if (runner.collides(hazard.sprite)) {
+    if (!invincible && runner.collides(hazard.sprite)) {
       endLevel('lost');
       return;
     }
@@ -175,10 +214,13 @@ function endLevel(result) {
 
 function drawScreenHud() {
   camera.off();
+  drawCityBackdrop();
   noStroke();
   for (const star of stars) {
     fill(star.size === 2 ? '#7ea6bd' : '#38536b');
-    circle(star.x, star.y, star.size);
+    const offset = gameState === 'ready' ? 0 : runner.x * 0.12;
+    const starX = ((star.x - offset) % CANVAS_WIDTH + CANVAS_WIDTH) % CANVAS_WIDTH;
+    circle(starX, star.y, star.size);
   }
 
   fill('#62f4d2');
@@ -202,6 +244,12 @@ function drawScreenHud() {
     textAlign(LEFT, CENTER);
     textSize(11);
     text(flying ? 'FLIGHT MODE' : 'RUN MODE', 260, 53);
+    if (frameCount < invincibleUntil) {
+      fill('#62f4d2');
+      textAlign(RIGHT, CENTER);
+      textSize(12);
+      text(`SHIELD ${Math.ceil((invincibleUntil - frameCount) / 60)}s`, CANVAS_WIDTH - 24, 53);
+    }
   }
 
   if (gameState === 'ready' || gameState === 'lost' || gameState === 'won') {
@@ -215,7 +263,8 @@ function drawScreenHud() {
       fill('#e8f7ff');
       textSize(16);
       text('COUNTS SHOW MINES IN THIS SECTOR + THE NEXT TWO', CANVAS_WIDTH / 2, 252);
-      text('SPACE TO START  /  JUMP  /  ASCEND IN FLIGHT', CANVAS_WIDTH / 2, 286);
+      text('PRESS SPACE TO START, THEN RELEASE', CANVAS_WIDTH / 2, 282);
+      text('TAP TO JUMP  /  HOLD TO GO HIGH  /  RELEASE TO GO LOW', CANVAS_WIDTH / 2, 312);
     } else {
       fill(gameState === 'won' ? '#62f4d2' : '#ff756b');
       textSize(34);
@@ -239,9 +288,6 @@ function drawSectorClues() {
     const mineCount = MINE_SECTORS.filter(mine => mine.sector >= sector && mine.sector <= sector + 2).length;
     const nearbyHazard = hazards.find(hazard => hazard.sector === sector);
 
-    stroke('#1d394b');
-    strokeWeight(1);
-    line(sectorX, 92, sectorX, GROUND_Y);
     noStroke();
     fill(mineCount > 0 ? '#ffd36e' : '#62f4d2');
     textSize(22);
@@ -250,19 +296,50 @@ function drawSectorClues() {
     if (nearbyHazard && nearbyHazard.sprite.visible) {
       fill('#ffb45c');
       textSize(10);
-      const label = nearbyHazard.type === 'block' ? 'BLOCK' : nearbyHazard.type === 'gate' ? 'GATE' : 'MINE';
+      let label = 'MINE';
+      if (nearbyHazard.type === 'block') label = 'BLOCK';
+      if (nearbyHazard.type === 'gate') label = nearbyHazard.lane === 'upper' ? 'GO HIGH' : 'GO LOW';
       text(label, sectorX, 137);
     }
   }
 }
 
 function drawFinishMarker() {
+  noStroke();
+  fill('#142b3a');
+  rect(FINISH_X - 38, 112, 76, 28);
   stroke('#62f4d2');
   strokeWeight(2);
-  line(FINISH_X, 110, FINISH_X, GROUND_Y);
+  noFill();
+  rect(FINISH_X - 38, 112, 76, 28);
   noStroke();
   fill('#62f4d2');
   textAlign(CENTER, CENTER);
-  textSize(12);
-  text('EXIT', FINISH_X, 95);
+  textSize(14);
+  text('EXIT', FINISH_X, 126);
+}
+
+function drawCityBackdrop() {
+  const offset = gameState === 'ready' ? 0 : runner.x * 0.2;
+
+  for (let layer = 0; layer < 2; layer++) {
+    const spacing = layer === 0 ? 76 : 58;
+    const shift = (offset * (layer === 0 ? 0.55 : 0.9)) % spacing;
+    for (let index = -1; index < 19; index++) {
+      const buildingX = index * spacing - shift;
+      const buildingHeight = 48 + ((index * 37 + layer * 29 + 900) % (layer === 0 ? 78 : 112));
+      const buildingWidth = spacing - 8;
+      fill(layer === 0 ? '#0c1a2a' : '#102535');
+      rect(buildingX, 478 - buildingHeight, buildingWidth, buildingHeight);
+
+      fill(layer === 0 ? '#18374a' : '#1a4850');
+      for (let windowY = 0; windowY < buildingHeight - 14; windowY += 17) {
+        for (let windowX = 8; windowX < buildingWidth - 5; windowX += 16) {
+          if ((index + windowX + windowY) % 3 !== 0) {
+            rect(buildingX + windowX, 470 - buildingHeight + windowY, 4, 5);
+          }
+        }
+      }
+    }
+  }
 }
