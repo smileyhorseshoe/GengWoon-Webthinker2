@@ -4,9 +4,9 @@ const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
 const JUMP_RUN_SPEED = 3.5;
 const FINISH_X = 5700;
-const JUMP_SPEED = -7.2;
-const MAX_JUMP_HEIGHT = 22;
-const RUN_GRAVITY = 1.2;
+const JUMP_SPEED = -8.8;
+const MAX_JUMP_HEIGHT = 44;
+const RUN_GRAVITY = 1.0;
 
 const STAGES = [
   {
