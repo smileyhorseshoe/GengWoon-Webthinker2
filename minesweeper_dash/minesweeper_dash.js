@@ -243,6 +243,7 @@ function draw() {
   background('#070b16');
 
   if (gameState === 'ready' && kb.presses('space')) startLevel();
+  if (gameState === 'stageClear' && kb.presses('space')) startNextStage();
   if ((gameState === 'lost' || gameState === 'won') && kb.presses('r')) createLevel();
 
   if (gameState === 'playing') updateLevel();
@@ -252,8 +253,10 @@ function draw() {
 
   drawScreenHud();
   camera.on();
-  if (gameState === 'playing') {
+  if (gameState === 'playing' || gameState === 'stageClear') {
     drawSpikeArt();
+  }
+  if (gameState === 'playing') {
     drawPowerupLabels();
     drawFinishMarker();
   }
@@ -261,9 +264,31 @@ function draw() {
 
 function startLevel() {
   gameState = 'playing';
+  currentStageIndex = 0;
+  flying = false;
+  world.gravity.y = RUN_GRAVITY;
   runner.vel.x = STAGES[0].speed;
+  runner.vel.y = 0;
   jumpBufferUntil = -1;
   jumpInputArmed = false;
+}
+
+function startNextStage() {
+  currentStageIndex += 1;
+  const stage = STAGES[currentStageIndex];
+  runner.x = stage.startX + 30;
+  runner.vel.x = stage.speed;
+  runner.vel.y = 0;
+  runner.y = stage.mode === 'flight' ? 320 : GROUND_Y - runner.h / 2;
+  flying = stage.mode === 'flight';
+  world.gravity.y = flying ? 0 : RUN_GRAVITY;
+  runner.gravityScale = 1;
+  jumpStartY = null;
+  jumpBufferUntil = -1;
+  lastGroundedFrame = frameCount;
+  jumpInputArmed = false;
+  flightVelocity = 0;
+  gameState = 'playing';
 }
 
 function updateLevel() {
@@ -350,8 +375,10 @@ function updateLevel() {
 
   if ((flying && (runner.y < 130 || runner.y > 430)) || (!flying && runner.y > GROUND_Y - runner.h / 2 + 10)) {
     endLevel('lost');
-  } else if (runner.x >= FINISH_X) {
-    endLevel('won');
+  } else if (runner.x >= stage.endX) {
+    runner.vel.x = 0;
+    runner.vel.y = 0;
+    gameState = currentStageIndex === STAGES.length - 1 ? 'won' : 'stageClear';
   }
 }
 
