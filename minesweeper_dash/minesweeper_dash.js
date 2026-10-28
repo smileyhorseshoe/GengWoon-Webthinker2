@@ -72,9 +72,7 @@ const STAGES = [
 ];
 
 const POWERUP_POSITIONS = [
-  { x: 1850, y: GROUND_Y - 28 },
   { x: 2350, y: GROUND_Y - 28 },
-  { x: 4050, y: 300 }
 ];
 
 let runner;
@@ -273,7 +271,7 @@ function updateLevel() {
     if (runner.overlaps(powerup.sprite)) {
       powerup.collected = true;
       powerup.sprite.remove();
-      invincibleUntil = frameCount + 300;
+      invincibleUntil = frameCount + 180;
     }
   }
 
@@ -371,7 +369,7 @@ function drawScreenHud() {
       text('PRESS SPACE TO START, THEN RELEASE', CANVAS_WIDTH / 2, 282);
       text('TAP TO JUMP  /  HOLD TO GO HIGH  /  RELEASE TO GO LOW', CANVAS_WIDTH / 2, 312);
       fill('#62f4d2');
-      text('CYAN SHIELDS GIVE 5 SECONDS OF INVINCIBILITY', CANVAS_WIDTH / 2, 342);
+      text('ONE RARE CYAN SHIELD GIVES 3 SECONDS OF INVINCIBILITY', CANVAS_WIDTH / 2, 342);
       fill('#e8f7ff');
       textSize(13);
       text('THREE STAGES: NEON RUN  /  MINE RUSH  /  SKY CIRCUIT', CANVAS_WIDTH / 2, 370);
