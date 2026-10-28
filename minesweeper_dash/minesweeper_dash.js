@@ -7,19 +7,27 @@ const GRID_START_X = 300;
 const SECTOR_WIDTH = 300;
 const FINISH_X = 5700;
 const FLIGHT_START_X = 2700;
-const JUMP_SPEED = -7.8;
+const JUMP_SPEED = -6;
+const RUN_GRAVITY = 0.65;
 
 const MINE_SECTORS = [
   { sector: 2, lane: 'ground' },
   { sector: 4, lane: 'ground' },
-  { sector: 6, lane: 'ground' },
-  { sector: 9, lane: 'upper' },
-  { sector: 11, lane: 'lower' },
-  { sector: 13, lane: 'upper' },
-  { sector: 15, lane: 'lower' }
+  { sector: 6, lane: 'ground' }
 ];
 
 const BLOCK_SECTORS = [1, 3, 5, 7];
+const GATE_SECTORS = [
+  { sector: 8, lane: 'lower' },
+  { sector: 9, lane: 'upper' },
+  { sector: 10, lane: 'lower' },
+  { sector: 11, lane: 'upper' },
+  { sector: 12, lane: 'lower' },
+  { sector: 13, lane: 'upper' },
+  { sector: 14, lane: 'lower' },
+  { sector: 15, lane: 'upper' },
+  { sector: 16, lane: 'lower' }
+];
 
 let runner;
 let floor;
@@ -49,14 +57,14 @@ function createLevel() {
   flying = false;
   jumpReady = false;
   gameState = 'ready';
-  world.gravity.y = 0.75;
+  world.gravity.y = RUN_GRAVITY;
 
   floor = new Sprite(FINISH_X / 2, GROUND_Y + 50, FINISH_X + 1000, 100, 'static');
   floor.color = '#142b3a';
   floor.stroke = '#62f4d2';
   floor.strokeWeight = 2;
 
-  runner = new Sprite(120, GROUND_Y - 17, 34, 34);
+  runner = new Sprite(120, GROUND_Y - 12, 24, 24);
   runner.color = '#62f4d2';
   runner.stroke = '#e8ffff';
   runner.strokeWeight = 2;
@@ -67,7 +75,8 @@ function createLevel() {
 
   const levelHazards = [
     ...MINE_SECTORS.map(mine => ({ ...mine, type: 'mine' })),
-    ...BLOCK_SECTORS.map(sector => ({ sector, lane: 'ground', type: 'block' }))
+    ...BLOCK_SECTORS.map(sector => ({ sector, lane: 'ground', type: 'block' })),
+    ...GATE_SECTORS.map(gate => ({ ...gate, type: 'gate' }))
   ];
 
   for (const hazard of levelHazards) {
@@ -75,10 +84,10 @@ function createLevel() {
     let sprite;
 
     if (hazard.lane === 'ground' && hazard.type === 'block') {
-      sprite = new Sprite(mineX, GROUND_Y - 16, 32, 32, 'static');
+      sprite = new Sprite(mineX, GROUND_Y - 9, 18, 18, 'static');
       sprite.color = '#ffd36e';
     } else if (hazard.lane === 'ground') {
-      sprite = new Sprite(mineX, GROUND_Y - 11, 36, 22, 'static');
+      sprite = new Sprite(mineX, GROUND_Y - 7, 18, 14, 'static');
       sprite.color = '#ff5b4d';
     } else {
       const needsUpperRoute = hazard.lane === 'upper';
@@ -151,7 +160,7 @@ function updateLevel() {
     }
   }
 
-  if ((flying && runner.y < 120) || runner.y > GROUND_Y - runner.h / 2) {
+  if ((flying && runner.y < 120) || runner.y > GROUND_Y - runner.h / 2 + 10) {
     endLevel('lost');
   } else if (runner.x >= FINISH_X) {
     endLevel('won');
@@ -241,7 +250,7 @@ function drawSectorClues() {
     if (nearbyHazard && nearbyHazard.sprite.visible) {
       fill('#ffb45c');
       textSize(10);
-      const label = nearbyHazard.type === 'block' ? 'BLOCK' : nearbyHazard.lane === 'ground' ? 'MINE' : 'GATE';
+      const label = nearbyHazard.type === 'block' ? 'BLOCK' : nearbyHazard.type === 'gate' ? 'GATE' : 'MINE';
       text(label, sectorX, 137);
     }
   }
