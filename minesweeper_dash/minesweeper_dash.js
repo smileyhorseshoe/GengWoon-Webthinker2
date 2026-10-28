@@ -3,7 +3,7 @@ const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
 const JUMP_RUN_SPEED = 3.8;
-const FINISH_X = 5700;
+const FINISH_X = 10000;
 const JUMP_SPEED = -9.2;
 const MAX_JUMP_HEIGHT = 44;
 const JUMP_BUFFER_FRAMES = 8;
@@ -16,61 +16,111 @@ const STAGES = [
     title: 'NEON SPRINT',
     mode: 'run',
     startX: 0,
-    endX: 1500,
+    endX: 2000,
     speed: 4.4,
     accent: '#62f4d2',
     building: '#0c1a2a',
     buildingFar: '#102535',
     windows: '#18374a',
     hazards: [
-      { x: 600, type: 'spike' },
-      { x: 720, type: 'block', size: 14 },
-      { x: 980, type: 'mine' },
-      { x: 1120, type: 'spike' },
-      { x: 1250, type: 'block', size: 14 }
+      { x: 520, type: 'spike' },
+      { x: 710, type: 'block', size: 14 },
+      { x: 960, type: 'mine' },
+      { x: 1170, type: 'spike' },
+      { x: 1380, type: 'block', size: 16 },
+      { x: 1620, type: 'mine' },
+      { x: 1810, type: 'spike' }
     ]
   },
   {
     title: 'MINE RUSH',
     mode: 'run',
-    startX: 1500,
-    endX: 3000,
+    startX: 2000,
+    endX: 4000,
     speed: 5,
     accent: '#ffd36e',
     building: '#1e1911',
     buildingFar: '#302416',
     windows: '#75542b',
     hazards: [
-      { x: 1660, type: 'mine' },
-      { x: 1770, type: 'spike' },
-      { x: 1900, type: 'block', size: 18 },
-      { x: 2090, type: 'block', size: 22 },
-      { x: 2240, type: 'spike' },
-      { x: 2380, type: 'mine' },
-      { x: 2520, type: 'block', size: 18 },
-      { x: 2680, type: 'spike' },
-      { x: 2850, type: 'block', size: 22 }
+      { x: 2160, type: 'mine' },
+      { x: 2310, type: 'spike' },
+      { x: 2470, type: 'block', size: 18 },
+      { x: 2670, type: 'block', size: 22 },
+      { x: 2860, type: 'spike' },
+      { x: 3020, type: 'mine' },
+      { x: 3190, type: 'block', size: 18 },
+      { x: 3370, type: 'spike' },
+      { x: 3530, type: 'block', size: 22 },
+      { x: 3750, type: 'mine' },
+      { x: 3890, type: 'spike' }
+    ]
+  },
+  {
+    title: 'PULSE PARKOUR',
+    mode: 'run',
+    startX: 4000,
+    endX: 6000,
+    speed: 5.2,
+    accent: '#ff8b67',
+    building: '#26131b',
+    buildingFar: '#3b1b24',
+    windows: '#853e43',
+    hazards: [
+      { x: 4160, type: 'block', size: 18 },
+      { x: 4340, type: 'spike' },
+      { x: 4510, type: 'mine' },
+      { x: 4660, type: 'block', size: 22 },
+      { x: 4810, type: 'spike' },
+      { x: 4960, type: 'block', size: 18 },
+      { x: 5120, type: 'mine' },
+      { x: 5270, type: 'spike' },
+      { x: 5420, type: 'block', size: 22 },
+      { x: 5570, type: 'mine' },
+      { x: 5730, type: 'spike' },
+      { x: 5880, type: 'block', size: 18 }
     ]
   },
   {
     title: 'SKY CIRCUIT',
     mode: 'flight',
-    startX: 3000,
-    endX: FINISH_X,
-    speed: 5.3,
+    startX: 6000,
+    endX: 8000,
+    speed: 5.4,
     accent: '#62d9ff',
     building: '#0b1930',
     buildingFar: '#102844',
     windows: '#235276',
     hazards: [
-      { x: 3210, type: 'gate', lane: 'upper' },
-      { x: 3540, type: 'gate', lane: 'lower' },
-      { x: 3870, type: 'gate', lane: 'upper' },
-      { x: 4200, type: 'gate', lane: 'lower' },
-      { x: 4530, type: 'gate', lane: 'upper' },
-      { x: 4860, type: 'gate', lane: 'lower' },
-      { x: 5190, type: 'gate', lane: 'upper' },
-      { x: 5520, type: 'gate', lane: 'lower' }
+      { x: 6180, type: 'gate', lane: 'upper' },
+      { x: 6450, type: 'gate', lane: 'lower' },
+      { x: 6720, type: 'gate', lane: 'upper' },
+      { x: 6990, type: 'gate', lane: 'lower' },
+      { x: 7260, type: 'gate', lane: 'upper' },
+      { x: 7530, type: 'gate', lane: 'lower' },
+      { x: 7810, type: 'gate', lane: 'upper' }
+    ]
+  },
+  {
+    title: 'FINAL FREQUENCY',
+    mode: 'flight',
+    startX: 8000,
+    endX: FINISH_X,
+    speed: 5.8,
+    accent: '#c19cff',
+    building: '#171332',
+    buildingFar: '#261d4a',
+    windows: '#6150a0',
+    hazards: [
+      { x: 8140, type: 'gate', lane: 'lower' },
+      { x: 8360, type: 'gate', lane: 'upper' },
+      { x: 8580, type: 'gate', lane: 'lower' },
+      { x: 8800, type: 'gate', lane: 'upper' },
+      { x: 9020, type: 'gate', lane: 'lower' },
+      { x: 9240, type: 'gate', lane: 'upper' },
+      { x: 9460, type: 'gate', lane: 'lower' },
+      { x: 9680, type: 'gate', lane: 'upper' },
+      { x: 9900, type: 'gate', lane: 'lower' }
     ]
   }
 ];
