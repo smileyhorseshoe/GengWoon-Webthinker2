@@ -2,7 +2,6 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
-const RUN_SPEED = 4.8;
 const JUMP_RUN_SPEED = 3.5;
 const FINISH_X = 5700;
 const JUMP_SPEED = -7.2;
@@ -300,7 +299,13 @@ function drawScreenHud() {
   fill('#62f4d2');
   textAlign(LEFT, CENTER);
   textSize(16);
-  text('NEON MINES  //  SPACE: JUMP / ASCEND', 24, 28);
+  if (gameState === 'playing') {
+    fill(STAGES[currentStageIndex].accent);
+    text(`STAGE ${currentStageIndex + 1}  //  ${STAGES[currentStageIndex].title}`, 24, 28);
+  } else {
+    fill(STAGES[0].accent);
+    text('NEON MINES  //  SPACE: JUMP / ASCEND', 24, 28);
+  }
   textAlign(RIGHT, CENTER);
   fill('#a9c5d5');
   textSize(13);
@@ -341,6 +346,9 @@ function drawScreenHud() {
       text('TAP TO JUMP  /  HOLD TO GO HIGH  /  RELEASE TO GO LOW', CANVAS_WIDTH / 2, 312);
       fill('#62f4d2');
       text('CYAN SHIELDS GIVE 5 SECONDS OF INVINCIBILITY', CANVAS_WIDTH / 2, 342);
+      fill('#e8f7ff');
+      textSize(13);
+      text('THREE STAGES: NEON RUN  /  MINE RUSH  /  SKY CIRCUIT', CANVAS_WIDTH / 2, 370);
     } else {
       fill(gameState === 'won' ? '#62f4d2' : '#ff756b');
       textSize(34);
@@ -355,13 +363,15 @@ function drawScreenHud() {
 }
 
 function drawSectorClues() {
-  const firstSector = Math.max(0, Math.floor((runner.x - GRID_START_X) / SECTOR_WIDTH) - 2);
-  const lastSector = Math.ceil((runner.x + 900 - GRID_START_X) / SECTOR_WIDTH);
+  const firstSector = Math.max(0, Math.floor(runner.x / 300) - 1);
+  const lastSector = Math.ceil((runner.x + 900) / 300);
   textAlign(CENTER, CENTER);
 
   for (let sector = firstSector; sector <= lastSector; sector++) {
-    const sectorX = GRID_START_X + (sector + 0.5) * SECTOR_WIDTH;
-    const mineCount = MINE_SECTORS.filter(mine => mine.sector >= sector && mine.sector <= sector + 2).length;
+    const sectorX = (sector + 0.5) * 300;
+    const mineCount = hazards.filter(hazard =>
+      hazard.type === 'mine' && hazard.sector >= sector && hazard.sector <= sector + 2
+    ).length;
     const nearbyHazard = hazards.find(hazard => hazard.sector === sector);
 
     noStroke();
@@ -407,6 +417,7 @@ function drawPowerupLabels() {
 
 function drawCityBackdrop() {
   const offset = gameState === 'ready' ? 0 : runner.x * 0.2;
+  const stage = STAGES[currentStageIndex];
 
   for (let layer = 0; layer < 2; layer++) {
     const spacing = layer === 0 ? 76 : 58;
@@ -415,10 +426,10 @@ function drawCityBackdrop() {
       const buildingX = index * spacing - shift;
       const buildingHeight = 48 + ((index * 37 + layer * 29 + 900) % (layer === 0 ? 78 : 112));
       const buildingWidth = spacing - 8;
-      fill(layer === 0 ? '#0c1a2a' : '#102535');
+      fill(layer === 0 ? stage.building : stage.building);
       rect(buildingX, 478 - buildingHeight, buildingWidth, buildingHeight);
 
-      fill(layer === 0 ? '#18374a' : '#1a4850');
+      fill(stage.windows);
       for (let windowY = 0; windowY < buildingHeight - 14; windowY += 17) {
         for (let windowX = 8; windowX < buildingWidth - 5; windowX += 16) {
           if ((index + windowX + windowY) % 3 !== 0) {
