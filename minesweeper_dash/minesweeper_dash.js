@@ -7,7 +7,7 @@ const JUMP_SPEED = -9.5;
 const MAX_JUMP_HEIGHT = 38;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
-const RUN_GRAVITY = 1.4;
+const RUN_GRAVITY = 1.7;
 
 const STAGES = [
   {
