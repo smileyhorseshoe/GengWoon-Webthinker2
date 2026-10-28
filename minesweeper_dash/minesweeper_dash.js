@@ -2,7 +2,7 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
-const JUMP_RUN_SPEED = 3.2;
+const JUMP_RUN_SPEED = 2.2;
 const FINISH_X = 5700;
 const JUMP_SPEED = -9.4;
 const MAX_JUMP_HEIGHT = 58;
@@ -218,7 +218,7 @@ function updateLevel() {
     : grounded
       ? stage.speed
       : Math.min(stage.speed * 0.72, JUMP_RUN_SPEED);
-  runner.vel.x = lerp(runner.vel.x, targetRunSpeed, grounded ? 0.35 : 0.12);
+  runner.vel.x = lerp(runner.vel.x, targetRunSpeed, grounded ? 0.35 : 0.32);
 
   if (stage.mode === 'flight' && !flying) {
     flying = true;
