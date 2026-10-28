@@ -141,6 +141,7 @@ function draw() {
   camera.on();
   if (gameState === 'playing') {
     drawSectorClues();
+    drawPowerupLabels();
     drawFinishMarker();
   }
 }
@@ -174,7 +175,7 @@ function updateLevel() {
 
   for (const powerup of powerups) {
     if (powerup.collected) continue;
-    powerup.sprite.y = powerup.homeY + sin(frameCount * 0.08 + powerup.phase) * 5;
+    powerup.sprite.y = powerup.homeY + Math.sin(frameCount * 0.08 + powerup.phase) * 5;
     powerup.sprite.rotation += 1;
     if (runner.overlaps(powerup.sprite)) {
       powerup.collected = true;
@@ -265,6 +266,8 @@ function drawScreenHud() {
       text('COUNTS SHOW MINES IN THIS SECTOR + THE NEXT TWO', CANVAS_WIDTH / 2, 252);
       text('PRESS SPACE TO START, THEN RELEASE', CANVAS_WIDTH / 2, 282);
       text('TAP TO JUMP  /  HOLD TO GO HIGH  /  RELEASE TO GO LOW', CANVAS_WIDTH / 2, 312);
+      fill('#62f4d2');
+      text('CYAN SHIELDS GIVE 5 SECONDS OF INVINCIBILITY', CANVAS_WIDTH / 2, 342);
     } else {
       fill(gameState === 'won' ? '#62f4d2' : '#ff756b');
       textSize(34);
@@ -319,6 +322,16 @@ function drawFinishMarker() {
   text('EXIT', FINISH_X, 126);
 }
 
+function drawPowerupLabels() {
+  noStroke();
+  fill('#07131f');
+  textAlign(CENTER, CENTER);
+  textSize(14);
+  for (const powerup of powerups) {
+    if (!powerup.collected) text('+', powerup.sprite.x, powerup.sprite.y);
+  }
+}
+
 function drawCityBackdrop() {
   const offset = gameState === 'ready' ? 0 : runner.x * 0.2;
 
@@ -336,7 +349,7 @@ function drawCityBackdrop() {
       for (let windowY = 0; windowY < buildingHeight - 14; windowY += 17) {
         for (let windowX = 8; windowX < buildingWidth - 5; windowX += 16) {
           if ((index + windowX + windowY) % 3 !== 0) {
-            rect(buildingX + windowX, 470 - buildingHeight + windowY, 4, 5);
+            rect(buildingX + windowX, 486 - buildingHeight + windowY, 4, 5);
           }
         }
       }
