@@ -4,35 +4,74 @@ const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
 const RUN_SPEED = 4.8;
 const JUMP_RUN_SPEED = 3.5;
-const GRID_START_X = 300;
-const SECTOR_WIDTH = 300;
 const FINISH_X = 5700;
-const FLIGHT_START_X = 2700;
 const JUMP_SPEED = -7.2;
 const MAX_JUMP_HEIGHT = 22;
 const RUN_GRAVITY = 1.2;
 
-const MINE_SECTORS = [
-  { sector: 2, lane: 'ground' },
-  { sector: 4, lane: 'ground' },
-  { sector: 6, lane: 'ground' }
+const STAGES = [
+  {
+    title: 'NEON SPRINT',
+    mode: 'run',
+    startX: 0,
+    endX: 1500,
+    speed: 4.4,
+    accent: '#62f4d2',
+    building: '#0c1a2a',
+    windows: '#18374a',
+    hazards: [
+      { x: 720, type: 'block', size: 14 },
+      { x: 980, type: 'mine' },
+      { x: 1250, type: 'block', size: 14 }
+    ]
+  },
+  {
+    title: 'MINE RUSH',
+    mode: 'run',
+    startX: 1500,
+    endX: 3000,
+    speed: 5,
+    accent: '#ffd36e',
+    building: '#1e1911',
+    windows: '#75542b',
+    hazards: [
+      { x: 1660, type: 'mine' },
+      { x: 1870, type: 'block', size: 18 },
+      { x: 2090, type: 'block', size: 22 },
+      { x: 2330, type: 'mine' },
+      { x: 2500, type: 'block', size: 18 },
+      { x: 2710, type: 'mine' },
+      { x: 2860, type: 'block', size: 22 }
+    ]
+  },
+  {
+    title: 'SKY CIRCUIT',
+    mode: 'flight',
+    startX: 3000,
+    endX: FINISH_X,
+    speed: 5.3,
+    accent: '#62d9ff',
+    building: '#0b1930',
+    windows: '#235276',
+    hazards: [
+      { x: 3210, type: 'gate', lane: 'upper' },
+      { x: 3460, type: 'gate', lane: 'lower' },
+      { x: 3710, type: 'gate', lane: 'upper' },
+      { x: 3960, type: 'gate', lane: 'lower' },
+      { x: 4210, type: 'gate', lane: 'upper' },
+      { x: 4460, type: 'gate', lane: 'lower' },
+      { x: 4710, type: 'gate', lane: 'upper' },
+      { x: 4960, type: 'gate', lane: 'lower' },
+      { x: 5210, type: 'gate', lane: 'upper' },
+      { x: 5460, type: 'gate', lane: 'lower' }
+    ]
+  }
 ];
 
-const BLOCK_SECTORS = [1, 3, 5, 7];
-const GATE_SECTORS = [
-  { sector: 8, lane: 'lower' },
-  { sector: 9, lane: 'upper' },
-  { sector: 10, lane: 'lower' },
-  { sector: 11, lane: 'upper' },
-  { sector: 12, lane: 'lower' },
-  { sector: 13, lane: 'upper' },
-  { sector: 14, lane: 'lower' },
-  { sector: 15, lane: 'upper' },
-  { sector: 16, lane: 'lower' }
-];
 const POWERUP_POSITIONS = [
   { x: 1850, y: GROUND_Y - 28 },
-  { x: 2350, y: GROUND_Y - 28 }
+  { x: 2350, y: GROUND_Y - 28 },
+  { x: 4200, y: 300 }
 ];
 
 let runner;
@@ -44,6 +83,8 @@ let gameState = 'ready';
 let flying = false;
 let jumpReady = false;
 let jumpStartY = null;
+let flightVelocity = 0;
+let currentStageIndex = 0;
 let invincibleUntil = 0;
 let invincibilityActive = false;
 
@@ -69,6 +110,8 @@ function createLevel() {
   flying = false;
   jumpReady = false;
   jumpStartY = null;
+  flightVelocity = 0;
+  currentStageIndex = 0;
   invincibleUntil = 0;
   invincibilityActive = false;
   gameState = 'ready';
@@ -88,25 +131,23 @@ function createLevel() {
   runner.bounciness = 0;
   runner.rotationLock = true;
 
-  const levelHazards = [
-    ...MINE_SECTORS.map(mine => ({ ...mine, type: 'mine' })),
-    ...BLOCK_SECTORS.map(sector => ({ sector, lane: 'ground', type: 'block' })),
-    ...GATE_SECTORS.map(gate => ({ ...gate, type: 'gate' }))
-  ];
+  const levelHazards = STAGES.flatMap((stage, stageIndex) =>
+    stage.hazards.map(hazard => ({ ...hazard, stageIndex }))
+  );
 
   for (const hazard of levelHazards) {
-    const mineX = GRID_START_X + (hazard.sector + 0.5) * SECTOR_WIDTH;
+    const mineX = hazard.x;
     let sprite;
 
-    if (hazard.lane === 'ground' && hazard.type === 'block') {
-      sprite = new Sprite(mineX, GROUND_Y - 7, 14, 14, 'static');
+    if (hazard.type === 'block') {
+      const blockSize = hazard.size || 16;
+      sprite = new Sprite(mineX, GROUND_Y - blockSize / 2, blockSize, blockSize, 'static');
       sprite.color = '#ffd36e';
-    } else if (hazard.lane === 'ground') {
+    } else if (hazard.type === 'mine') {
       sprite = new Sprite(mineX, GROUND_Y - 5, 14, 10, 'static');
       sprite.color = '#ff5b4d';
     } else {
-      const needsUpperRoute = hazard.lane === 'upper';
-      const barrierY = needsUpperRoute ? 420 : 195;
+      const barrierY = hazard.lane === 'upper' ? 420 : 195;
       sprite = new Sprite(mineX, barrierY, 58, 240, 'static');
       sprite.color = '#ff5b4d';
     }
@@ -114,7 +155,13 @@ function createLevel() {
     sprite.stroke = '#ffd36e';
     sprite.strokeWeight = 2;
     sprite.visible = false;
-    hazards.push({ sprite, sector: hazard.sector, lane: hazard.lane, type: hazard.type });
+    hazards.push({
+      sprite,
+      sector: Math.floor(hazard.x / 300),
+      stageIndex: hazard.stageIndex,
+      lane: hazard.lane,
+      type: hazard.type
+    });
   }
 
   for (const [index, position] of POWERUP_POSITIONS.entries()) {
@@ -157,21 +204,26 @@ function startLevel() {
 }
 
 function updateLevel() {
+  currentStageIndex = getStageIndex(runner.x);
+  const stage = STAGES[currentStageIndex];
   const grounded = runner.y >= GROUND_Y - runner.h / 2 - 2 && runner.vel.y >= 0;
-  runner.vel.x = grounded ? RUN_SPEED : JUMP_RUN_SPEED;
+  runner.vel.x = grounded ? stage.speed : Math.min(stage.speed * 0.72, JUMP_RUN_SPEED);
 
-  if (!flying && runner.x >= FLIGHT_START_X) {
+  if (stage.mode === 'flight' && !flying) {
     flying = true;
     jumpStartY = null;
+    flightVelocity = 0;
     world.gravity.y = 0;
     runner.vel.y = 0;
-    runner.y = 390;
+    runner.y = 320;
   }
 
   if (flying) {
     runner.vel.y = 0;
-    runner.y += kb.pressing('space') ? -2.5 : 4.5;
-    runner.y = constrain(runner.y, 230, 390);
+    const targetVelocity = kb.pressing('space') ? -3.2 : 2.4;
+    flightVelocity = lerp(flightVelocity, targetVelocity, 0.08);
+    runner.y += flightVelocity;
+    runner.y = constrain(runner.y, 150, 410);
   } else if (!kb.pressing('space')) {
     jumpReady = true;
   } else if (jumpReady && kb.presses('space') && runner.y >= GROUND_TOP - runner.h / 2 - 3 && runner.vel.y >= 0) {
@@ -216,11 +268,16 @@ function updateLevel() {
     }
   }
 
-  if ((flying && runner.y < 120) || runner.y > GROUND_Y - runner.h / 2 + 10) {
+  if ((flying && (runner.y < 130 || runner.y > 430)) || (!flying && runner.y > GROUND_Y - runner.h / 2 + 10)) {
     endLevel('lost');
   } else if (runner.x >= FINISH_X) {
     endLevel('won');
   }
+}
+
+function getStageIndex(worldX) {
+  const stageIndex = STAGES.findIndex(stage => worldX >= stage.startX && worldX < stage.endX);
+  return stageIndex === -1 ? STAGES.length - 1 : stageIndex;
 }
 
 function endLevel(result) {
