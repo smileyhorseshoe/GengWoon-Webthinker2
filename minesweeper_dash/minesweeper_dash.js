@@ -143,7 +143,6 @@ let flying = false;
 let jumpStartY = null;
 let jumpBufferUntil = -1;
 let lastGroundedFrame = -COYOTE_FRAMES - 1;
-let jumpInputArmed = false;
 let flightVelocity = 0;
 let currentStageIndex = 0;
 let invincibleUntil = 0;
@@ -172,7 +171,6 @@ function createLevel() {
   jumpStartY = null;
   jumpBufferUntil = -1;
   lastGroundedFrame = frameCount;
-  jumpInputArmed = false;
   flightVelocity = 0;
   currentStageIndex = 0;
   invincibleUntil = 0;
@@ -246,8 +244,14 @@ function createLevel() {
 function draw() {
   background('#070b16');
 
-  if (gameState === 'ready' && kb.presses('space')) startLevel();
-  if (gameState === 'stageClear' && kb.presses('space')) startNextStage();
+  if (gameState === 'ready' && kb.presses('space')) {
+    startLevel();
+    return;
+  }
+  if (gameState === 'stageClear' && kb.presses('space')) {
+    startNextStage();
+    return;
+  }
   if ((gameState === 'lost' || gameState === 'won') && kb.presses('r')) createLevel();
 
   if (gameState === 'playing') updateLevel();
@@ -274,7 +278,6 @@ function startLevel() {
   runner.vel.x = STAGES[0].speed;
   runner.vel.y = 0;
   jumpBufferUntil = -1;
-  jumpInputArmed = false;
 }
 
 function startNextStage() {
@@ -290,7 +293,6 @@ function startNextStage() {
   jumpStartY = null;
   jumpBufferUntil = -1;
   lastGroundedFrame = frameCount;
-  jumpInputArmed = false;
   flightVelocity = 0;
   gameState = 'playing';
 }
@@ -298,7 +300,7 @@ function startNextStage() {
 function updateLevel() {
   currentStageIndex = getStageIndex(runner.x);
   const stage = STAGES[currentStageIndex];
-  const grounded = runner.y >= GROUND_Y - runner.h / 2 - 2 && runner.vel.y >= 0;
+  const grounded = runner.y >= GROUND_Y - runner.h / 2 - 8 && runner.vel.y >= 0;
   if (grounded) lastGroundedFrame = frameCount;
   const targetRunSpeed = flying
     ? stage.speed
@@ -325,8 +327,7 @@ function updateLevel() {
     runner.y += flightVelocity;
     runner.y = constrain(runner.y, 150, 410);
   } else {
-    if (!kb.pressing('space')) jumpInputArmed = true;
-    if (jumpInputArmed && kb.pressing('space')) {
+    if (kb.presses('space')) {
       jumpBufferUntil = frameCount + JUMP_BUFFER_FRAMES;
     }
 
@@ -336,7 +337,6 @@ function updateLevel() {
       jumpStartY = runner.y;
       jumpBufferUntil = -1;
       lastGroundedFrame = -COYOTE_FRAMES - 1;
-      jumpInputArmed = false;
     }
   }
 
