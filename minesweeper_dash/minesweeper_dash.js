@@ -4,11 +4,11 @@ const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
 const JUMP_RUN_SPEED = 4;
 const FINISH_X = 11000;
-const JUMP_SPEED = -10;
+const JUMP_SPEED = -11.5;
 const MAX_JUMP_HEIGHT = 44;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
-const RUN_GRAVITY = 1.5;
+const RUN_GRAVITY = 1.4;
 const FALL_GRAVITY_SCALE = 2.6;
 
 const STAGES = [
@@ -308,13 +308,7 @@ function updateLevel() {
     runner.gravityScale = 1;
   }
   if (grounded) lastGroundedFrame = frameCount;
-  const targetRunSpeed = flying
-    ? stage.speed
-    : grounded
-      ? stage.speed
-      : Math.min(stage.speed * 0.72, JUMP_RUN_SPEED);
-  runner.vel.x = lerp(runner.vel.x, targetRunSpeed, grounded ? 0.35 : 0.32);
-  if (!flying) runner.gravityScale = runner.vel.y > 0 ? FALL_GRAVITY_SCALE : 1;
+  runner.vel.x = stage.speed;
 
   if (stage.mode === 'flight' && !flying) {
     flying = true;
@@ -353,6 +347,9 @@ function updateLevel() {
       runner.vel.y = 0;
     }
     if (runner.vel.y >= 0 && runner.y >= jumpStartY - 1) jumpStartY = null;
+  }
+  if (!flying && jumpStartY !== null && runner.vel.y >= 0 && runner.y >= jumpStartY - 1) {
+    jumpStartY = null;
   }
 
   for (const powerup of powerups) {
