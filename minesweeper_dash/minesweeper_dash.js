@@ -8,6 +8,7 @@ const JUMP_SPEED = -9.4;
 const MAX_JUMP_HEIGHT = 58;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
+const LANDING_JUMP_COOLDOWN = 6;
 const RUN_GRAVITY = 0.95;
 
 const STAGES = [
@@ -86,6 +87,8 @@ let flying = false;
 let jumpStartY = null;
 let jumpBufferUntil = -1;
 let lastGroundedFrame = -COYOTE_FRAMES - 1;
+let landingCooldownUntil = 0;
+let wasGrounded = true;
 let flightVelocity = 0;
 let currentStageIndex = 0;
 let invincibleUntil = 0;
@@ -114,6 +117,8 @@ function createLevel() {
   jumpStartY = null;
   jumpBufferUntil = -1;
   lastGroundedFrame = frameCount;
+  landingCooldownUntil = frameCount;
+  wasGrounded = true;
   flightVelocity = 0;
   currentStageIndex = 0;
   invincibleUntil = 0;
@@ -211,7 +216,11 @@ function updateLevel() {
   currentStageIndex = getStageIndex(runner.x);
   const stage = STAGES[currentStageIndex];
   const grounded = runner.y >= GROUND_Y - runner.h / 2 - 2 && runner.vel.y >= 0;
-  if (grounded) lastGroundedFrame = frameCount;
+  if (grounded) {
+    lastGroundedFrame = frameCount;
+    if (!wasGrounded) landingCooldownUntil = frameCount + LANDING_JUMP_COOLDOWN;
+  }
+  wasGrounded = grounded;
   runner.vel.x = flying
     ? stage.speed
     : grounded
@@ -237,12 +246,14 @@ function updateLevel() {
   } else {
     if (kb.presses('space')) jumpBufferUntil = frameCount + JUMP_BUFFER_FRAMES;
 
-    const canJump = grounded || frameCount - lastGroundedFrame <= COYOTE_FRAMES;
+    const cooldownFinished = frameCount >= landingCooldownUntil;
+    const canJump = cooldownFinished && (grounded || frameCount - lastGroundedFrame <= COYOTE_FRAMES);
     if (jumpBufferUntil >= frameCount && canJump) {
       runner.vel.y = JUMP_SPEED;
       jumpStartY = runner.y;
       jumpBufferUntil = -1;
       lastGroundedFrame = -COYOTE_FRAMES - 1;
+      wasGrounded = false;
     }
   }
 
