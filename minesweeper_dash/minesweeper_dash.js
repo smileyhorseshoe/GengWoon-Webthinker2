@@ -146,7 +146,6 @@ let lastGroundedFrame = -COYOTE_FRAMES - 1;
 let flightVelocity = 0;
 let currentStageIndex = 0;
 let invincibleUntil = 0;
-let invincibilityActive = false;
 
 function setup() {
   new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -174,7 +173,6 @@ function createLevel() {
   flightVelocity = 0;
   currentStageIndex = 0;
   invincibleUntil = 0;
-  invincibilityActive = false;
   gameState = 'ready';
   world.gravity.y = RUN_GRAVITY;
 
@@ -216,6 +214,7 @@ function createLevel() {
       sprite.color = '#ff5b4d';
     }
 
+    sprite.collider = 'none';
     sprite.stroke = '#ffd36e';
     sprite.strokeWeight = 2;
     sprite.visible = false;
@@ -368,17 +367,11 @@ function updateLevel() {
   }
 
   const invincible = frameCount < invincibleUntil;
-  if (invincible !== invincibilityActive) {
-    for (const hazard of hazards) {
-      hazard.sprite.collider = invincible ? 'none' : 'static';
-    }
-    invincibilityActive = invincible;
-  }
 
   for (const hazard of hazards) {
     hazard.isRevealed = hazard.sprite.x < runner.x + 520;
     hazard.sprite.visible = hazard.type !== 'spike' && hazard.isRevealed;
-    if (!invincible && runner.collides(hazard.sprite)) {
+    if (!invincible && runner.overlaps(hazard.sprite)) {
       endLevel('lost');
       return;
     }
