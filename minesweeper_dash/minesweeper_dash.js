@@ -7,6 +7,7 @@ const GRID_START_X = 300;
 const SECTOR_WIDTH = 300;
 const FINISH_X = 5700;
 const FLIGHT_START_X = 2700;
+const JUMP_SPEED = -9.5;
 
 const MINE_SECTORS = [
   { sector: 2, lane: 'ground' },
@@ -24,6 +25,7 @@ let hazards = [];
 let stars = [];
 let gameState = 'ready';
 let flying = false;
+let jumpReady = false;
 
 function setup() {
   new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -43,6 +45,7 @@ function createLevel() {
   for (const hazard of hazards) hazard.sprite.remove();
   hazards = [];
   flying = false;
+  jumpReady = false;
   gameState = 'ready';
   world.gravity.y = 0.75;
 
@@ -106,7 +109,7 @@ function draw() {
 function startLevel() {
   gameState = 'playing';
   runner.vel.x = RUN_SPEED;
-  runner.vel.y = -11.5;
+  jumpReady = false;
 }
 
 function updateLevel() {
@@ -123,8 +126,11 @@ function updateLevel() {
     runner.vel.y = 0;
     runner.y += kb.pressing('space') ? -4 : 4;
     runner.y = constrain(runner.y, 150, 415);
-  } else if (kb.presses('space') && runner.y >= GROUND_TOP - runner.h / 2 - 3 && runner.vel.y >= 0) {
-    runner.vel.y = -11.5;
+  } else if (!kb.pressing('space')) {
+    jumpReady = true;
+  } else if (jumpReady && kb.presses('space') && runner.y >= GROUND_TOP - runner.h / 2 - 3 && runner.vel.y >= 0) {
+    runner.vel.y = JUMP_SPEED;
+    jumpReady = false;
   }
 
   for (const hazard of hazards) {
