@@ -31,7 +31,7 @@ theme: Geometry Dash(with a twist)
 mechanics: you are controlling a cube trying to pass all obstacles and infuse that with minesweeper
 objectives: complete the level w/o dying
 controls: space to jump / go up if flying
-game inspiration: geometry dash
+game inspiration: geometry dash,minesweeper
 
 Additional requirements:
 
