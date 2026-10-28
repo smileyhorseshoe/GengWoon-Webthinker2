@@ -451,7 +451,7 @@ function drawScreenHud() {
       fill('#e8f7ff');
       textSize(16);
       text('FIVE LONG STAGES, EACH WITH ITS OWN COURSE', CANVAS_WIDTH / 2, 252);
-      text('SPACE TO START  /  TAP AGAIN TO JUMP', CANVAS_WIDTH / 2, 282);
+      text('SPACE TO START  /  RELEASE, THEN TAP TO JUMP', CANVAS_WIDTH / 2, 282);
       text('FLIGHT: HOLD SPACE TO RISE, RELEASE TO DESCEND', CANVAS_WIDTH / 2, 312);
       fill('#62f4d2');
       text('ONE RARE CYAN SHIELD GIVES 3 SECONDS OF INVINCIBILITY', CANVAS_WIDTH / 2, 342);
