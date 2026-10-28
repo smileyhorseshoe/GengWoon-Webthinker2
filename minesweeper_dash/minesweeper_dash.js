@@ -17,6 +17,7 @@ const STAGES = [
     speed: 4.4,
     accent: '#62f4d2',
     building: '#0c1a2a',
+    buildingFar: '#102535',
     windows: '#18374a',
     hazards: [
       { x: 720, type: 'block', size: 14 },
@@ -32,6 +33,7 @@ const STAGES = [
     speed: 5,
     accent: '#ffd36e',
     building: '#1e1911',
+    buildingFar: '#302416',
     windows: '#75542b',
     hazards: [
       { x: 1660, type: 'mine' },
@@ -51,18 +53,17 @@ const STAGES = [
     speed: 5.3,
     accent: '#62d9ff',
     building: '#0b1930',
+    buildingFar: '#102844',
     windows: '#235276',
     hazards: [
       { x: 3210, type: 'gate', lane: 'upper' },
-      { x: 3460, type: 'gate', lane: 'lower' },
-      { x: 3710, type: 'gate', lane: 'upper' },
-      { x: 3960, type: 'gate', lane: 'lower' },
-      { x: 4210, type: 'gate', lane: 'upper' },
-      { x: 4460, type: 'gate', lane: 'lower' },
-      { x: 4710, type: 'gate', lane: 'upper' },
-      { x: 4960, type: 'gate', lane: 'lower' },
-      { x: 5210, type: 'gate', lane: 'upper' },
-      { x: 5460, type: 'gate', lane: 'lower' }
+      { x: 3540, type: 'gate', lane: 'lower' },
+      { x: 3870, type: 'gate', lane: 'upper' },
+      { x: 4200, type: 'gate', lane: 'lower' },
+      { x: 4530, type: 'gate', lane: 'upper' },
+      { x: 4860, type: 'gate', lane: 'lower' },
+      { x: 5190, type: 'gate', lane: 'upper' },
+      { x: 5520, type: 'gate', lane: 'lower' }
     ]
   }
 ];
@@ -70,7 +71,7 @@ const STAGES = [
 const POWERUP_POSITIONS = [
   { x: 1850, y: GROUND_Y - 28 },
   { x: 2350, y: GROUND_Y - 28 },
-  { x: 4200, y: 300 }
+  { x: 4050, y: 300 }
 ];
 
 let runner;
@@ -206,7 +207,11 @@ function updateLevel() {
   currentStageIndex = getStageIndex(runner.x);
   const stage = STAGES[currentStageIndex];
   const grounded = runner.y >= GROUND_Y - runner.h / 2 - 2 && runner.vel.y >= 0;
-  runner.vel.x = grounded ? stage.speed : Math.min(stage.speed * 0.72, JUMP_RUN_SPEED);
+  runner.vel.x = flying
+    ? stage.speed
+    : grounded
+      ? stage.speed
+      : Math.min(stage.speed * 0.72, JUMP_RUN_SPEED);
 
   if (stage.mode === 'flight' && !flying) {
     flying = true;
@@ -219,8 +224,8 @@ function updateLevel() {
 
   if (flying) {
     runner.vel.y = 0;
-    const targetVelocity = kb.pressing('space') ? -3.2 : 2.4;
-    flightVelocity = lerp(flightVelocity, targetVelocity, 0.08);
+    const targetVelocity = kb.pressing('space') ? -4 : 4;
+    flightVelocity = lerp(flightVelocity, targetVelocity, 0.22);
     runner.y += flightVelocity;
     runner.y = constrain(runner.y, 150, 410);
   } else if (!kb.pressing('space')) {
@@ -426,7 +431,7 @@ function drawCityBackdrop() {
       const buildingX = index * spacing - shift;
       const buildingHeight = 48 + ((index * 37 + layer * 29 + 900) % (layer === 0 ? 78 : 112));
       const buildingWidth = spacing - 8;
-      fill(layer === 0 ? stage.building : stage.building);
+      fill(layer === 0 ? stage.building : stage.buildingFar);
       rect(buildingX, 478 - buildingHeight, buildingWidth, buildingHeight);
 
       fill(stage.windows);
