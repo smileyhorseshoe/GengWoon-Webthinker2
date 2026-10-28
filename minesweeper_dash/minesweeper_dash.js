@@ -2,14 +2,11 @@ const CANVAS_WIDTH = 960;
 const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
-const JUMP_RUN_SPEED = 4;
 const FINISH_X = 11000;
 const JUMP_SPEED = -11.5;
-const MAX_JUMP_HEIGHT = 44;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
 const RUN_GRAVITY = 1.4;
-const FALL_GRAVITY_SCALE = 2.6;
 
 const STAGES = [
   {
@@ -140,7 +137,6 @@ let powerups = [];
 let stars = [];
 let gameState = 'ready';
 let flying = false;
-let jumpStartY = null;
 let jumpBufferUntil = -1;
 let lastGroundedFrame = -COYOTE_FRAMES - 1;
 let flightVelocity = 0;
@@ -167,7 +163,6 @@ function createLevel() {
   hazards = [];
   powerups = [];
   flying = false;
-  jumpStartY = null;
   jumpBufferUntil = -1;
   lastGroundedFrame = frameCount;
   flightVelocity = 0;
@@ -289,7 +284,6 @@ function startNextStage() {
   flying = stage.mode === 'flight';
   world.gravity.y = flying ? 0 : RUN_GRAVITY;
   runner.gravityScale = 1;
-  jumpStartY = null;
   jumpBufferUntil = -1;
   lastGroundedFrame = frameCount;
   flightVelocity = 0;
@@ -312,7 +306,6 @@ function updateLevel() {
 
   if (stage.mode === 'flight' && !flying) {
     flying = true;
-    jumpStartY = null;
     jumpBufferUntil = -1;
     flightVelocity = 0;
     world.gravity.y = 0;
@@ -334,22 +327,9 @@ function updateLevel() {
     const canJump = grounded || frameCount - lastGroundedFrame <= COYOTE_FRAMES;
     if (jumpBufferUntil >= frameCount && canJump) {
       runner.vel.y = JUMP_SPEED;
-      jumpStartY = runner.y;
       jumpBufferUntil = -1;
       lastGroundedFrame = -COYOTE_FRAMES - 1;
     }
-  }
-
-  if (!flying && jumpStartY !== null) {
-    const jumpCeiling = jumpStartY - MAX_JUMP_HEIGHT;
-    if (runner.y < jumpCeiling) {
-      runner.y = jumpCeiling;
-      runner.vel.y = 0;
-    }
-    if (runner.vel.y >= 0 && runner.y >= jumpStartY - 1) jumpStartY = null;
-  }
-  if (!flying && jumpStartY !== null && runner.vel.y >= 0 && runner.y >= jumpStartY - 1) {
-    jumpStartY = null;
   }
 
   for (const powerup of powerups) {
@@ -359,7 +339,7 @@ function updateLevel() {
     if (runner.overlaps(powerup.sprite)) {
       powerup.collected = true;
       powerup.sprite.remove();
-      invincibleUntil = frameCount + 180;
+      invincibleUntil = frameCount + 420;
     }
   }
 
@@ -455,7 +435,7 @@ function drawScreenHud() {
       text('SPACE OR CLICK TO START  /  RELEASE, THEN TAP TO JUMP', CANVAS_WIDTH / 2, 282);
       text('FLIGHT: HOLD SPACE OR CLICK TO RISE', CANVAS_WIDTH / 2, 312);
       fill('#62f4d2');
-      text('ONE RARE CYAN SHIELD GIVES 3 SECONDS OF INVINCIBILITY', CANVAS_WIDTH / 2, 342);
+      text('ONE RARE CYAN SHIELD GIVES 7 SECONDS OF INVINCIBILITY', CANVAS_WIDTH / 2, 342);
       fill('#e8f7ff');
       textSize(13);
       text('SPRINT  /  MINE RUSH  /  PARKOUR  /  SKY  /  FINAL FREQUENCY', CANVAS_WIDTH / 2, 370);
