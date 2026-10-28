@@ -3,7 +3,8 @@ const CANVAS_HEIGHT = 540;
 const GROUND_Y = 450;
 const GROUND_TOP = GROUND_Y;
 const FINISH_X = 11000;
-const JUMP_SPEED = -11.5;
+const JUMP_SPEED = -9.5;
+const MAX_JUMP_HEIGHT = 38;
 const JUMP_BUFFER_FRAMES = 8;
 const COYOTE_FRAMES = 4;
 const RUN_GRAVITY = 1.4;
@@ -137,6 +138,7 @@ let powerups = [];
 let stars = [];
 let gameState = 'ready';
 let flying = false;
+let jumpOriginY = null;
 let jumpBufferUntil = -1;
 let lastGroundedFrame = -COYOTE_FRAMES - 1;
 let flightVelocity = 0;
@@ -163,6 +165,7 @@ function createLevel() {
   hazards = [];
   powerups = [];
   flying = false;
+  jumpOriginY = null;
   jumpBufferUntil = -1;
   lastGroundedFrame = frameCount;
   flightVelocity = 0;
@@ -271,6 +274,7 @@ function startLevel() {
   world.gravity.y = RUN_GRAVITY;
   runner.vel.x = STAGES[0].speed;
   runner.vel.y = 0;
+  jumpOriginY = null;
   jumpBufferUntil = -1;
 }
 
@@ -284,6 +288,7 @@ function startNextStage() {
   flying = stage.mode === 'flight';
   world.gravity.y = flying ? 0 : RUN_GRAVITY;
   runner.gravityScale = 1;
+  jumpOriginY = null;
   jumpBufferUntil = -1;
   lastGroundedFrame = frameCount;
   flightVelocity = 0;
@@ -306,6 +311,7 @@ function updateLevel() {
 
   if (stage.mode === 'flight' && !flying) {
     flying = true;
+    jumpOriginY = null;
     jumpBufferUntil = -1;
     flightVelocity = 0;
     world.gravity.y = 0;
@@ -327,9 +333,19 @@ function updateLevel() {
     const canJump = grounded || frameCount - lastGroundedFrame <= COYOTE_FRAMES;
     if (jumpBufferUntil >= frameCount && canJump) {
       runner.vel.y = JUMP_SPEED;
+      jumpOriginY = runner.y;
       jumpBufferUntil = -1;
       lastGroundedFrame = -COYOTE_FRAMES - 1;
     }
+  }
+
+  if (!flying && jumpOriginY !== null) {
+    const jumpCeiling = jumpOriginY - MAX_JUMP_HEIGHT;
+    if (runner.y < jumpCeiling) {
+      runner.y = jumpCeiling;
+      runner.vel.y = 0;
+    }
+    if (runner.vel.y >= 0 && runner.y >= jumpOriginY - 1) jumpOriginY = null;
   }
 
   for (const powerup of powerups) {
